@@ -37,7 +37,9 @@ footer: 'Architecture Over Intelligence · The AI Fellowship Madrid'
   <div class="step">Write the postmortem</div>
 </div>
 
-Six steps. Each one feeds the next.
+One request sets off a chain of small jobs.
+
+Each job needs the one before it. If one step drifts, every step after it drifts too.
 
 </div>
 
@@ -68,7 +70,9 @@ Six steps. Each one feeds the next.
   </div>
 </div>
 
-**Reliability fails at the boundaries.**
+A demo works because nothing interrupts it.
+
+In production, the session ends, the model changes, and a mistake now costs you.
 
 </div>
 
@@ -88,7 +92,9 @@ Six steps. Each one feeds the next.
   </div>
 </div>
 
-Before every step, read the file. A step runs only when `current_step` is the one before it.
+Every step reads the same file before it runs, and the file says exactly where you are.
+
+If the session dies, the next run starts from that same file and that same step.
 
 </div>
 
@@ -124,7 +130,7 @@ Before every step, read the file. A step runs only when `current_step` is the on
   <div class="labels"><span>Reviews every step</span><span>Guards only the irreversible</span></div>
 </div>
 
-The human is a **dial, not a switch**.
+You don't remove the human as the model improves. You move it: from checking every step, to guarding only the steps that cannot be undone.
 
 </div>
 
@@ -142,7 +148,9 @@ The human is a **dial, not a switch**.
   <div class="step">Step 1: Context Extraction</div>
 </div>
 
-Declare what you produce. Gate on what you consume.
+Each step says what it creates, and the next step checks that file really exists before it runs.
+
+A step that is missing its input stops and tells you, instead of guessing.
 
 </div>
 
@@ -161,7 +169,9 @@ Declare what you produce. Gate on what you consume.
   <div class="seg"></div>
 </div>
 
-Resume from the same file. It survives compaction, a context reset, and your absence.
+A single file remembers where the work stopped.
+
+It survives a crash, a context reset, and you walking away.
 
 </div>
 
@@ -186,10 +196,12 @@ Resume from the same file. It survives compaction, a context reset, and your abs
 </div>
 
 <div class="stats">
-  <div class="stat"><div class="n">9</div><div class="l">Human gates</div></div>
+  <div class="stat"><div class="n">9</div><div class="l">Human checkpoints</div></div>
   <div class="stat"><div class="n">4</div><div class="l">Scripts</div></div>
   <div class="stat"><div class="n">1</div><div class="l">State file</div></div>
 </div>
+
+Nine of the 11 steps stop for a human; two do not.
 
 </div>
 
@@ -205,7 +217,9 @@ Resume from the same file. It survives compaction, a context reset, and your abs
   <div class="row win"><div class="badge">✓</div><div class="txt">Compaction mid-pipeline → <em>the file survived</em> — the win</div></div>
 </div>
 
-Never assume a step is done.
+Trust the file, and check the artifact itself.
+
+Never trust what the previous step said it did.
 
 </div>
 
@@ -217,11 +231,13 @@ Never assume a step is done.
 
 <div class="timeline">
   <div class="point"><div class="pt-title">2024</div><p>A bigger model fixed it.</p></div>
-  <div class="point"><div class="pt-title">2026</div><p>The gains flattened. The churn didn't.</p></div>
+  <div class="point"><div class="pt-title">2026</div><p>Bigger models stopped helping. New models kept coming.</p></div>
   <div class="point"><div class="pt-title">This month</div><p><strong>Jev</strong> — decisions, not text.</p></div>
 </div>
 
 <div class="pullquote">"The State Machine Is the Agent."</div>
+
+The model changes every month. What stays reliable is the structure around it, not the model itself.
 
 </div>
 
@@ -238,7 +254,9 @@ Never assume a step is done.
   <div class="row"><div class="left">Model-agnostic guardrails</div><div class="arrow">→</div><div class="right">Multi-model fleets</div></div>
 </div>
 
-The domain changes. The pattern doesn't.
+The kind of work changes. The pattern stays the same.
+
+One pattern, many jobs: customer calls, email triage, KPI reports.
 
 </div>
 
@@ -266,9 +284,9 @@ The domain changes. The pattern doesn't.
 
 <div class="body">
 
-- The model is a variable. The structure is the constant.
-- The human is a **dial, not a switch** — better models move it up the stakes curve.
-- It runs on any model. That part comes free.
+- The model changes. The structure stays.
+- Better models do not remove the human; they move it to the irreversible steps.
+- The same structure works with any model. That part comes free.
 
 <div class="dial">
   <div class="track"><div class="marker" style="left:82%"></div></div>
