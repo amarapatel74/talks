@@ -6,12 +6,12 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 
 :root {
-  --paper:     #FAF6EE;   /* warm tinted paper */
+  --paper:     #F3F5F6;   /* warm tinted paper */
   --ink:       #1B1711;   /* tinted near-black */
-  --muted:     #7A7166;   /* tinted gray */
-  --accent:    #D74A1C;   /* vermillion — "not just blue" signal */
+  --muted:     #6B5F52;   /* tinted gray */
+  --accent:    #B23B14;   /* vermillion — "not just blue" signal */
   --structure: #24466B;   /* deep desaturated blueprint blue */
-  --hairline:  #E5DFD1;
+  --hairline:  #E0E5E8;
   --sans: 'IBM Plex Sans', -apple-system, 'Segoe UI', sans-serif;
   --mono: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
 }
@@ -65,7 +65,7 @@ a { color: var(--structure); }
 code {
   font-family: var(--mono);
   font-size: 0.9em;
-  background: #EFE9DC;
+  background: #E9EDF1;
   color: var(--ink);
   padding: 0.04em 0.3em;
   border-radius: 4px;
@@ -80,7 +80,6 @@ pre {
   line-height: 1.5;
   padding: 24px 28px;
   border-radius: 10px;
-  border-left: 4px solid var(--accent);
   overflow: hidden;
 }
 pre code {
@@ -128,7 +127,7 @@ section.lead .subtitle {
   margin-bottom: 0.8em;
 }
 section.lead .author {
-  font-family: var(--mono);
+  font-family: var(--sans);
   font-size: 19px;
   color: var(--muted);
 }
@@ -139,7 +138,8 @@ section.close {
   color: var(--paper);
 }
 section.close h1, section.close h2 { color: var(--paper); }
-section.close h1::after { background: var(--accent); }
+section.close h1::after { background: #F28D54; }
+section.close strong, section.close a { color: #F28D54; }
 section.close code { background: #2B251E; color: #EFE7D6; }
 section.close pre { background: #0F0C09; }
 
