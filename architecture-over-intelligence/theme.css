@@ -1,18 +1,25 @@
 /* @theme meetup */
-/* Architecture Over Intelligence — v2 "field notes" theme.
+/* Architecture Over Intelligence — v3 "field notes, illustrated" theme.
    Warm, human, counter to the clinical engineering-gray look:
    a characterful old-style serif for display, warm ivory paper,
-   one deep vermillion signal, annotated rules. Mono reserved for code/data only. */
+   one deep vermillion signal, annotated rules. Mono reserved for code/data only.
+   v3 adds a small set of reusable diagram components (pipeline, state-file
+   card, gate cards, dial, timeline, split panel, mapping) so the deck's
+   recurring metaphors — the file, the gate, the dial — are drawn once and
+   reused, instead of re-explained in prose or raw JSON each time. */
 
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 
 :root {
   --paper:     #F6F1E7;   /* warm ivory — deliberate, not "safe" white */
+  --paper2:    #EFE8D8;   /* one step darker, for cards on paper */
   --ink:       #231B12;   /* warm espresso black */
   --muted:     #6E6255;   /* warm brown-gray */
   --accent:    #A63E12;   /* deep vermillion — the human signal */
   --accentH:   #F28D54;   /* vermillion, for use on dark */
   --structure: #33544A;   /* deep ink-green, in place of a clinical blue */
+  --structureH: #6FA394;  /* ink-green, for use on dark */
+  --blocked:   #5C1A16;   /* oxblood — the rare "cannot proceed" state */
   --hairline:  #E4DAC6;   /* warm hairline */
   --display: 'Fraunces', 'Iowan Old Style', Georgia, serif;
   --sans: 'Source Sans 3', -apple-system, 'Segoe UI', sans-serif;
@@ -27,8 +34,10 @@ section {
   font-family: var(--sans);
   font-size: 27px;
   line-height: 1.42;
-  padding: 76px 92px;
+  padding: 70px 92px;
   position: relative;
+  display: flex;
+  flex-direction: column;
   justify-content: flex-start;
   text-align: left;
 }
@@ -40,9 +49,9 @@ h1, h2, h3 {
   letter-spacing: -0.01em;
   line-height: 1.06;
   color: var(--ink);
-  margin: 0 0 0.55em 0;
+  margin: 0 0 0.4em 0;
 }
-h1 { font-size: 58px; }
+h1 { font-size: 54px; }
 h2 { font-size: 42px; color: var(--structure); }
 h3 { font-size: 30px; color: var(--ink); }
 
@@ -55,15 +64,15 @@ h1::after {
   display: block;
   width: 2.2em;
   height: 5px;
-  margin-top: 0.4em;
+  margin-top: 0.3em;
   background: var(--accent);
   border-radius: 2px;
 }
 section.lead h1::after { display: none; }
 
 /* ---------- body ---------- */
-p, ul, ol, table, pre { margin: 0 0 1em 0; }
-li { margin: 0.3em 0; }
+p, ul, ol, table, pre { margin: 0 0 0.85em 0; }
+li { margin: 0.28em 0; }
 li::marker { color: var(--accent); }
 
 a { color: var(--accent); }
@@ -84,8 +93,8 @@ pre {
   color: #F1E7D3;
   font-family: var(--mono);
   font-size: 0.8em;
-  line-height: 1.55;
-  padding: 24px 28px;
+  line-height: 1.5;
+  padding: 22px 26px;
   border-radius: 10px;
   overflow: hidden;
 }
@@ -96,21 +105,32 @@ pre code {
   font-size: inherit;
 }
 
-/* ---------- tables ---------- */
-table { width: 100%; border-collapse: collapse; font-size: 0.82em; margin-bottom: 1.2em; }
+/* ---------- tables (kept for any remaining plain tables) ---------- */
+table { width: 100%; border-collapse: collapse; font-size: 0.82em; margin-bottom: 1.1em; }
 th {
   text-align: left; font-weight: 600; color: var(--structure);
   border-bottom: 2px solid var(--ink); padding: 0.4em 0.6em 0.4em 0;
 }
 td {
-  border-bottom: 1px solid var(--hairline); padding: 0.45em 0.6em 0.45em 0; vertical-align: top;
+  border-bottom: 1px solid var(--hairline); padding: 0.42em 0.6em 0.42em 0; vertical-align: top;
 }
 
 /* ---------- title / lead slide ---------- */
 section.lead { justify-content: center; }
-section.lead h1 { font-size: 82px; font-weight: 700; line-height: 1.0; margin-bottom: 0.4em; }
-section.lead .subtitle { font-size: 32px; color: var(--structure); font-weight: 500; margin-bottom: 1em; }
+section.lead h1 { font-size: 80px; font-weight: 700; line-height: 1.0; margin-bottom: 0.35em; }
+section.lead .subtitle { font-size: 32px; color: var(--structure); font-weight: 500; margin-bottom: 0.9em; }
 section.lead .author { font-family: var(--sans); font-size: 19px; color: var(--muted); }
+
+/* small foreshadowing motif on the title slide: the three states the
+   whole talk revolves around, dimly, before any of them are explained */
+.lead-motif { display: flex; gap: 12px; margin-top: 1.4em; }
+.lead-motif span {
+  width: 14px; height: 14px; border-radius: 50%;
+  display: inline-block; opacity: 0.55;
+}
+.lead-motif .a { background: var(--structure); }
+.lead-motif .b { background: var(--accent); }
+.lead-motif .c { background: var(--blocked); }
 
 /* ---------- takeaways / closing slide ---------- */
 section.close { background: var(--ink); color: var(--paper); }
@@ -120,10 +140,17 @@ section.close strong, section.close a { color: var(--accentH); }
 section.close code { background: #2F271D; color: #F1E7D3; }
 section.close pre { background: #0F0C08; }
 
+/* ---------- .body — vertically centers everything below the heading
+   in the space left before the footer, so short content doesn't strand
+   itself at the top of an otherwise-empty slide ---------- */
+.body { flex: 1 1 auto; display: flex; flex-direction: column; justify-content: center; min-height: 0; }
+.body > *:first-child { margin-top: 0; }
+.body > *:last-child { margin-bottom: 0; }
+
 /* ---------- footer (fixed, bottom-left) ---------- */
 footer {
   position: absolute;
-  bottom: 30px;
+  bottom: 28px;
   left: 88px;
   right: 88px;
   font-family: var(--mono);
@@ -140,5 +167,188 @@ section::after {
   content: attr(data-marpit-pagination);
   position: absolute;
   right: 88px;
-  bottom: 30px;
+  bottom: 28px;
 }
+
+/* =========================================================================
+   COMPONENTS — the deck's recurring visual vocabulary
+   ========================================================================= */
+
+/* ---------- .flow — a horizontal step chain with arrows ---------- */
+.flow { display: flex; align-items: center; flex-wrap: wrap; gap: 10px 4px; margin: 0.7em 0 0.9em; }
+.flow .step {
+  background: #fff;
+  border: 2px solid var(--ink);
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 0.62em;
+  color: var(--ink);
+  box-shadow: 3px 3px 0 var(--hairline);
+  white-space: nowrap;
+}
+.flow .step.file {
+  border-style: dashed;
+  background: var(--paper2);
+  font-family: var(--mono);
+  font-weight: 500;
+}
+.flow .arrow {
+  font-family: var(--mono);
+  color: var(--accent);
+  font-size: 1.1em;
+  padding: 0 2px;
+  flex-shrink: 0;
+}
+
+/* ---------- .split — two-panel comparison (demo vs. production) ---------- */
+.split { display: flex; gap: 26px; margin: 0.7em 0 0.9em; }
+.split .panel { flex: 1; border-radius: 14px; padding: 20px 24px; }
+.split .demo { background: #ECE7D8; border: 2px solid var(--hairline); }
+.split .prod { background: #F3E1D2; border: 2px solid var(--accent); }
+.split h3 { margin: 0 0 0.45em 0; font-size: 1.05em; font-family: var(--display); }
+.split .demo h3 { color: var(--structure); }
+.split .prod h3 { color: var(--accent); }
+.split ul { margin: 0; padding-left: 1.05em; font-size: 0.8em; }
+.split li { margin: 0.32em 0; }
+.split li::marker { color: inherit; }
+.split .demo li::marker { color: var(--structure); }
+.split .prod li::marker { color: var(--accent); }
+
+/* ---------- .statefile — the JSON file drawn as a card, not a code dump ---------- */
+.statefile {
+  background: #fff;
+  border: 2px solid var(--ink);
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 0.6em 0 0.8em;
+  box-shadow: 4px 4px 0 var(--hairline);
+}
+.statefile .tab {
+  background: var(--ink); color: var(--paper);
+  font-family: var(--mono); font-size: 0.62em;
+  padding: 7px 18px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.statefile .tab .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accentH); margin-right: 8px; display: inline-block; }
+.statefile .fields { padding: 6px 22px; }
+.statefile .field { display: flex; justify-content: space-between; gap: 20px; padding: 8px 0; border-bottom: 1px solid var(--hairline); font-family: var(--mono); font-size: 0.66em; }
+.statefile .field:last-child { border-bottom: none; }
+.statefile .key { color: var(--structure); font-weight: 600; flex-shrink: 0; }
+.statefile .val { color: var(--ink); text-align: right; }
+.statefile .field.active { background: #FBF0DE; margin: 0 -22px; padding: 8px 22px; }
+.statefile .field.active .val { color: var(--accent); font-weight: 700; }
+.statefile .field.aborted .val { color: var(--blocked); font-weight: 700; }
+
+/* ---------- .gates — three large gate cards, replacing emoji bullets ---------- */
+.gates { display: flex; gap: 18px; margin: 0.7em 0 0.6em; }
+.gates .gate { flex: 1; border-radius: 14px; padding: 18px 18px; border: 2px solid var(--ink); background: #fff; }
+.gates .dot { width: 30px; height: 30px; border-radius: 50%; margin-bottom: 10px; }
+.gates .auto .dot { background: var(--structure); }
+.gates .human .dot { background: var(--accent); }
+.gates .blocked .dot { background: var(--blocked); }
+.gates h4 { font-family: var(--display); font-size: 1.05em; margin: 0 0 5px; }
+.gates .gate p { font-size: 0.62em; margin: 0 0 4px; color: var(--muted); line-height: 1.35; }
+.gates .gate p:last-child { margin-bottom: 0; }
+.gates .gate .when { font-style: italic; }
+
+/* ---------- .dial — the human-as-a-dial slider, not a switch ---------- */
+.dial { margin: 0.9em 0 0.3em; max-width: 620px; }
+.dial .track { position: relative; height: 10px; border-radius: 6px; background: linear-gradient(90deg, var(--accent), var(--structure)); }
+.dial .marker {
+  position: absolute; top: -10px; width: 30px; height: 30px; border-radius: 50%;
+  background: var(--paper); border: 3px solid var(--ink);
+  box-shadow: 2px 2px 0 var(--hairline);
+  transform: translateX(-50%);
+}
+section.close .dial .marker { background: var(--ink); border-color: var(--paper); box-shadow: 2px 2px 0 rgba(0,0,0,.4); }
+.dial .labels { display: flex; justify-content: space-between; margin-top: 20px; font-family: var(--mono); font-size: 0.58em; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+section.close .dial .labels { color: #A79987; }
+
+/* ---------- .pipeline — the hero diagram: the full pipeline as beads on a wire ---------- */
+.pipeline { display: flex; flex-wrap: wrap; gap: 8px 6px; margin: 0.7em 0 0.5em; }
+.pipeline .node {
+  display: flex; align-items: center; gap: 7px;
+  border: 2px solid var(--ink); border-radius: 999px;
+  padding: 7px 14px 7px 8px; background: #fff;
+  font-size: 0.6em; font-weight: 600; white-space: nowrap;
+}
+.pipeline .node .dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+.pipeline .node.human .dot { background: var(--accent); }
+.pipeline .node.auto .dot { background: var(--structure); }
+.pipeline .node.optional { border-style: dashed; color: var(--muted); }
+.pipeline .node.optional .dot { background: var(--hairline); border: 1px solid var(--muted); }
+.pipeline .sep { display: flex; align-items: center; color: var(--muted); font-family: var(--mono); font-size: 0.9em; }
+
+/* ---------- .stats — a small stat strip (numbers as typography) ---------- */
+.stats { display: flex; gap: 34px; margin-top: 16px; }
+.stats .stat .n { font-family: var(--display); font-weight: 700; font-size: 1.7em; color: var(--accent); line-height: 1; }
+.stats .stat .l { font-family: var(--sans); font-size: 0.56em; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 3px; }
+
+/* ---------- .resume — the interruption/resume timeline for abort & resume ---------- */
+.resume { display: flex; align-items: center; margin: 1em 0 0.4em; }
+.resume .seg { flex: 1; height: 4px; background: var(--structure); border-radius: 2px; }
+.resume .gap {
+  width: 70px; height: 4px; flex-shrink: 0;
+  background: repeating-linear-gradient(90deg, var(--muted) 0 6px, transparent 6px 12px);
+}
+.resume .file {
+  width: 78px; height: 58px; flex-shrink: 0;
+  border: 2px solid var(--ink); border-radius: 6px; background: #fff;
+  display: flex; align-items: center; justify-content: center; text-align: center;
+  font-family: var(--mono); font-size: 0.5em; line-height: 1.3;
+  position: relative; z-index: 1; box-shadow: 3px 3px 0 var(--hairline);
+  margin: 0 -2px;
+}
+.resume-labels { display: flex; justify-content: space-between; font-size: 0.6em; color: var(--muted); margin-bottom: 0.2em; }
+
+/* ---------- .icon-list — bulleted findings with a small colored badge ---------- */
+.icon-list { display: flex; flex-direction: column; gap: 10px; margin: 0.7em 0 0.8em; }
+.icon-list .row { display: flex; align-items: flex-start; gap: 14px; }
+.icon-list .badge {
+  flex-shrink: 0; width: 30px; height: 30px; border-radius: 50%;
+  background: var(--ink); color: var(--paper);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.62em;
+}
+.icon-list .row.win .badge { background: var(--structure); }
+.icon-list .txt { font-size: 0.8em; padding-top: 0.1em; }
+
+/* ---------- .timeline — a horizontal timeline of dated points ---------- */
+.timeline { display: flex; gap: 0; margin: 0.9em 0 0.6em; position: relative; }
+.timeline::before { content: ''; position: absolute; left: 8px; right: 8px; top: 17px; height: 2px; background: var(--hairline); }
+.timeline .point { flex: 1; text-align: left; position: relative; padding-top: 32px; padding-right: 20px; }
+.timeline .point::before {
+  content: ''; position: absolute; top: 9px; left: 0;
+  width: 16px; height: 16px; border-radius: 50%;
+  background: var(--accent); border: 2px solid var(--ink);
+}
+.timeline .point h4 { margin: 0 0 4px; font-family: var(--display); font-size: 1.05em; }
+.timeline .point p { margin: 0; font-size: 0.72em; color: var(--muted); }
+
+/* ---------- .pullquote — an oversized quotation, used sparingly ---------- */
+.pullquote {
+  font-family: var(--display); font-style: italic; font-weight: 500;
+  font-size: 1.3em; color: var(--structure);
+  border-left: 4px solid var(--accent); padding-left: 0.55em;
+  margin: 0.8em 0;
+}
+section.close .pullquote { color: var(--paper); border-left-color: var(--accentH); }
+
+/* ---------- .mapping — two columns joined by arrows (pattern isomorphism) ---------- */
+.mapping { display: flex; flex-direction: column; gap: 9px; margin: 0.6em 0 0.8em; }
+.mapping .row { display: grid; grid-template-columns: 1fr 34px 1fr; align-items: center; gap: 4px; }
+.mapping .left, .mapping .right { border: 2px solid var(--hairline); border-radius: 8px; padding: 8px 14px; font-size: 0.68em; }
+.mapping .left { background: #fff; }
+.mapping .right { background: #F3E1D2; border-color: var(--accent); }
+.mapping .arrow { text-align: center; color: var(--accent); font-family: var(--mono); font-size: 1.15em; }
+
+/* ---------- .rules — the five design principles, each with a mark ---------- */
+.rules { display: flex; flex-direction: column; gap: 10px; margin: 0.6em 0 0.7em; }
+.rules .rule { display: flex; align-items: flex-start; gap: 16px; }
+.rules .num {
+  font-family: var(--display); font-weight: 700; font-size: 1.4em;
+  color: var(--accent); width: 1.1em; flex-shrink: 0; line-height: 1.15;
+}
+.rules .txt { font-size: 0.8em; padding-top: 0.14em; }
