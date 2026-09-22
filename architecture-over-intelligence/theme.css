@@ -207,9 +207,9 @@ section::after {
 .split .panel { flex: 1; border-radius: 14px; padding: 20px 24px; }
 .split .demo { background: #ECE7D8; border: 2px solid var(--hairline); }
 .split .prod { background: #F3E1D2; border: 2px solid var(--accent); }
-.split h3 { margin: 0 0 0.45em 0; font-size: 1.05em; font-family: var(--display); }
-.split .demo h3 { color: var(--structure); }
-.split .prod h3 { color: var(--accent); }
+.split .panel-title { margin: 0 0 0.45em 0; font-size: 1.05em; font-family: var(--display); }
+.split .demo .panel-title { color: var(--structure); }
+.split .prod .panel-title { color: var(--accent); }
 .split ul { margin: 0; padding-left: 1.05em; font-size: 0.8em; }
 .split li { margin: 0.32em 0; }
 .split li::marker { color: inherit; }
@@ -248,7 +248,7 @@ section::after {
 .gates .auto .dot { background: var(--structure); }
 .gates .human .dot { background: var(--accent); }
 .gates .blocked .dot { background: var(--blocked); }
-.gates h4 { font-family: var(--display); font-size: 1.05em; margin: 0 0 5px; }
+.gates .gate-title { font-family: var(--display); font-size: 1.05em; margin: 0 0 5px; }
 .gates .gate p { font-size: 0.62em; margin: 0 0 4px; color: var(--muted); line-height: 1.35; }
 .gates .gate p:last-child { margin-bottom: 0; }
 .gates .gate .when { font-style: italic; }
@@ -324,17 +324,25 @@ section.close .dial .labels { color: #A79987; }
   width: 16px; height: 16px; border-radius: 50%;
   background: var(--accent); border: 2px solid var(--ink);
 }
-.timeline .point h4 { margin: 0 0 4px; font-family: var(--display); font-size: 1.05em; }
+.timeline .point .pt-title { margin: 0 0 4px; font-family: var(--display); font-size: 1.05em; }
 .timeline .point p { margin: 0; font-size: 0.72em; color: var(--muted); }
 
 /* ---------- .pullquote — an oversized quotation, used sparingly ---------- */
 .pullquote {
   font-family: var(--display); font-style: italic; font-weight: 500;
   font-size: 1.3em; color: var(--structure);
-  border-left: 4px solid var(--accent); padding-left: 0.55em;
   margin: 0.8em 0;
 }
-section.close .pullquote { color: var(--paper); border-left-color: var(--accentH); }
+.pullquote::before {
+  content: '\201C';
+  color: var(--accent);
+  font-size: 1.55em;
+  line-height: 1;
+  vertical-align: -0.12em;
+  margin-right: 0.12em;
+}
+section.close .pullquote { color: var(--paper); }
+section.close .pullquote::before { color: var(--accentH); }
 
 /* ---------- .mapping — two columns joined by arrows (pattern isomorphism) ---------- */
 .mapping { display: flex; flex-direction: column; gap: 9px; margin: 0.6em 0 0.8em; }

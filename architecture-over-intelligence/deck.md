@@ -49,7 +49,7 @@ Six steps. Each one feeds the next.
 
 <div class="split">
   <div class="panel demo">
-    <h3>Demo</h3>
+    <div class="panel-title">Demo</div>
     <ul>
       <li>One uninterrupted session</li>
       <li>Mistakes are annoying</li>
@@ -58,7 +58,7 @@ Six steps. Each one feeds the next.
     </ul>
   </div>
   <div class="panel prod">
-    <h3>Production</h3>
+    <div class="panel-title">Production</div>
     <ul>
       <li>Compaction, reset, walk-aways</li>
       <li>Mistakes are data loss</li>
@@ -101,19 +101,19 @@ Before every step, read the file. A step runs only when `current_step` is the on
 <div class="gates">
   <div class="gate auto">
     <div class="dot"></div>
-    <h4>Auto</h4>
+    <div class="gate-title">Auto</div>
     <p>Safe, predictable steps keep moving.</p>
     <p class="when">File reads, health checks.</p>
   </div>
   <div class="gate human">
     <div class="dot"></div>
-    <h4>Human</h4>
+    <div class="gate-title">Human</div>
     <p>The agent stops and waits.</p>
     <p class="when">Anything that needs a yes.</p>
   </div>
   <div class="gate blocked">
     <div class="dot"></div>
-    <h4>Blocked</h4>
+    <div class="gate-title">Blocked</div>
     <p>Cannot proceed.</p>
     <p class="when">Missing file, corrupted state.</p>
   </div>
@@ -216,9 +216,9 @@ Never assume a step is done.
 <div class="body">
 
 <div class="timeline">
-  <div class="point"><h4>2024</h4><p>A bigger model fixed it.</p></div>
-  <div class="point"><h4>2026</h4><p>The gains flattened. The churn didn't.</p></div>
-  <div class="point"><h4>This month</h4><p><strong>Jev</strong> — decisions, not text.</p></div>
+  <div class="point"><div class="pt-title">2024</div><p>A bigger model fixed it.</p></div>
+  <div class="point"><div class="pt-title">2026</div><p>The gains flattened. The churn didn't.</p></div>
+  <div class="point"><div class="pt-title">This month</div><p><strong>Jev</strong> — decisions, not text.</p></div>
 </div>
 
 <div class="pullquote">"The State Machine Is the Agent."</div>
