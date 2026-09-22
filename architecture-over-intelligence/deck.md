@@ -19,7 +19,32 @@ footer: 'Architecture Over Intelligence · The AI Fellowship Madrid'
 
 ---
 
-# "Investigate this incident" is one job. *It isn't.*
+<div class="eyebrow">1 of 4 · What broke</div>
+
+# It didn't crash. *That was the problem.*
+
+<div class="body">
+
+<div class="pipeline">
+  <div class="node auto"><span class="dot"></span>step 1</div>
+  <div class="node auto"><span class="dot"></span>step 2</div>
+  <div class="node bad"><span class="dot"></span>step 3 · drifts</div>
+  <div class="node ghost"><span class="dot"></span>step 4</div>
+  <div class="node ghost"><span class="dot"></span>step 5 · stops noticing</div>
+  <div class="node ghost"><span class="dot"></span>runs to the end</div>
+</div>
+
+I moved my meeting pipeline off a frontier model onto a cheaper one. It ran all the way through.
+
+It drifted at step 3. By step 5 it had stopped noticing. No exception, no crash, no alert: just plausible output, filed.
+
+</div>
+
+---
+
+<div class="eyebrow">1 of 4 · What broke</div>
+
+# A chain hides its own failure
 
 <div class="body">
 
@@ -37,15 +62,17 @@ footer: 'Architecture Over Intelligence · The AI Fellowship Madrid'
   <div class="step">Write the postmortem</div>
 </div>
 
-One request sets off a chain of small jobs.
+"Investigate this incident" sounds like one job. It is a chain of small jobs, and each one treats the last one's output as fact.
 
-Each job needs the one before it. If one step drifts, every step after it drifts too.
+Step 4 trusts step 3. Step 5 trusts step 4. A mistake doesn't stop the chain. It rides it to the end.
 
 </div>
 
 ---
 
-# The demo vs. production gap
+<div class="eyebrow">1 of 4 · What broke</div>
+
+# My demo never showed me this
 
 <div class="body">
 
@@ -70,17 +97,21 @@ Each job needs the one before it. If one step drifts, every step after it drifts
   </div>
 </div>
 
-A demo works because nothing interrupts it.
+A demo works because nothing interrupts it, I'm watching, and I'm running the best model I can buy.
 
-In production, the session ends, the model changes, and a mistake now costs you.
+None of those hold on a Tuesday. **Reliability fails at the boundaries**, and no model is big enough to fix a boundary.
 
 </div>
 
 ---
 
-# A JSON file is the *source of truth*
+<div class="eyebrow">2 of 4 · The rebuild</div>
+
+# Stop letting the model *remember*
 
 <div class="body">
+
+<div class="failure"><span class="lbl">Failure</span><span class="t">It lost its place, and redid work it had already done.</span></div>
 
 <div class="statefile">
   <div class="tab"><span><span class="dot"></span>process-state.json</span><span>meeting_id: 2026-01-15_140000</span></div>
@@ -92,75 +123,80 @@ In production, the session ends, the model changes, and a mistake now costs you.
   </div>
 </div>
 
-Every step reads the same file before it runs. It shows the last step done — here 2.6, so the next is 3.
+One file on disk holds the position: read before every step, written after.
 
-If the session dies, the next run starts from that same file and that same step, and redoes nothing.
+The model proposes. The file decides.
 
 </div>
 
 ---
 
-# A gate is *authority*, not just quality control
+<div class="eyebrow">2 of 4 · The rebuild</div>
+
+# Stop asking the model for *permission*
 
 <div class="body">
+
+<div class="failure"><span class="lbl">Failure</span><span class="t">Told to present the summary and continue, it continued. Nobody had said yes.</span></div>
 
 <div class="gates">
   <div class="gate auto">
     <div class="dot"></div>
     <div class="gate-title">Auto</div>
-    <p>Runs without stopping. Nothing irreversible here, and a human checks it at a later gate.</p>
+    <p>Runs without stopping. Nothing here is irreversible.</p>
     <p class="when">Reads, health checks, sentiment.</p>
   </div>
   <div class="gate human">
     <div class="dot"></div>
     <div class="gate-title">Human</div>
-    <p>Stops and waits for your yes before continuing.</p>
+    <p>Stops and waits for your yes.</p>
     <p class="when">Anything that changes data.</p>
   </div>
   <div class="gate blocked">
     <div class="dot"></div>
     <div class="gate-title">Blocked</div>
-    <p>Cannot continue. Something required is missing or broken.</p>
+    <p>Cannot continue. Something required is missing.</p>
     <p class="when">Missing file, corrupted state.</p>
   </div>
 </div>
 
-"Auto" does not mean the model got it right. It means a mistake here is cheap and always reviewed later.
-
-<div class="dial">
-  <div class="track"><div class="marker" style="left:28%"></div></div>
-  <div class="labels"><span>Reviews every step</span><span>Guards only the irreversible</span></div>
-</div>
-
-You don't remove the human as the model improves. You move it: from checking every step, to guarding only the steps that cannot be undone.
+A gate isn't asking whether the model got it right. It's asking whether a human said yes. That's authority, not quality control.
 
 </div>
 
 ---
 
-# Each step declares its *contract*
+<div class="eyebrow">2 of 4 · The rebuild</div>
+
+# Stop trusting the *previous step*
 
 <div class="body">
 
+<div class="failure"><span class="lbl">Failure</span><span class="t">A script failed quietly. The state said it had worked. The next step ran on a file that was never written.</span></div>
+
 <div class="flow">
   <div class="step">Step 0<br>Speaker Mapping</div>
-  <div class="arrow">→ produces</div>
+  <div class="arrow note"><b>→</b>produces</div>
   <div class="step file">speaker-map.json</div>
-  <div class="arrow">→ required by</div>
+  <div class="arrow note"><b>→</b>required by</div>
   <div class="step">Step 1<br>Context Extraction</div>
 </div>
 
 Every step declares two things: what it produces, and what it needs.
 
-Before a step runs, it checks its inputs really exist on disk. Missing input? It stops and says so — never guesses.
+Before it runs, it looks on disk for its inputs. Missing? It stops and says which file. It never guesses.
 
 </div>
 
 ---
 
-# Interruption is not a bug
+<div class="eyebrow">2 of 4 · The rebuild</div>
+
+# Assume you will be *interrupted*
 
 <div class="body">
+
+<div class="failure"><span class="lbl">Failure</span><span class="t">The context compacted mid-pipeline. The model forgot everything it was doing.</span></div>
 
 <div class="resume-labels"><span>step 3 finishes</span><span>context reset · you walk away</span><span>next run resumes at 4</span></div>
 <div class="resume">
@@ -171,17 +207,21 @@ Before a step runs, it checks its inputs really exist on disk. Missing input? It
   <div class="seg"></div>
 </div>
 
-The file is written after every step, so nothing depends on memory.
+The file is written after every step, so nothing depends on memory. The reset wiped the model. The file was still on disk.
 
-Step 3 finishes → the file is on disk → the session dies (context reset, or you leave) → the next run reads the file → resumes at 4, redoing nothing.
+The next run read it and carried on at step 4. This is the one that made me trust the whole thing.
 
 </div>
 
 ---
 
-# One real pipeline: *11 steps, 8 LLM calls*
+<div class="eyebrow">3 of 4 · In production</div>
+
+# What it runs, every working day
 
 <div class="body">
+
+Transcript in. Speakers named, summary written, actions pulled and triaged, note filed to my vault.
 
 <div class="pipeline">
   <div class="node human"><span class="dot"></span>discovery</div>
@@ -204,62 +244,61 @@ Step 3 finishes → the file is on disk → the session dies (context reset, or 
 </div>
 
 <div class="stats">
+  <div class="stat"><div class="n">325</div><div class="l">Meetings processed</div></div>
   <div class="stat"><div class="n">9</div><div class="l">Human checkpoints</div></div>
-  <div class="stat"><div class="n">4</div><div class="l">Scripts</div></div>
+  <div class="stat"><div class="n">8</div><div class="l">LLM calls</div></div>
   <div class="stat"><div class="n">1</div><div class="l">State file</div></div>
 </div>
 
-Nine of the 11 steps stop for a human; two do not (sentiment runs alone, cleanup is optional).
-
 </div>
 
 ---
 
-# What broke after months of daily use
+<div class="eyebrow">3 of 4 · In production</div>
+
+# What still broke
 
 <div class="body">
 
-I ran this every working day for months — processing my meetings end to end. Three things broke, and each fix pushed the decision into the file, not into the model.
-
 <div class="icon-list">
   <div class="row"><div class="badge">✎</div><div class="txt">The state file got edited to the wrong step → <em>validate on load</em></div></div>
-  <div class="row"><div class="badge">⏭</div><div class="txt">The LLM skipped a gate → <em>the file decides, not the prompt</em></div></div>
-  <div class="row win"><div class="badge">✓</div><div class="txt">The context reset mid-pipeline → <em>the file survived, and it resumed where it left off</em> — the win</div></div>
+  <div class="row"><div class="badge">⏭</div><div class="txt">The model skipped a gate → <em>the file decides, not the prompt</em></div></div>
+  <div class="row win"><div class="badge">✓</div><div class="txt">The context reset mid-pipeline → <em>the file survived, and it resumed where it left off</em></div></div>
 </div>
 
-Trust the file, and check the artifact itself.
+Months of daily use, three failures. Each fix moved a decision out of the model and into the file.
 
-Never trust what the previous step said it did.
+Trust the file. Check the artifact itself. Never trust what the last step claims it did.
 
 </div>
 
 ---
 
-# The model is always changing
+<div class="eyebrow">4 of 4 · What's next</div>
+
+# The model that should have made this *obsolete*
 
 <div class="body">
 
 <div class="timeline">
   <div class="point"><div class="pt-title">2024</div><p>A bigger model fixed the problem.</p></div>
-  <div class="point"><div class="pt-title">2026</div><p>Bigger models stopped helping. New models kept coming.</p></div>
-  <div class="point"><div class="pt-title">This month</div><p><strong>Jev</strong> — it returns a decision, not a paragraph.</p></div>
+  <div class="point"><div class="pt-title">2026</div><p>Bigger stopped helping. New models kept coming.</p></div>
+  <div class="point"><div class="pt-title">This month</div><p><strong>Jev</strong>: it returns a decision, not a paragraph.</p></div>
 </div>
 
-Scaling hit a wall: paying for a bigger model stopped buying reliability. Yet a new model still lands every month, so the pressure moves onto the cheaper ones — which is exactly where the drift lives.
+Jev cannot hallucinate, because it never writes text. If anything was going to retire this talk, it was this. Then I read the best write-up of it, titled:
 
-This month it was Jev. It cannot hallucinate, because it does not write text. But the first good write-up of it was titled:
+<div class="pullquote">The State Machine Is the Agent.</div>
 
-<div class="pullquote">"The State Machine Is the Agent."</div>
-
-And days later, researchers showed prompt injection can still bend its decisions. Even a model built to be safe sits behind a deterministic loop and a human.
-
-The model changes every month. What stays reliable is the structure around it, not the model.
+Days later researchers bent its decisions with prompt injection. Even a model built to be safe sits behind a deterministic loop, with a human on the irreversible branch.
 
 </div>
 
 ---
 
-# The same pattern fits many jobs
+<div class="eyebrow">4 of 4 · What's next</div>
+
+# The same shape fits your work
 
 <div class="body">
 
@@ -270,35 +309,30 @@ The model changes every month. What stays reliable is the structure around it, n
   <div class="row"><div class="left">Model-agnostic guardrails</div><div class="arrow">→</div><div class="right">Many models, one coordinator</div></div>
 </div>
 
-Every row is the same shape: read → transform → a human approves → write to the system of record. Only the names change.
-
-"Many models, one coordinator" just means several different models, each doing a step, all managed by the same state file.
+Every row is the same shape: read, transform, a human approves, write to the system of record. Only the nouns change.
 
 </div>
 
 ---
 
-# Five rules — and how to check your own workflow
+<div class="eyebrow">4 of 4 · What's next</div>
+
+# Run these three over your own agent
 
 <div class="body">
 
 <div class="rules">
-  <div class="rule"><div class="num">1</div><div class="txt">The <strong>state file</strong> is the source of truth.</div></div>
-  <div class="rule"><div class="num">2</div><div class="txt"><strong>Gates</strong> are structural, not optional.</div></div>
-  <div class="rule"><div class="num">3</div><div class="txt">Declare <strong>artifacts</strong> before they're needed.</div></div>
-  <div class="rule"><div class="num">4</div><div class="txt">Design for <strong>interruption</strong>.</div></div>
-  <div class="rule"><div class="num">5</div><div class="txt"><strong>Architecture &gt; intelligence</strong>.</div></div>
+  <div class="rule"><div class="num">1</div><div class="txt">What is your single source of truth: a file, a row, a record?</div></div>
+  <div class="rule"><div class="num">2</div><div class="txt">Where does it stop for a human, and can a step skip that stop?</div></div>
+  <div class="rule"><div class="num">3</div><div class="txt">Does each step check its inputs exist before it runs?</div></div>
 </div>
 
-Run these three questions over your own agent:
-
-<div class="rules">
-  <div class="rule"><div class="num">a</div><div class="txt">What is your single source of truth — a file, a row, a record?</div></div>
-  <div class="rule"><div class="num">b</div><div class="txt">Where do you stop for a human, and can a step be skipped without one?</div></div>
-  <div class="rule"><div class="num">c</div><div class="txt">Does each step check its inputs exist before it runs?</div></div>
+<div class="dial">
+  <div class="track"><div class="marker" style="left:28%"></div></div>
+  <div class="labels"><span>Reviews every step</span><span>Guards only the irreversible</span></div>
 </div>
 
-Tonight: add one field — current_step — read it back before each step, and stop if it doesn't match.
+You don't remove the human as models improve. You move the dial: from checking every step, to guarding the steps that cannot be undone.
 
 </div>
 
@@ -306,13 +340,17 @@ Tonight: add one field — current_step — read it back before each step, and s
 
 <!-- _class: close -->
 
-# Key takeaways
+<div class="eyebrow">Key takeaways</div>
+
+# Architecture over intelligence
 
 <div class="body">
 
-- **The model changes. The structure stays.** A chain of steps breaks wherever it isn't supervised. Put a state file in charge.
-- **The human does not disappear.** Better models move it to the irreversible steps. Consequence: the model cannot delete, overwrite, or send without a yes.
-- **The same structure runs any model.** When next month's model arrives, your workflow does not change.
+- **The model changes. The structure stays.** A chain breaks wherever nothing supervises it. Put a file in charge.
+- **The human doesn't disappear.** Better models move it to the irreversible steps. It cannot delete, overwrite or send without a yes.
+- **The same structure runs any model.** When next month's model lands, your workflow doesn't change.
+
+Tonight: add one field, `current_step`. Read it back before every step. Stop if it doesn't match.
 
 **Reliability at the boundaries.**
 

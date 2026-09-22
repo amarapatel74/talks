@@ -34,7 +34,7 @@ section {
   font-family: var(--sans);
   font-size: 27px;
   line-height: 1.42;
-  padding: 70px 92px;
+  padding: 70px 92px 100px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -160,14 +160,17 @@ footer {
 section.close footer { color: #A79987; }
 
 /* ---------- page number (bottom-right) ---------- */
+/* Marpit's own base rule for this pseudo-element is id-scoped, so it outranks
+   a plain selector and drags the number up by the section's bottom padding. */
 section::after {
   font-family: var(--mono);
   font-size: 15px;
   color: var(--muted);
   content: attr(data-marpit-pagination);
   position: absolute;
-  right: 88px;
-  bottom: 28px;
+  right: 88px !important;
+  bottom: 28px !important;
+  padding: 0 !important;
 }
 
 /* =========================================================================
@@ -201,6 +204,17 @@ section::after {
   padding: 0 2px;
   flex-shrink: 0;
 }
+/* a labelled connector: the word carries the meaning, so it stays small */
+.flow .arrow.note {
+  font-family: var(--sans);
+  font-size: 0.52em;
+  font-style: italic;
+  color: var(--muted);
+  padding: 0 10px;
+  text-align: center;
+  line-height: 1.25;
+}
+.flow .arrow.note b { display: block; color: var(--accent); font-style: normal; font-size: 1.3em; line-height: 1; }
 
 /* ---------- .split — two-panel comparison (demo vs. production) ---------- */
 .split { display: flex; gap: 26px; margin: 0.7em 0 0.9em; }
@@ -360,6 +374,44 @@ section.close .pullquote::before { color: var(--accentH); }
   color: var(--accent); width: 1.1em; flex-shrink: 0; line-height: 1.15;
 }
 .rules .txt { font-size: 0.8em; padding-top: 0.14em; }
+
+/* ---------- .eyebrow — the act marker above a heading, so the room can
+   see where it is in the journey without being told ---------- */
+.eyebrow {
+  display: flex; align-items: center; gap: 10px;
+  font-family: var(--mono); font-size: 0.52em;
+  text-transform: uppercase; letter-spacing: 0.14em;
+  color: var(--muted); margin: 0 0 0.7em 0;
+}
+.eyebrow::before {
+  content: ''; width: 26px; height: 2px;
+  background: var(--accent); flex-shrink: 0;
+}
+section.close .eyebrow { color: #A79987; }
+section.close .eyebrow::before { background: var(--accentH); }
+
+/* ---------- .failure — the scar that each rebuild slide answers ---------- */
+.failure {
+  display: flex; align-items: baseline; gap: 14px;
+  background: #F4E6E1; border-left: 4px solid var(--blocked);
+  border-radius: 0 8px 8px 0; padding: 13px 18px;
+  margin: 0 0 0.9em 0;
+}
+.failure .lbl {
+  font-family: var(--mono); font-size: 0.5em; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.1em;
+  color: var(--blocked); flex-shrink: 0;
+}
+.failure .t { font-size: 0.7em; color: var(--ink); font-style: italic; }
+
+/* ---------- drift states for the pipeline: how a silent failure looks ---------- */
+.pipeline .node.bad { border-color: var(--blocked); color: var(--blocked); }
+.pipeline .node.bad .dot { background: var(--blocked); }
+.pipeline .node.ghost {
+  border-style: dashed; border-color: var(--blocked);
+  color: var(--muted); background: #F4E6E1;
+}
+.pipeline .node.ghost .dot { background: none; border: 1px solid var(--blocked); }
 
 /* ---------- .legend — key for the pipeline pills ---------- */
 .legend { display: flex; flex-wrap: wrap; gap: 22px; margin-top: 14px; font-size: 0.66em; color: var(--muted); align-items: center; }
