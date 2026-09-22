@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Talks · Amar Patel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FAF6EE; --ink: #1B1711; --muted: #7A7166;
+    --accent: #D74A1C; --structure: #24466B; --hairline: #E5DFD1;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: 'IBM Plex Sans', system-ui, sans-serif; line-height: 1.5;
+  }
+  main { max-width: 760px; margin: 0 auto; padding: 88px 32px 120px; }
+  h1 { font-size: 46px; font-weight: 700; letter-spacing: -0.015em; margin: 0 0 8px; }
+  .kicker { font-family: 'IBM Plex Mono', monospace; color: var(--muted); font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; }
+  .rule { width: 48px; height: 4px; background: var(--accent); margin: 28px 0 36px; }
+  .talk {
+    display: block; text-decoration: none; color: var(--ink);
+    border: 1px solid var(--hairline); border-left: 4px solid var(--accent);
+    border-radius: 10px; padding: 28px 30px; margin-bottom: 20px;
+    transition: transform .12s ease, box-shadow .12s ease;
+  }
+  .talk:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(27,23,17,.08); }
+  .talk h2 { margin: 0 0 6px; font-size: 26px; font-weight: 700; color: var(--structure); }
+  .talk .meta { font-family: 'IBM Plex Mono', monospace; color: var(--muted); font-size: 14px; }
+  .talk p { margin: 14px 0 0; color: var(--ink); }
+  footer { color: var(--muted); font-size: 14px; margin-top: 48px; }
+  a { color: var(--structure); }
+</style>
+</head>
+<body>
+<main>
+  <div class="kicker">Amar Patel · Talks</div>
+  <h1>Talks</h1>
+  <div class="rule"></div>
+
+  <a class="talk" href="./architecture-over-intelligence/">
+    <h2>Architecture Over Intelligence</h2>
+    <div class="meta">The AI Fellowship Madrid · 9 October 2026 · 15 min</div>
+    <p>Designing reliable AI workflows: why a JSON file, structural gates, and a human at the decision are worth more than a bigger model.</p>
+  </a>
+
+  <footer>Source on <a href="https://github.com/amarapatel74/talks">GitHub</a>.</footer>
+</main>
+</body>
+</html>
