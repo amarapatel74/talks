@@ -360,3 +360,10 @@ section.close .pullquote::before { color: var(--accentH); }
   color: var(--accent); width: 1.1em; flex-shrink: 0; line-height: 1.15;
 }
 .rules .txt { font-size: 0.8em; padding-top: 0.14em; }
+
+/* ---------- .legend — key for the pipeline pills ---------- */
+.legend { display: flex; flex-wrap: wrap; gap: 22px; margin-top: 14px; font-size: 0.66em; color: var(--muted); align-items: center; }
+.legend i { display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-right: 7px; }
+.legend .d-human { background: var(--accent); }
+.legend .d-auto { background: var(--structure); }
+.legend .d-opt { background: var(--hairline); border: 1px solid var(--muted); }
