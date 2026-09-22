@@ -1,19 +1,22 @@
 /* @theme meetup */
-/* Architecture Over Intelligence — Impeccable-informed Marp theme
-   Anti-tells applied: no Inter, no purple-to-blue gradient, no pure black/gray,
-   tinted surface, one deliberate accent, monospace-first for the code/state story. */
+/* Architecture Over Intelligence — v2 "field notes" theme.
+   Warm, human, counter to the clinical engineering-gray look:
+   a characterful old-style serif for display, warm ivory paper,
+   one deep vermillion signal, annotated rules. Mono reserved for code/data only. */
 
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 
 :root {
-  --paper:     #F3F5F6;   /* warm tinted paper */
-  --ink:       #1B1711;   /* tinted near-black */
-  --muted:     #6B5F52;   /* tinted gray */
-  --accent:    #B23B14;   /* vermillion — "not just blue" signal */
-  --structure: #24466B;   /* deep desaturated blueprint blue */
-  --hairline:  #E0E5E8;
-  --sans: 'IBM Plex Sans', -apple-system, 'Segoe UI', sans-serif;
-  --mono: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
+  --paper:     #F6F1E7;   /* warm ivory — deliberate, not "safe" white */
+  --ink:       #231B12;   /* warm espresso black */
+  --muted:     #6E6255;   /* warm brown-gray */
+  --accent:    #A63E12;   /* deep vermillion — the human signal */
+  --accentH:   #F28D54;   /* vermillion, for use on dark */
+  --structure: #33544A;   /* deep ink-green, in place of a clinical blue */
+  --hairline:  #E4DAC6;   /* warm hairline */
+  --display: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+  --sans: 'Source Sans 3', -apple-system, 'Segoe UI', sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', monospace;
 }
 
 section {
@@ -24,60 +27,64 @@ section {
   font-family: var(--sans);
   font-size: 27px;
   line-height: 1.42;
-  padding: 72px 88px;
+  padding: 76px 92px;
+  position: relative;
   justify-content: flex-start;
   text-align: left;
 }
 
 /* ---------- headings ---------- */
 h1, h2, h3 {
+  font-family: var(--display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.06;
   color: var(--ink);
-  font-weight: 700;
-  letter-spacing: -0.015em;
-  line-height: 1.08;
   margin: 0 0 0.55em 0;
 }
-h1 { font-size: 60px; }
+h1 { font-size: 58px; }
 h2 { font-size: 42px; color: var(--structure); }
-h3 { font-size: 30px; }
+h3 { font-size: 30px; color: var(--ink); }
 
-h1 strong, h2 strong, strong { color: var(--accent); font-weight: 700; }
+strong { color: var(--accent); font-weight: 700; }
+h1 strong, h2 strong { color: var(--accent); }
 
-/* ---------- accent rule under titles ---------- */
+/* ---------- accent rule under titles — a "hand-drawn" underline ---------- */
 h1::after {
   content: '';
   display: block;
-  width: 1.6em;
+  width: 2.2em;
   height: 5px;
-  margin-top: 0.35em;
+  margin-top: 0.4em;
   background: var(--accent);
+  border-radius: 2px;
 }
 section.lead h1::after { display: none; }
 
 /* ---------- body ---------- */
 p, ul, ol, table, pre { margin: 0 0 1em 0; }
-li { margin: 0.28em 0; }
+li { margin: 0.3em 0; }
 li::marker { color: var(--accent); }
 
-a { color: var(--structure); }
+a { color: var(--accent); }
 
 /* ---------- inline code ---------- */
 code {
   font-family: var(--mono);
   font-size: 0.9em;
-  background: #E9EDF1;
+  background: #EFE6D3;
   color: var(--ink);
-  padding: 0.04em 0.3em;
+  padding: 0.05em 0.3em;
   border-radius: 4px;
 }
 
-/* ---------- code / JSON / state blocks ---------- */
+/* ---------- code / JSON / state panels ---------- */
 pre {
-  background: #17130E;
-  color: #EFE7D6;
+  background: #1E1710;
+  color: #F1E7D3;
   font-family: var(--mono);
   font-size: 0.8em;
-  line-height: 1.5;
+  line-height: 1.55;
   padding: 24px 28px;
   border-radius: 10px;
   overflow: hidden;
@@ -90,60 +97,42 @@ pre code {
 }
 
 /* ---------- tables ---------- */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.82em;
-  margin-bottom: 1.2em;
-}
+table { width: 100%; border-collapse: collapse; font-size: 0.82em; margin-bottom: 1.2em; }
 th {
-  text-align: left;
-  font-weight: 600;
-  color: var(--structure);
-  border-bottom: 2px solid var(--ink);
-  padding: 0.4em 0.6em 0.4em 0;
+  text-align: left; font-weight: 600; color: var(--structure);
+  border-bottom: 2px solid var(--ink); padding: 0.4em 0.6em 0.4em 0;
 }
 td {
-  border-bottom: 1px solid var(--hairline);
-  padding: 0.45em 0.6em 0.45em 0;
-  vertical-align: top;
+  border-bottom: 1px solid var(--hairline); padding: 0.45em 0.6em 0.45em 0; vertical-align: top;
 }
 
-/* ---------- title / lead slides ---------- */
-section.lead {
-  justify-content: center;
-  text-align: left;
-}
-section.lead h1 {
-  font-size: 78px;
-  font-weight: 700;
-  line-height: 1.02;
-  margin-bottom: 0.35em;
-}
-section.lead .subtitle {
-  font-size: 30px;
-  color: var(--structure);
-  font-weight: 500;
-  margin-bottom: 0.8em;
-}
-section.lead .author {
-  font-family: var(--sans);
-  font-size: 19px;
+/* ---------- title / lead slide ---------- */
+section.lead { justify-content: center; }
+section.lead h1 { font-size: 82px; font-weight: 700; line-height: 1.0; margin-bottom: 0.4em; }
+section.lead .subtitle { font-size: 32px; color: var(--structure); font-weight: 500; margin-bottom: 1em; }
+section.lead .author { font-family: var(--sans); font-size: 19px; color: var(--muted); }
+
+/* ---------- takeaways / closing slide ---------- */
+section.close { background: var(--ink); color: var(--paper); }
+section.close h1, section.close h2 { color: var(--paper); }
+section.close h1::after { background: var(--accentH); }
+section.close strong, section.close a { color: var(--accentH); }
+section.close code { background: #2F271D; color: #F1E7D3; }
+section.close pre { background: #0F0C08; }
+
+/* ---------- footer (fixed, bottom-left) ---------- */
+footer {
+  position: absolute;
+  bottom: 30px;
+  left: 88px;
+  right: 88px;
+  font-family: var(--mono);
+  font-size: 15px;
   color: var(--muted);
 }
+section.close footer { color: #A79987; }
 
-/* ---------- takeaways / closing ---------- */
-section.close {
-  background: var(--ink);
-  color: var(--paper);
-}
-section.close h1, section.close h2 { color: var(--paper); }
-section.close h1::after { background: #F28D54; }
-section.close strong, section.close a { color: #F28D54; }
-section.close code { background: #2B251E; color: #EFE7D6; }
-section.close pre { background: #0F0C09; }
-
-/* ---------- page number ---------- */
+/* ---------- page number (bottom-right) ---------- */
 section::after {
   font-family: var(--mono);
   font-size: 15px;
@@ -151,5 +140,5 @@ section::after {
   content: attr(data-marpit-pagination);
   position: absolute;
   right: 88px;
-  bottom: 34px;
+  bottom: 30px;
 }

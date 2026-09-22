@@ -6,30 +6,23 @@
 <title>Talks · Amar Patel</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --paper: #F3F5F6; --ink: #1B1711; --muted: #6B5F52;
-    --accent: #B23B14; --structure: #24466B; --hairline: #E0E5E8;
+    --paper:#F6F1E7; --ink:#231B12; --muted:#6E6255; --accent:#A63E12;
+    --structure:#33544A; --hairline:#E4DAC6;
   }
   * { box-sizing: border-box; }
-  body {
-    margin: 0; background: var(--paper); color: var(--ink);
-    font-family: 'IBM Plex Sans', system-ui, sans-serif; line-height: 1.5;
-  }
+  body { margin: 0; background: var(--paper); color: var(--ink); font-family: 'Source Sans 3', system-ui, sans-serif; line-height: 1.5; }
   main { max-width: 760px; margin: 0 auto; padding: 88px 32px 120px; }
-  h1 { font-size: 46px; font-weight: 700; letter-spacing: -0.015em; margin: 0 0 8px; }
-  .rule { width: 48px; height: 4px; background: var(--accent); margin: 28px 0 36px; }
-  .talk {
-    display: block; text-decoration: none; color: var(--ink);
-    border: 1px solid var(--hairline); border-left: 4px solid var(--accent);
-    border-radius: 10px; padding: 28px 30px; margin-bottom: 20px;
-    transition: transform .12s ease, box-shadow .12s ease;
-  }
-  .talk:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(27,23,17,.08); }
-  .talk h2 { margin: 0 0 6px; font-size: 26px; font-weight: 700; color: var(--structure); }
+  h1 { font-family: 'Fraunces', Georgia, serif; font-weight: 700; font-size: 50px; letter-spacing: -0.01em; margin: 0 0 8px; }
+  .rule { width: 48px; height: 5px; background: var(--accent); margin: 28px 0 36px; border-radius: 2px; }
+  .talk { display: block; text-decoration: none; color: var(--ink); border: 1px solid var(--hairline); border-radius: 12px; padding: 30px 32px; margin-bottom: 20px; transition: transform .12s ease, box-shadow .12s ease; }
+  .talk:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(35,27,18,.10); }
+  .talk h2 { margin: 0 0 6px; font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 28px; color: var(--structure); }
   .talk .meta { font-family: 'IBM Plex Mono', monospace; color: var(--muted); font-size: 14px; }
   .talk p { margin: 14px 0 0; color: var(--ink); }
+  .talk .dl { display: inline-block; margin-top: 16px; font-weight: 600; color: var(--accent); }
   footer { color: var(--muted); font-size: 14px; margin-top: 48px; }
   a { color: var(--structure); }
 </style>
@@ -43,9 +36,10 @@
     <h2>Architecture Over Intelligence</h2>
     <div class="meta">The AI Fellowship Madrid · 9 October 2026 · 15 min</div>
     <p>Designing reliable AI workflows: why a JSON file, structural gates, and a human at the decision are worth more than a bigger model.</p>
+    <span class="dl">Open the deck →</span>
   </a>
 
-  <footer>Source on <a href="https://github.com/amarapatel74/talks">GitHub</a>.</footer>
+  <footer>Source on <a href="https://github.com/amarapatel74/talks">GitHub</a> · <a href="./architecture-over-intelligence/deck.pdf">Download PDF</a></footer>
 </main>
 </body>
 </html>
