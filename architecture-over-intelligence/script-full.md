@@ -4,7 +4,7 @@
 **Subtitle:** *How I made AI workflows reliable, even on a small model*
 **Length:** ~20 min talk + 5 min Q&A. The 15-minute trim lives in `script-15min.md`.
 **Event:** The AI Fellowship Madrid · 9 October 2026
-**Deck:** `architecture-over-intelligence/deck.md`, 15 slides
+**Deck:** `architecture-over-intelligence/deck.md`, 16 slides
 
 > Sections use the page number printed bottom right on each slide. The label above each heading (for example "A game") is the kicker.
 
@@ -17,8 +17,9 @@
 | The turn | 6 | The model thinks. Scripts do. Files remember. |
 | Five rules | 7-11 | One slide per rule, each with the evidence from my own logs |
 | Proof | 12 | Same meeting, May against today |
-| What's next | 13 | A new kind of model, a decider, slots into one box. |
-| Take home | 14-15 | Five rules. Start with a checklist; add tested scripts. Make the model a part you can swap. |
+| What it unlocks | 13 | Cheaper, safer, portable. Smaller models on bigger jobs. |
+| What's next | 14 | A new kind of model, a decider, slots into one box. |
+| Take home | 15-16 | Five rules. Start with a checklist; add tested scripts. Make the model a part you can swap. |
 
 ---
 
@@ -304,7 +305,29 @@
 
 ---
 
-## Page 13 · "What's next": A new kind of model arrived *this month*
+## Page 13 · "What this unlocks": Smaller models, *bigger jobs*
+
+**On screen:** Three cards: cheaper, safer, portable. Below them, five other workflows the same shape fits.
+
+> "Let me step back from my meeting notes for a moment. What does this unlock for a business, or for anyone running a complex flow?
+>
+> First, it's cheaper. The model only does the judgement. The dates, the filing, the checks: scripts do those, for free, the same way every time. So a small, local model is enough, and you stop paying tokens for work that has one right answer.
+>
+> Second, it's safer. Every step leaves a file. Every approve and every block is logged. If a customer, an auditor or your boss asks what happened, you can show them: what ran, in what order, and who said yes at each door.
+>
+> Third, it's portable. The flow doesn't care which model runs it. You can swap models without rewriting anything, which means less lock-in, and it means private data can stay on your own machine.
+>
+> And none of this is about meetings. Sales call follow-ups. Invoice processing. Customer onboarding. Hiring. Month-end close. Same steps, same files, same doors.
+>
+> Reliable flows let you use smaller models on bigger jobs."
+
+**Accuracy note:** no numbers on this slide. Cheaper, safer and portable are consequences of what the talk has shown, not measurements. If asked "how much cheaper?": "I haven't measured it for a business. For me, the local model costs nothing per token."
+
+**Time:** ~1 min
+
+---
+
+## Page 14 · "What's next": A new kind of model arrived *this month*
 
 **On screen:** Three cards. The model box split into a writer and a decider. The steps that only choose. A confidence dial from "ask me" to "carry on".
 
@@ -326,7 +349,7 @@
 
 ---
 
-## Page 14 · "Take these home": Five rules. *Start with a checklist.*
+## Page 15 · "Take these home": Five rules. *Start with a checklist.*
 
 **On screen:** The five rules, each with a one-line gloss. Leave this slide up through Q&A.
 
@@ -352,7 +375,7 @@
 
 ---
 
-## Page 15 · Close: Models change every month.
+## Page 16 · Close: Models change every month.
 
 > "I started this to save money. I ended up with a system I trust more than the frontier model I left, running on a graphics card built for games.
 >
@@ -360,7 +383,7 @@
 >
 > Thank you."
 
-**Cue:** Go back to page 14 for Q&A.
+**Cue:** Go back to page 15 for Q&A.
 
 **Time:** ~30 sec
 
@@ -375,9 +398,10 @@
 | The turn | 6 | 1:30 |
 | Five rules | 7-11 | 7:15 |
 | Proof | 12 | 1:30 |
-| What's next | 13 | 1:30 |
-| Take home | 14-15 | 1:45 |
-| **Total** | | **~20:05** |
+| What it unlocks | 13 | 1:00 |
+| What's next | 14 | 1:30 |
+| Take home | 15-16 | 1:45 |
+| **Total** | | **~21:05** |
 
 For a 15-minute slot use `script-15min.md`.
 

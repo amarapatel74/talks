@@ -4,7 +4,7 @@
 **Subtitle:** *How I made AI workflows reliable, even on a small model*
 **Length:** 15 min talk + 5 min Q&A
 **Event:** The AI Fellowship Madrid · 9 October 2026
-**Deck:** `architecture-over-intelligence/deck.md`, 15 slides
+**Deck:** `architecture-over-intelligence/deck.md`, 16 slides
 
 > Sections use the page number printed bottom right on each slide. The label above each heading (for example "A game") is the kicker. The untrimmed version lives in `script-full.md`.
 
@@ -17,8 +17,9 @@
 | The turn | 6 | The model thinks. Scripts do. Files remember. |
 | Five rules | 7-11 | One slide per rule, each with the evidence from my own logs |
 | Proof | 12 | Same meeting, May against today |
-| What's next | 13 | A new kind of model, a decider, slots into one box. |
-| Take home | 14-15 | Five rules. Start with a checklist; add tested scripts. Make the model a part you can swap. |
+| What it unlocks | 13 | Cheaper, safer, portable. Smaller models on bigger jobs. |
+| What's next | 14 | A new kind of model, a decider, slots into one box. |
+| Take home | 15-16 | Five rules. Start with a checklist; add tested scripts. Make the model a part you can swap. |
 
 **Through-line:** smarter is not the same as correct. Reliability comes from the shape of the workflow, not the size of the model.
 
@@ -236,7 +237,27 @@
 
 ---
 
-## Page 13 · "What's next": A new kind of model arrived *this month*
+## Page 13 · "What this unlocks": Smaller models, *bigger jobs*
+
+**On screen:** Three cards: cheaper, safer, portable. Below them, five other workflows the same shape fits.
+
+> "So what does this unlock, beyond my meeting notes?
+>
+> It's cheaper. A small, local model does the judgement, and scripts do the rest, so you stop paying for work with one right answer.
+>
+> It's safer. Every step leaves a file, and every approve and block is logged. You can show exactly what happened, and who said yes.
+>
+> And it's portable. You can swap the model without rewriting the flow, and private data can stay on your own machine.
+>
+> Sales call follow-ups, invoice processing, onboarding, hiring, month-end close: same steps, same files, same doors. Reliable flows let you use smaller models on bigger jobs."
+
+**Accuracy note:** no numbers on this slide. These are consequences of what the talk has shown, not measurements.
+
+**Time:** ~45 sec
+
+---
+
+## Page 14 · "What's next": A new kind of model arrived *this month*
 
 **On screen:** The model box split into a writer and a decider, the steps that only choose, and a confidence dial.
 
@@ -254,7 +275,7 @@
 
 ---
 
-## Page 14 · "Take these home": Five rules. *Start with a checklist.*
+## Page 15 · "Take these home": Five rules. *Start with a checklist.*
 
 **On screen:** The five rules. Leave this slide up through Q&A.
 
@@ -268,7 +289,7 @@
 
 ---
 
-## Page 15 · Close: Models change every month.
+## Page 16 · Close: Models change every month.
 
 > "I started this to save money. I ended up with a system I trust more than the frontier model I left, running on a graphics card built for games.
 >
@@ -276,7 +297,7 @@
 >
 > Thank you."
 
-**Cue:** Go back to page 14 for Q&A.
+**Cue:** Go back to page 15 for Q&A.
 
 **Time:** ~30 sec
 
@@ -291,9 +312,10 @@
 | The turn | 6 | 1:00 |
 | Five rules | 7-11 | 5:30 |
 | Proof | 12 | 1:00 |
-| What's next | 13 | 1:00 |
-| Take home | 14-15 | 1:00 |
-| **Total** | | **14:15** (45 sec spare) |
+| What it unlocks | 13 | 0:45 |
+| What's next | 14 | 1:00 |
+| Take home | 15-16 | 1:00 |
+| **Total** | | **15:00** |
 
 **Running long?** Cut in this order:
 

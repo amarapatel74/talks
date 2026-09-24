@@ -454,6 +454,49 @@ If asked: ten unchecked steps at 95% each come out right only about 60% of the t
 
 ---
 
+<div class="kicker">What this unlocks</div>
+
+# Smaller models, *bigger jobs*
+
+<div class="body">
+
+<div class="cols three" style="align-items:stretch">
+  <div class="card good">
+    <div class="sub">Cheaper</div>
+    <p>A small, local model does the judgement. Scripts do the rest.</p>
+    <p><b>No tokens spent on work with one right answer.</b></p>
+  </div>
+  <div class="card good">
+    <div class="sub">Safer</div>
+    <p>Every step leaves a file. Every Approve and Block is logged.</p>
+    <p><b>You can show exactly what happened, and who said yes.</b></p>
+  </div>
+  <div class="card good">
+    <div class="sub">Portable</div>
+    <p>Swap the model without rewriting the flow.</p>
+    <p><b>Less lock-in. Private data can stay on your own machine.</b></p>
+  </div>
+</div>
+
+<p style="font-size:0.66em;margin-top:16px;margin-bottom:6px"><b>The same steps, files and doors fit:</b></p>
+<div class="sorter" style="display:block"><div class="chips">
+  <span class="chip">Sales call follow-ups</span><span class="chip">Invoice processing</span><span class="chip">Customer onboarding</span><span class="chip">Hiring</span><span class="chip">Month-end close</span>
+</div></div>
+
+</div>
+
+<div class="inshort"><b>In short</b> Reliable flows let you use smaller models on bigger jobs.</div>
+
+<!--
+"So what does this unlock, beyond my meeting notes?"
+Cheaper: the model only does judgement; scripts do the sure things; a small local model is enough.
+Safer: files plus the approval log give an audit trail: what ran, when, and who approved the one-way doors.
+Portable: the flow doesn't care which model runs it; swap without a rewrite; keep private data local.
+No numbers here: these are consequences of what the talk has shown, not measurements.
+-->
+
+---
+
 <div class="kicker">What’s next</div>
 
 # A new kind of model arrived *this month*
@@ -537,7 +580,10 @@ Works for a hiring process, a month-end report, customer onboarding.
 
 <div class="pullquote" style="font-size:1.35em">Build your flow so the model is a part you can swap.</div>
 
-<div class="author" style="color:#A79987;margin-top:1.2em">Thank you · Amar Patel · linkedin.com/in/amarapatel</div>
+<div style="display:flex;align-items:center;gap:36px;margin-top:1.2em">
+<a href="https://www.linkedin.com/in/amarapatel/" style="display:block;background:#fff;padding:10px;border-radius:12px;line-height:0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33 33" width="190" height="190" shape-rendering="crispEdges" role="img" aria-label="QR code: linkedin.com/in/amarapatel"><path fill="#fff" d="M0 0h33v33h-33z"/><path class="qrline" stroke="#231b12" d="M2 2.5h7m1 0h1m2 0h4m3 0h1m3 0h7m-29 1h1m5 0h1m1 0h1m1 0h4m3 0h1m1 0h1m2 0h1m5 0h1m-29 1h1m1 0h3m1 0h1m1 0h1m1 0h1m1 0h4m6 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m3 0h1m2 0h1m3 0h1m2 0h1m1 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m1 0h1m1 0h2m1 0h2m1 0h1m1 0h2m2 0h1m1 0h3m1 0h1m-29 1h1m5 0h1m4 0h2m1 0h1m2 0h1m4 0h1m5 0h1m-29 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-19 1h2m1 0h2m-15 1h1m2 0h6m2 0h2m2 0h4m2 0h1m2 0h1m1 0h3m-29 1h2m7 0h1m1 0h5m1 0h4m2 0h2m1 0h2m-28 1h1m3 0h1m1 0h1m1 0h3m2 0h1m1 0h1m4 0h1m1 0h2m2 0h1m-26 1h1m3 0h1m2 0h1m3 0h1m1 0h1m1 0h2m1 0h2m1 0h1m2 0h1m2 0h1m-28 1h2m1 0h1m1 0h1m1 0h1m2 0h1m1 0h3m4 0h1m1 0h2m4 0h1m-29 1h1m1 0h1m2 0h1m3 0h1m1 0h1m1 0h6m3 0h1m1 0h5m-27 1h2m2 0h4m1 0h1m1 0h1m1 0h1m2 0h4m1 0h1m2 0h1m1 0h1m-29 1h2m3 0h1m3 0h1m1 0h1m2 0h1m1 0h1m3 0h5m1 0h1m1 0h1m-27 1h6m4 0h1m1 0h2m3 0h2m4 0h1m-26 1h2m1 0h3m1 0h5m1 0h1m1 0h1m2 0h3m3 0h1m1 0h2m-28 1h2m2 0h4m3 0h1m3 0h2m2 0h2m4 0h1m2 0h1m-29 1h2m1 0h2m2 0h3m1 0h2m1 0h2m2 0h2m2 0h5m-27 1h3m1 0h1m1 0h2m2 0h1m2 0h3m1 0h11m-20 1h2m2 0h1m1 0h2m1 0h2m1 0h1m3 0h2m-26 1h7m1 0h3m3 0h3m2 0h2m1 0h1m1 0h2m-26 1h1m5 0h1m1 0h1m5 0h1m1 0h2m1 0h2m3 0h1m2 0h1m-28 1h1m1 0h3m1 0h1m1 0h2m3 0h4m2 0h7m2 0h1m-29 1h1m1 0h3m1 0h1m1 0h1m1 0h1m1 0h2m1 0h2m1 0h1m1 0h2m1 0h1m4 0h1m-29 1h1m1 0h3m1 0h1m2 0h1m1 0h5m2 0h1m2 0h1m1 0h2m1 0h3m-29 1h1m5 0h1m3 0h1m3 0h1m8 0h1m1 0h2m1 0h1m-29 1h7m1 0h3m1 0h1m1 0h1m4 0h2m1 0h1m1 0h2"/></svg></a>
+<div class="author" style="color:#A79987;font-size:22px;line-height:1.5">Thank you<br><b style="color:#F6F1E7">Amar Patel</b><br><a href="https://www.linkedin.com/in/amarapatel/" style="color:#F28D54">linkedin.com/in/amarapatel</a><br><span style="font-size:17px">Scan to connect</span></div>
+</div>
 
 <!--
 "I started this to save money. I ended up with a system I trust more than the frontier model I left, running on a graphics card built for games."
