@@ -73,7 +73,7 @@
 
 ---
 
-## Page 4 · "3 · Drift": Same meeting. Same answers. *My May workflow.*
+## Page 4 · "3 · Drift": Smarter is not the same as *correct*
 
 **On screen:** Two red cards, Run 1 (local) and Run 2 (cloud). Test meeting: "OKR Planning with GitLab Executive Team", public on YouTube.
 

@@ -100,7 +100,7 @@ Say the hinge line slowly.
 
 <div class="kicker">3 · Drift</div>
 
-# Same meeting. Same answers. *My May workflow.*
+# Smarter is not the same as *correct*
 
 <div class="body">
 
@@ -130,7 +130,7 @@ Say the hinge line slowly.
 
 </div>
 
-<div class="inshort"><b>In short</b> Smarter is not the same as correct.</div>
+<div class="inshort"><b>In short</b> Same meeting, my May workflow: both runs went wrong. The smarter one hid it better.</div>
 
 <!--
 "On Claude it worked. On Qwen it drifted."
@@ -280,8 +280,8 @@ Link back to Opusfived: paid-for work again.
 
 <div class="body">
 
-<div class="flow">
-  <div class="step">Map the speakers</div><div class="arrow">→</div>
+<div class="flow chain">
+  <div class="step">Map speakers</div><div class="arrow">→</div>
   <div class="step file">speaker-map.json</div><div class="arrow">→</div>
   <div class="step">Summarise</div><div class="arrow">→</div>
   <div class="step file">summary.json</div><div class="arrow">→</div>
@@ -325,8 +325,7 @@ The final note is built by a script (file-meeting.py) from these files. The mode
 </div>
 </div>
 <div>
-<div class="resume-labels"><span>working</span><span>I quit</span><span>I reopen</span><span>carries on</span></div>
-<div class="resume"><div class="seg"></div><div class="file">step 3<br>half done</div><div class="gap"></div><div class="file">reads the file</div><div class="seg"></div></div>
+<div class="resume"><div class="seg" data-label="working"></div><div class="file" data-label="I quit">step 3<br>half done</div><div class="gap"></div><div class="file" data-label="I reopen">reads<br>the file</div><div class="seg end" data-label="carries on"></div></div>
 <p style="font-size:0.76em;margin-top:14px">In rehearsal I closed everything in the middle of step 3. When I opened it again, it read this file and carried on. <b>Nothing repeated. Nothing lost.</b></p>
 <p style="font-size:0.76em">The same file let me run the demos on my local Qwen and on a cloud copy <b>without changing a line</b>.</p>
 </div>

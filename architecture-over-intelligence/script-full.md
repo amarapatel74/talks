@@ -93,7 +93,7 @@
 
 ---
 
-## Page 4 · "3 · Drift": Same meeting. Same answers. *My May workflow.*
+## Page 4 · "3 · Drift": Smarter is not the same as *correct*
 
 **On screen:** The definition of drift. Two red cards: Run 1 on my computer, Run 2 in the cloud.
 
