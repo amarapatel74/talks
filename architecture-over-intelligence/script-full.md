@@ -254,27 +254,31 @@
 
 ## Page 11 · "Rule 5": Mark the *one-way doors*
 
-**On screen:** The approval dialog for step 7. Three lines from the Pi session log, 24 Sep 2026, 14:33 to 14:34.
+**On screen:** The approval dialog for step 7. The message the model gets after a Block. A card listing what the shell refuses from then on, and what it still allows.
 
 > "Rule 5: mark the one-way doors.
 >
-> A one-way door is a step you can't undo. Sending something. Deleting something. Filing something where people will see it.
+> A one-way door is a step you can't undo. Sending something. Deleting something. Filing something where people will see it. Resetting a meeting's progress.
 >
-> Step 7 of my flow deletes the transcript, the audio and the progress file for that meeting. So it asks me first, in a dialog the model cannot see or click. Only I can answer. And every yes is saved in a log.
+> Step 7 of my flow deletes the transcript, the audio and the progress file for that meeting. So it asks me first, in a dialog the model cannot see or click. Only I can answer. Every Approve and every Block is logged.
 >
 > Notice I only do this on the doors. If I put nine hard gates on every meeting, I'd learn to click yes without reading, and then the gates are worthless.
 >
-> Two weeks ago, in a test run, I clicked Block. My agent app, Pi, told the model: Amar blocked step 7. Stop and ask what to change. Do not run it another way.
+> So what happens when I click Block? Two things.
 >
-> Forty seconds later, the model said: 'Let me try with dry-run.'
+> First, the model is told: Amar blocked step 7. Stop and ask what to change. This session can now only read files and run the pipeline scripts.
 >
-> Twenty-three seconds after that: 'Dry run confirms. There's nothing to clean up.'
+> Second, the shell makes sure. From that moment the model can still read files, run my pipeline and ask me. But it can't delete, move or copy files. It can't edit a file in place. It can't run code it wrote itself, or any script that isn't part of the pipeline. And it can't try the same door again.
 >
-> Now, it was harmless. A dry run changes nothing, so the check lets it through, and the delete itself never ran. But I had said stop. And the model looked for another way.
+> Why both? Because in my first tests, the model heard 'stop' and went looking for another way. First a dry run. Then an offer to rewrite the script. Once, the same script again with a different flag. Nothing was deleted, but it was looking.
 >
-> The instruction didn't decide what ran. The check did."
+> So I added the second layer, and ran the test three more times. It stopped and asked, every time.
+>
+> The instruction says stop. The shell makes sure."
 
-**Time:** ~1 min 45
+**Accuracy notes:** the first tests were on 24 Sep (Pi session logs; the `bash -x` run got through the old gate but found nothing to delete). The retests after the fix: 3 of 3 stopped and asked, logged in `state/approvals.jsonl`. The model didn't try another way in the retests, so the shell's refusals are proven by tests (19 workarounds, 8 ways of running the door script), not live. If asked: the model runs as me, so this is not a security sandbox.
+
+**Time:** ~2 min
 
 ---
 
@@ -282,7 +286,7 @@
 
 **On screen:** The model's own words, from the Pi session log, 24 Sep 2026, 16:36. Two cards: the record, which the model can edit, and the lock, which it can't click.
 
-> "Two hours later, it got better. The approval dialog couldn't appear. And the model offered this."
+> "In one of those first tests, it went further. The approval dialog couldn't appear. And the model offered this."
 
 **Cue:** Read the quote slowly. Then pause. Let the room get there.
 
@@ -298,9 +302,9 @@
 >
 > So even if I had said yes, the door would have stayed shut. The next run picked up at step 6, showed me the dialog, and filed the note only after my click.
 >
-> That's the design lesson. Keep the record and the lock apart. A model can edit the record. It can't click the lock."
+> That's the design lesson. Keep the record and the lock apart. And today the model can't even write the record: only the pipeline writes progress files. The lock stays mine."
 
-**Accuracy notes:** at the time I didn't answer; the session ended on that message. The final run B approval was logged at 16:51. If asked about the limit: a model set on getting round the gate could write the note by hand and delete the working files. The gate stops a model drifting past a question, not one routing round it on purpose.
+**Accuracy notes:** at the time I didn't answer; the session ended on that message. The final run B approval was logged at 16:51. Today the model can't write progress files, and after a Block the shell only reads and runs the pipeline. If asked about the limit: the model runs as me, so this is not a security sandbox.
 
 **Time:** ~1 min 30
 
@@ -409,7 +413,7 @@ For a 15-minute slot use `script-15min.md`.
 > "Chain ten of those steps and the whole run comes out right only about 60% of the time. That's why the checks sit between the steps, not only at the end."
 
 **Q: The model offered to edit the state file. What stops it doing that anyway?**
-> "Honest answer: my gate stops a model that drifts past a question. It won't stop one that edits the file on purpose. That's the next layer: making the approval something the model can't write at all. I'd rather tell you where the edge is than pretend there isn't one."
+> "Two things now. The model can't write progress files at all; only the pipeline scripts do. And after any Block, its shell can only read files and run the pipeline: no deleting, copying, editing in place or running its own code. What it isn't: a security sandbox. The model runs as me. I'd rather tell you where the edge is than pretend there isn't one."
 
 **Q: Why only gate the one-way doors? Why not every step?**
 > "Because I'm the weak link. Nine hard gates per meeting would train me to click yes without reading. The checks run on every step, automatically. The human only sits at the doors, where a yes means something."

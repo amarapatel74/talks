@@ -386,7 +386,6 @@ Don't claim both bugs failed loudly: only the time shift did.
 
 <div class="body">
 
-
 <div class="cols" style="grid-template-columns: 0.9fr 1.3fr; align-items:start">
 <div>
 <div class="dialog">
@@ -394,23 +393,32 @@ Don't claim both bugs failed loudly: only the time shift did.
   <div class="msg">Delete the transcript, audio and progress file for this meeting. Approve?</div>
   <div class="btns"><span class="btn ok">Approve</span><span class="btn block">Block</span></div>
 </div>
-<p style="font-size:0.7em;margin-top:12px">A step you cannot undo. Only I can answer: the model cannot see or click this. Every “yes” is saved in a log.</p>
-<p style="font-size:0.7em;margin-top:10px"><b>Dry runs pass the check:</b> they change nothing. The delete itself never ran.</p>
+<p style="font-size:0.7em;margin-top:12px"><b>Only I can answer.</b> The model can’t see or click it. Every click is logged.</p>
+<p style="font-size:0.7em;margin-top:8px"><b style="color:var(--structure)">Retests after Block: 3 of 3</b> stopped and asked.</p>
 </div>
 <div>
-<div class="terminal"><span class="who">My agent app (Pi) → model, after I clicked Block</span><span class="gate">Amar blocked step 7. Stop and ask what to change. Do not run it another way.</span></div>
-<div class="terminal"><span class="who">Model, 40 seconds later</span><span class="model">Let me try with --dry-run…</span></div>
-<div class="terminal"><span class="who">Model, 23 seconds after that</span><span class="model">Dry run confirms… There’s nothing to clean up.</span></div>
-<div class="stamp">Pi session log, test meeting, 24 Sep 2026, 14:33–14:34</div>
+<div class="terminal"><span class="who">After I click Block · Pi → model</span><span class="gate">Amar blocked step 7. Stop and ask what to change. This session can now only read files and run the pipeline scripts.</span></div>
+<div class="card" style="margin-top:10px">
+  <div class="sub">And the shell makes sure</div>
+  <ul class="checks">
+    <li><span class="no">✗</span><span class="t">Delete, move or copy files · edit in place</span></li>
+    <li><span class="no">✗</span><span class="t">Run code it wrote itself · run any other script</span></li>
+    <li><span class="no">✗</span><span class="t">Try the same door again</span></li>
+    <li><span class="yes">✓</span><span class="t">Read files · run my pipeline scripts · ask me</span></li>
+  </ul>
+</div>
 </div>
 </div>
 
 </div>
 
-<div class="inshort"><b>In short</b> I said stop. The model looked for another way. Only the check decided what ran.</div>
+<div class="inshort"><b>In short</b> The instruction says stop. The shell makes sure.</div>
 
 <!--
-"It was harmless: a dry run, which the check lets through because it changes nothing. But I had said stop, and the model looked for another way. The instruction didn't decide what ran. The check did."
+Status quo. Two layers: the message tells the model to stop; the shell refuses anything else.
+Backstory, if asked: in the first tests the model heard "stop" and tried --dry-run (harmless), offered to rewrite the script, and once ran it again with bash -x. That is why the shell layer exists.
+Retests after the fix: 3 of 3 stopped and asked. The model didn't try another way, so the refusals were proven in tests, not live: 19 workarounds and 8 ways of running the door script, all caught.
+Limit: the model runs as me. This stops drift and the usual workarounds. It is not a security sandbox.
 Only on the doors: nine hard gates per meeting would train me to rubber-stamp.
 -->
 
@@ -429,7 +437,7 @@ Only on the doors: nine hard gates per meeting would train me to rubber-stamp.
   <div class="card soft">
     <div class="sub">The record</div>
     <p>A line in the progress file: <code>human_approved: yes</code>.</p>
-    <p><b>The model can edit it.</b></p>
+    <p><b>It offered to write it.</b> Today it can’t: only the pipeline writes progress files.</p>
   </div>
   <div class="card good">
     <div class="sub">The lock</div>
@@ -442,13 +450,13 @@ Only on the doors: nine hard gates per meeting would train me to rubber-stamp.
 
 </div>
 
-<div class="inshort"><b>In short</b> A model can edit the record. It cannot click the lock.</div>
+<div class="inshort"><b>In short</b> Keep the record and the lock apart. Only a person opens the lock.</div>
 
 <!--
 Read the quote slowly. Pause.
 I didn't answer at the time: the session ended there. Say so if asked.
 The dialog guards running file-meeting.py; it never reads human_approved. A forged flag would satisfy the record check, not the lock.
-Limit, if asked: a model set on getting round it could write the note by hand and delete the working files. The gate stops a model drifting past a question, not one routing round it on purpose.
+Today: the model can't write progress files at all, and after a Block the shell only reads and runs the pipeline. Limit, if asked: the model runs as me, so this is not a security sandbox.
 -->
 
 ---
