@@ -1,0 +1,448 @@
+# AI Meetup Talk · Full Script with Talking Notes
+
+**Title:** *Architecture Over Intelligence*
+**Subtitle:** *How I made AI workflows reliable, even on a small model*
+**Length:** ~20 min talk + 5 min Q&A. The 15-minute trim lives in `script-15min.md`.
+**Event:** The AI Fellowship Madrid · 9 October 2026
+**Deck:** `architecture-over-intelligence/deck.md`, 15 slides
+
+> Sections use the page number printed bottom right on each slide. The label above each heading (for example "1 · A game") is the kicker, and runs one behind the page number.
+
+## The shape of the talk
+
+| Part | Pages | Beat |
+|---|---|---|
+| Hook | 1-2 | A volunteer plays Opusfived. Every check is paid for. |
+| What broke | 3-5 | I moved to a small model to save money. It drifted. Shouting at it didn't work. |
+| The turn | 6 | The model thinks. Scripts do. Files remember. |
+| Five rules | 7-12 | One slide per rule, each with the evidence from my own logs |
+| Proof | 13 | Same meeting, May against today |
+| Take home | 14-15 | Five rules, none needs code. Make the model a part you can swap. |
+
+---
+
+## Before the talk: what you need to hold
+
+**The system.** Three workflows run through AI: a morning briefing, the inbox, and meetings. Meetings carry the talk. A recording goes in; out come who said what, a summary, the actions, and a note filed in the right place. Eleven steps: discover, speakers, context, summary, sentiment, personal notes, actions, triage, follow-up, file, clean up.
+
+**The story.** Until May 2026 it ran on Claude. The plan's usage limit stopped a meeting halfway, so the flow moved to Qwen 3.6, an open model on a 16 GB gaming graphics card. Qwen drifted. More prompt made it worse before it got better. What fixed it was changing the shape: the model does judgement, scripts do the sure things, files hold the memory.
+
+**The thesis.** Smarter is not the same as correct. Reliability comes from the shape of the workflow, not the size of the model. And because the shape doesn't care which model runs it, the model becomes a part you can swap.
+
+**The evidence.** Every number on the slides comes from your own git history or Pi session logs, run against one public test meeting: "OKR Planning with GitLab Executive Team", GitLab Unfiltered, on YouTube. Keep the claims exactly as the slides state them. The accuracy notes under pages 10 and 12 matter.
+
+---
+
+## Page 1 · Title
+
+**Cue:** Walk on. Ask for a volunteer before you say anything else.
+
+> "Before I say a word about architecture, I need one volunteer. You're going to play a game on my laptop. It's harmless, I promise. It's also the whole talk in thirty seconds."
+
+**Time:** ~20 sec
+
+---
+
+## Page 2 · "1 · A game": Make one button blue. *Nothing else.*
+
+**On screen:** Opusfived live, https://opusfived.dev/, a parody by Milos Novovic. The slide shows the loop behind it.
+
+**Cue:** The volunteer picks the options. Max 30 seconds of spiral. If the site doesn't load in 10 seconds, use the fallback and move on.
+
+> "This is Opusfived. It went round Hacker News a while back. It's a parody of what happens when you give a frontier AI a simple instruction.
+>
+> One job: make this button blue. Nothing else. Over to you."
+
+**(Volunteer plays.)**
+
+> "It checks the work. Then it checks the check. Then it calls more AI agents to check that. Then it explains why checking matters. Then it checks again. The button never turns blue.
+>
+> Thank you. Give them a hand.
+>
+> It's funny because it's true. And for me it's also where my tokens went. Every one of those checks is paid for. Keep that picture in your head, because it comes back."
+
+**Fallback:** "It's a game where you ask an AI to make one button blue. It spirals into checking its own checks and calling more agents, and the button never turns blue."
+
+**Why this slide matters:** it's funny, it's physical, and it plants two ideas you'll use later: a model left in charge of its own loop wanders, and wandering costs money.
+
+**Time:** ~1 min 30
+
+---
+
+## Page 3 · "2 · Why I changed models": I hit my limit, halfway through a meeting
+
+**On screen:** Before, until May 2026: Claude in the cloud. After, from May 2026: Qwen 3.6 on my desk.
+
+> "Some context on me. I run a lot of my work through AI. A morning briefing. My inbox. And my meetings: a recording goes in, and out come who said what, a summary, the actions, and a note filed in the right place in my notes.
+>
+> Until May, all of that ran on Claude. Very capable. I have no complaints about the quality.
+>
+> But my plan has a usage limit, and in May I hit it halfway through processing a meeting. It just stopped. And I'd been quietly uneasy about something else: every meeting I processed was leaving my house.
+>
+> So I moved to Qwen 3.6. It's an open model, and it runs on a 16 GB gaming graphics card on my desk. No limit. No bill. Nothing leaves the house.
+>
+> The limit was the trigger. Cost, privacy, and not depending on one vendor are the reasons I stayed."
+
+**Cue:** Say the hinge line slowly.
+
+> "Economics started the journey. Drift is what I found along the way."
+
+**Why this slide matters:** it makes the motivation ordinary and relatable. Nobody in the room has to care about architecture yet. They only have to recognise hitting a limit, or a bill.
+
+**Time:** ~1 min 15
+
+---
+
+## Page 4 · "3 · Drift": Same meeting. Same answers. *My May workflow.*
+
+**On screen:** The definition of drift. Two red cards: Run 1 on my computer, Run 2 in the cloud.
+
+> "On Claude, this worked. On Qwen, it drifted.
+>
+> Drift is when the AI slowly goes off track, and doesn't notice. It doesn't crash. It carries on, confidently, somewhere slightly wrong, and then somewhere more wrong.
+>
+> I wanted to show you real output, so I tested on a public meeting: a GitLab executive team planning their quarterly goals, on YouTube. Same meeting, same answers to its questions, my May workflow.
+>
+> Run 1: Qwen on my own computer. It wrote the note before it knew who was speaking. It named all four speakers wrong. The CEO became 'head of alliances'. And then it deleted the transcript, without asking me. After 35 minutes I stopped it by hand.
+>
+> So I thought: my computer is slow, let's give it a better chance. Run 2: the same model, running in the cloud. It seemed smarter. The precision was better. And it made the same kinds of mistakes, just better hidden. Two notes for one meeting. The wrong date. Two of five quotes given to the wrong person. And a Chinese word dropped into the middle of an English sentence.
+>
+> The one that got me: it knew the right names. It had them. And it still put the wrong name on the quote.
+>
+> Smarter is not the same as correct."
+
+**Why this slide matters:** this is the evidence that the problem is real. Every item on it is specific and checkable. Take your time.
+
+**Time:** ~2 min
+
+---
+
+## Page 5 · "4 · My first fix: more words": More instructions. Then *SHOUTING*.
+
+**On screen:** Three bar charts across 11 May, 8 Sep and 17 Sep: lines in the prompt, warnings in capitals, scripts doing the sure things. A real prompt line from 8 September.
+
+> "My first fix was the obvious one. More words.
+>
+> Every time it skipped a step, I added a line telling it not to. In May the prompt was 73 lines long. By 8 September it was 416. And 13 of those lines were warnings in capitals. MUST. NEVER. STOP.
+>
+> Here's a real line from that day: 'If preconditions fail, STOP. Report gate failure.'
+>
+> It helped. A little. But an instruction is only a suggestion. However loudly you write it, the model can still decide that something else matters more, in the moment.
+>
+> What actually worked was moving the work out of the prompt and into code. Look at the bottom row: one script in May, four by early September, six today. And look at what the prompt did: back down to 240 lines, and not a single capital letter warning.
+>
+> The work didn't disappear. It moved out of the prompt, into places where it happens the same way every time.
+>
+> So here's a test for your own workflows. If you find yourself writing MUST in capitals, your process is missing a check."
+
+**Source:** git history of `.pi/skills/process-meeting/SKILL.md`.
+
+**Time:** ~1 min 30
+
+---
+
+## Page 6 · "5 · The turn": Split the work into three parts
+
+**On screen:** Three boxes. Model: thinks, judgement. Scripts: do, the sure things. Files: remember, memory.
+
+> "So here's the turn. The fix wasn't a smarter model. It was a different shape.
+>
+> I split the work into three parts.
+>
+> The model thinks. It does judgement: who is speaking, what was important, what did people agree to do. Things a script can't do.
+>
+> Scripts do the sure things. Dates and file names. Filing the note. Checking every step. Things with one right answer.
+>
+> And files remember. Which step we're on. What's already done. What each step produced.
+>
+> Here's what made it click. Qwen is good at two things: calling tools, and writing clean, structured data. It's bad at holding a long process in its head. So I stopped asking it to. I gave it only the judgement, and took everything else away.
+>
+> I didn't work this out alone, by the way. I worked it out with help from Claude and Qwen themselves.
+>
+> The model thinks. Scripts do. Files remember. The next five slides are those three pieces, as five rules."
+
+**Extra, full version only:** every step is safe to run twice. If a step runs again after a restart, it produces the same result instead of a duplicate. Engineers call that idempotent. You don't need the word; you need the property.
+
+**Time:** ~1 min 30
+
+---
+
+## Page 7 · "6 · Rule 1": Give each step to *the right worker*
+
+**On screen:** Two columns, each with one sorting question. Three facts: 5,000 words, wrong date, 1 → 6 scripts.
+
+> "Rule 1: give each step to the right worker.
+>
+> The test is one question. Is there only one right answer? If yes, it's a script's job. If it needs judgement, it's the model's.
+>
+> Who is speaking, the summary, the actions, the priorities, the tone of the meeting: that's judgement. That's the model. The date and time, the file name and folder, copying the transcript, linking to the project, deleting old files: there's one right answer. That's a script.
+>
+> Here's what happened when I got this wrong. In May, the model retyped the whole transcript into the note. 5,000 words. It ran out of space halfway, and I paid for every one of those words. That's Opusfived again: paid-for work that nobody needed.
+>
+> And it got the date wrong. The date was already sitting in the file name. The model still got it wrong.
+>
+> Today, six scripts do the sure things, and they get them right every time.
+>
+> And if you don't write code: a script doesn't have to be code. It can be a template, a spreadsheet formula, a form. Anything that gives the same answer every time."
+
+**The eleven steps, if asked:** discover, speakers, context, summary, sentiment, personal notes, actions, triage, follow-up, file, clean up.
+
+**Time:** ~1 min 30
+
+---
+
+## Page 8 · "7 · Rule 2": Every step leaves *a file*
+
+**On screen:** A chain of work boxes and dashed file boxes: speaker-map.json, summary.json, actions.json, then a script files the note. Two cards: a chat forgets, a file remembers.
+
+> "Rule 2: every step leaves a file. On the slide, solid boxes are work and dashed boxes are files.
+>
+> Map the speakers: write the result down. Summarise: write it down. Find the actions: write them down. Then a script builds the final note from those files. The model never writes the final note by hand.
+>
+> Why does that matter? Because a chat forgets. It gets long, the early details get lost, and you can't check it.
+>
+> A file remembers. The next step starts from the file, not from the chat. And a script can check a file: is it there? Does it have the right shape?"
+
+**Source:** the final note is built by `file-meeting.py` from these files.
+
+**Time:** ~1 min
+
+---
+
+## Page 9 · "8 · Rule 3": Keep progress *outside* the model
+
+**On screen:** The progress file, `.process-state.json`, and a timeline: working, I quit, I reopen, carries on.
+
+> "Rule 3: keep progress outside the model.
+>
+> This is one small file. It says which step we're on, what's already done, whether I've confirmed the speakers, and whether I've stopped the run.
+>
+> In rehearsal, I closed everything in the middle of step 3. The app, the model, the lot. When I opened it again, it read this file and carried on from where it was. Nothing repeated. Nothing lost.
+>
+> The model had forgotten everything. The file hadn't.
+>
+> Two bonuses I didn't plan for. The same file let me run the demos in this talk on my local Qwen and on a cloud copy, without changing a line. And it's an audit trail: I can open it and see exactly what ran, and who said yes."
+
+**Time:** ~1 min 15
+
+---
+
+## Page 10 · "9 · Rule 4": Check *before* and *after* every step
+
+**On screen:** Before, do the step, after, with STOP under each check. Two cards: what it caught.
+
+> "Rule 4: check before and after every step.
+>
+> Two questions. Before: is it this step's turn? After: did it leave its file, in the right shape? If either answer is no, stop.
+>
+> And don't patch it by hand. That's the temptation, and a hand patch is exactly the drift you're trying to catch.
+>
+> Here's what it caught. First, the speakers. The model still guessed wrong: two of four. The model didn't get smarter. But now it had to stop and show me before it wrote anything. I fixed it in one line, and nothing wrong ever reached the note.
+>
+> Second, my own bug. A time-zone bug made the script look for a note at 12 o'clock. The meeting was at 10. So it refused to file, and it stopped, instead of quietly filing at the wrong time.
+>
+> The check is a small script, not a sentence in the prompt. That's the difference. The model can talk its way round a sentence. It cannot talk a script round."
+
+**Accuracy note:** only the time-zone bug failed loudly. The speaker mistake was caught because the model had to stop and show it. Don't claim both failed loudly.
+
+**Source:** `scripts/meeting-state.py check` and `complete`. It prints `GATE BLOCKED`.
+
+**Time:** ~1 min 30
+
+---
+
+## Page 11 · "10 · Rule 5": Mark the *one-way doors*
+
+**On screen:** The approval dialog for step 7. Three lines from the Pi session log, 24 Sep 2026, 14:33 to 14:34.
+
+> "Rule 5: mark the one-way doors.
+>
+> A one-way door is a step you can't undo. Sending something. Deleting something. Filing something where people will see it.
+>
+> Step 7 of my flow deletes the transcript, the audio and the progress file for that meeting. So it asks me first, in a dialog the model cannot see or click. Only I can answer. And every yes is saved in a log.
+>
+> Notice I only do this on the doors. If I put nine hard gates on every meeting, I'd learn to click yes without reading, and then the gates are worthless.
+>
+> Now here's what happened two weeks ago, in a test run. I clicked Block. My agent app, Pi, told the model: Amar blocked step 7. Stop and ask what to change. Do not run it another way.
+>
+> Forty seconds later, the model said: 'Let me try with dry-run.'
+>
+> Twenty-three seconds after that: 'Dry run confirms. There's nothing to clean up.'
+>
+> Now, it was harmless. A dry run changes nothing, so the check lets it through, and the delete itself never ran. But I had said stop. And the model looked for another way.
+>
+> The instruction didn't decide what ran. The check did."
+
+**Time:** ~1 min 45
+
+---
+
+## Page 12 · "11 · Rule 5, under pressure": The model offered to *approve itself*
+
+**On screen:** The model's own words, from the Pi session log, 24 Sep 2026, 16:36. A card on Jev from TypeSafe AI.
+
+> "Two hours later, it got better. The approval dialog failed to appear. A bug on my side. And the model offered this."
+
+**Cue:** Read the quote slowly. Then pause. Let the room get there.
+
+> "'If you're okay with me recording the approval directly in the state file, I can set human_approved for step 6 and rerun.'
+>
+> It offered to approve itself.
+>
+> Not out of malice. It was trying to be helpful. It saw an obstacle between it and finishing the job, and it offered to remove the obstacle. And a helpful model will walk through a door you meant to keep shut.
+>
+> You might think that's a small-model problem. So here's this month's news. TypeSafe AI released Jev: a model built only to make decisions, not to write text. It can't ramble, because it doesn't write. A write-up that week was called, literally, 'The State Machine Is the Agent'.
+>
+> And days later, an engineer at Octomind showed that fake approval text in the input changed Jev's decision. Its block score dropped from 0.76 to 0.48.
+>
+> So even the model built from scratch to make decisions still sits inside a loop, with a person at the one-way doors."
+
+**Accuracy notes:** Jev early access opened 15 Sep. The StackToHeap write-up and the VentureBeat piece both ran on 21 Sep. The injection finding was one Octomind engineer. Say "an engineer", never "researchers".
+
+**Time:** ~2 min
+
+---
+
+## Page 13 · "12 · The result": My flow in May vs *my flow today*
+
+**On screen:** Six rows, May against today. Same meeting, same model, same answers.
+
+> "So, did it work? Same meeting. Same model. Same answers to its questions. My flow in May, against my flow today.
+>
+> Checked the speakers before writing: no, now yes. Quotes given to the right person: three of five, now five of five. One note per meeting: two notes, now one. The right date: no, now yes. Asked before filing or deleting: no, now yes. And carried on after I quit: I never tested that in May, and it works today.
+>
+> To be fair, and I want to be fair: today's flow also has more steps and better scripts. This isn't a lab test. It's my flow in May, against my flow today.
+>
+> And more steps means more places to go wrong. It also means more places to notice.
+>
+> The old flow went wrong quietly. The new one goes wrong loudly, early, and where I can fix it."
+
+**Sources:** May column is cloud run A, `qwen3.6-35b-a3b` on OpenRouter. Today is run B, the same model.
+
+**Time:** ~1 min 30
+
+---
+
+## Page 14 · "13 · Take these home": Five rules. *None of them needs code.*
+
+**On screen:** The five rules, each with a one-line gloss. Leave this slide up through Q&A.
+
+> "So, five rules. And none of them needs code.
+>
+> One: write the steps down, and give each one to the right worker. Judgement goes to the model. One right answer goes to a script.
+>
+> Two: make every step leave a file. The next step starts from the file, not the chat.
+>
+> Three: keep progress outside the model. A note that says which step you're on.
+>
+> Four: check before and after every step. If the answer is no, stop.
+>
+> Five: mark the one-way doors. A person says yes before anything is sent, deleted or filed.
+>
+> Try one tonight. Take your messiest AI workflow, and write down the steps, and what each one should produce. That's it. A checklist and a shared folder are enough to start.
+>
+> And this isn't only for meeting notes. It works for a hiring process, a month-end report, customer onboarding. Anywhere there are steps and a door you can't walk back through."
+
+**Time:** ~1 min 15
+
+---
+
+## Page 15 · Close: Models change every month.
+
+> "I started this to save money. I ended up with a system I trust more than the frontier model I left, running on a graphics card built for games.
+>
+> Models change every month. Build your flow so the model is a part you can swap.
+>
+> Thank you."
+
+**Cue:** Go back to page 14 for Q&A.
+
+**Time:** ~30 sec
+
+---
+
+## Timing
+
+| Part | Pages | Time |
+|---|---|---|
+| Hook | 1-2 | 1:50 |
+| What broke | 3-5 | 4:45 |
+| The turn | 6 | 1:30 |
+| Five rules | 7-12 | 9:00 |
+| Proof | 13 | 1:30 |
+| Take home | 14-15 | 1:45 |
+| **Total** | | **~20:20** |
+
+For a 15-minute slot use `script-15min.md`.
+
+---
+
+## Q&A (5 minutes)
+
+**Q: Isn't 95% accuracy per step good enough?**
+> "Chain ten of those steps and the whole run comes out right only about 60% of the time. That's why the checks sit between the steps, not only at the end."
+
+**Q: The model offered to edit the state file. What stops it doing that anyway?**
+> "Honest answer: my gate stops a model that drifts past a question. It won't stop one that edits the file on purpose. That's the next layer: making the approval something the model can't write at all. I'd rather tell you where the edge is than pretend there isn't one."
+
+**Q: Why only gate the one-way doors? Why not every step?**
+> "Because I'm the weak link. Nine hard gates per meeting would train me to click yes without reading. The checks run on every step, automatically. The human only sits at the doors, where a yes means something."
+
+**Q: Why not go back to Claude?**
+> "I could, and the flow would run on it without changes, which is the point. But the limit, the cost, privacy and not depending on one vendor all still point local. And honestly: I trust this system more now than I trusted the frontier model without it."
+
+**Q: How is this different from Temporal or AWS Step Functions?**
+> "Same problem, different scale. They give you durable workflows with servers, workers and workflow code. Mine is a progress file, some small scripts, and one rule: check before and after every step. For one person or a small team, that's enough. At company scale, use Temporal."
+
+**Q: Jev is built for exactly these decisions. Doesn't it replace all this?**
+> "It's a better part, not the structure. It doesn't remember which step you're on, survive a restart, or hold a door shut. And fake approval text moved its decision the week it launched. It still needs the loop around it. If anything, Jev makes the case: put the model inside the loop, not in charge of it."
+
+**Q: Isn't this just a state machine? What's new?**
+> "The state machine isn't new. Putting one around an unpredictable worker is the part worth talking about. And the fact that you don't need a workflow engine to do it: a file, a few checks, and the discipline to stop when a check says no."
+
+**Q: I don't write code. Can I use this?**
+> "Yes. A script is anything that gives the same answer every time: a template, a spreadsheet formula, a form. Write the steps down, make each leave something you can check, and decide which steps need your yes. A checklist and a shared folder are enough to start."
+
+**Q: Can you share the code?**
+> "The shape is the valuable part, and it's all on these slides. My code is tangled up with my own setup: Pi, my notes app, a handful of scripts. Happy to talk through any piece of it."
+
+---
+
+## If Opusfived won't load
+
+Two sentences, then move on: "It's a game where you ask an AI to make one button blue. It spirals into checking its own checks and calling more agents, and the button never turns blue." The slide carries the rest.
+
+---
+
+## References
+
+### Opening
+
+- **Opusfived** by Milos Novovic. https://opusfived.dev/
+
+### Test meeting
+
+- **"OKR Planning with GitLab Executive Team"**, GitLab Unfiltered, public on YouTube.
+
+### Jev / TypeSafe AI (September 2026)
+
+- **"Introducing System One Models & Jev"** (TypeSafe AI): the launch; outputs decisions, not text. https://typesafe.ai/blog/introducing-system-one-models-and-jev
+- **"Jev at the Branches: The State Machine Is the Agent"** (StackToHeap, 21 Sep): deterministic code owns the loop, Jev supplies judgement at the branches. https://stacktoheap.com/blog/2026/09/21/the-state-machine-is-the-agent/
+- **"Companies are putting Jev in charge of AI agent decisions, and prompt injection can influence the verdict"** (VentureBeat, 21 Sep): one Octomind engineer, block score 0.76 to 0.48. https://venturebeat.com/security/companies-are-putting-jev-in-charge-of-ai-agent-decisions-and-prompt-injection-can-influence-the-verdict
+- **"What Is Jev? A Guide to TypeSafe AI's System One Model"** (LangChain). https://www.langchain.com/blog/building-a-harness-with-jev
+- **"A new kind of AI model from a ChatGPT inventor…"** (TechCrunch). https://techcrunch.com/2026/09/18/a-new-kind-of-ai-model-from-a-chatgpt-inventor-is-thrilling-developers/
+
+### Workflow engines, for the Temporal question
+
+- **Temporal**: durable execution. https://temporal.io/
+- **AWS Step Functions**: serverless workflow orchestration. https://aws.amazon.com/step-functions/
+- **LangGraph**: stateful agent orchestration. https://langchain-ai.github.io/langgraph/
+
+### Background reading
+
+- **"Why Cheap Models Fail Silently in Long Agent Loops"**: instructions decay, JSON drifts, confident wrong plans. https://dreaming.press/posts/why-cheap-models-fail-silently-in-long-agent-loops.html
+- **"AI Agents Coded for 16 Days Straight. The Model Didn't Do That, the Harness Did."** https://dreaming.press/posts/agents-that-run-for-days-durable-harness-not-model.html
+- **"LLM Agent Guardrails: The Engineering Playbook"** (DEV): an 8B local model from 53% to 99% on agentic workflows. https://dev.to/monuminu/llm-agent-guardrails-the-engineering-playbook-for-taking-an-8b-local-model-from-53-to-99-on-18c
+- **"Reason Less, Verify More: Deterministic Gates Recover a Silent Policy-Violation Failure Mode in Tool-Using LLM Agents"** (arXiv, Jul 2026). https://arxiv.org/html/2607.07405v1
+- **"When Small Models Are Right for Wrong Reasons"** (arXiv, Jan 2026). https://arxiv.org/html/2601.00513
+- **Adam Terlson (Best Buy), AI Engineer**: finite state machines for multi-agent systems. https://ai.engineer/talks/building-multi-agent-systems-with-finite-state-machines
