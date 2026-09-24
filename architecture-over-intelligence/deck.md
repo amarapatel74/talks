@@ -417,21 +417,22 @@ If asked: ten unchecked steps at 95% each come out right only about 60% of the t
 
 <div class="body">
 
-<div class="word"><em>one-way door</em> = a step you cannot undo: filing, deleting, sending</div>
 
-<div class="cols" style="grid-template-columns: 0.9fr 1.3fr; margin-top:16px; align-items:start">
+<div class="cols" style="grid-template-columns: 0.9fr 1.3fr; align-items:start">
 <div>
 <div class="dialog">
-  <div class="bar">One-way door · step 7</div>
+  <div class="bar">One-way door · step 7: clean up</div>
   <div class="msg">Delete the transcript, audio and progress file for this meeting. Approve?</div>
   <div class="btns"><span class="btn ok">Approve</span><span class="btn block">Block</span></div>
 </div>
-<p style="font-size:0.7em;margin-top:12px">Only a person can answer this. The model cannot see or click it. Every “yes” is saved in a log.</p>
+<p style="font-size:0.7em;margin-top:12px">A step you cannot undo. Only I can answer: the model cannot see or click this. Every “yes” is saved in a log.</p>
+<p style="font-size:0.7em;margin-top:10px"><b>Dry runs pass the check:</b> they change nothing. The delete itself never ran.</p>
 </div>
 <div>
-<div class="terminal"><span class="who">Pi → model, after I clicked Block</span><span class="gate">Amar blocked step 7. Stop and ask what to change. Do not run it another way.</span></div>
+<div class="terminal"><span class="who">My agent app (Pi) → model, after I clicked Block</span><span class="gate">Amar blocked step 7. Stop and ask what to change. Do not run it another way.</span></div>
 <div class="terminal"><span class="who">Model, 40 seconds later</span><span class="model">Let me try with --dry-run…</span></div>
-<div class="stamp">Pi session log, 24 Sep 2026, 14:33:33 and 14:34:13</div>
+<div class="terminal"><span class="who">Model, 23 seconds after that</span><span class="model">Dry run confirms… There’s nothing to clean up.</span></div>
+<div class="stamp">Pi session log, test meeting, 24 Sep 2026, 14:33–14:34</div>
 </div>
 </div>
 
