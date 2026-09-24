@@ -4,316 +4,514 @@ theme: meetup
 paginate: true
 size: 16:9
 html: true
-footer: 'Architecture Over Intelligence · The AI Fellowship Madrid'
+footer: 'Architecture Over Intelligence · The AI Fellowship Madrid · 9 Oct 2026'
 ---
 
 <!-- _class: lead -->
+<!-- _paginate: false -->
 
 # Architecture Over Intelligence
 
-<div class="subtitle">Designing reliable AI workflows</div>
+<div class="subtitle">How I made AI workflows reliable, even on a small model</div>
 
-<div class="author">Amar Patel · The AI Fellowship Madrid · 9 Oct 2026</div>
+<div class="author">Amar Patel · The AI Fellowship Madrid · 9 October 2026</div>
 
 <div class="lead-motif"><span class="a"></span><span class="b"></span><span class="c"></span></div>
 
+<!--
+Walk on. Ask for a volunteer before saying anything else.
+-->
+
 ---
 
-# "Investigate this incident" is one job. *It isn't.*
+<div class="kicker">1 · A game</div>
+
+# Make one button blue. *Nothing else.*
+
+<div class="body">
+
+<div class="loop">
+  <div class="task">Task: make this button blue <i></i></div>
+  <span class="a">→</span>
+  <div class="c">check the work</div><span class="a">→</span>
+  <div class="c">check the check</div><span class="a">→</span>
+  <div class="c">call more AI agents</div><span class="a">→</span>
+  <div class="c">explain why checking matters</div><span class="a">→</span>
+  <div class="c">check again…</div>
+</div>
+
+<p style="font-size:0.8em">Opusfived, a parody by Milos Novovic: <b>opusfived.dev</b></p>
+
+<p style="font-size:0.74em;color:var(--muted)">The button never turns blue. And every check is paid for. <span class="coin">€</span> <span class="coin">€</span> <span class="coin">€</span></p>
+
+</div>
+
+<div class="inshort"><b>In short</b> A clever AI can waste time and money on a very simple job.</div>
+
+<!--
+Volunteer picks the options. Max 30 seconds of spiral.
+"It's funny because it's true, and it's also where my tokens went. Every one of those checks is paid for."
+If the site doesn't load in 10 seconds: describe it in two sentences, move on.
+-->
+
+---
+
+<div class="kicker">2 · Why I changed models</div>
+
+# I hit my limit, halfway through a meeting
+
+<div class="body">
+
+<div class="cols">
+  <div class="card soft">
+    <div class="sub">Before · until May 2026</div>
+    <h3>Claude (cloud)</h3>
+    <ul>
+      <li>Very capable</li>
+      <li>Usage limit on my plan</li>
+      <li>My meetings leave my house</li>
+    </ul>
+  </div>
+  <div class="card good">
+    <div class="sub">After · from May 2026</div>
+    <h3>Qwen 3.6 (open model, on my desk)</h3>
+    <ul>
+      <li>Runs on a 16 GB gaming graphics card</li>
+      <li>No limit, no bill</li>
+      <li>Private: nothing leaves the house</li>
+    </ul>
+  </div>
+</div>
+
+<div class="pullquote">Economics started the journey. Drift is what I found along the way.</div>
+
+</div>
+
+<div class="inshort"><b>In short</b> I moved to a smaller, local AI to save money. Then it started to go wrong.</div>
+
+<!--
+My system: morning briefing, inbox, meetings (recording → who said what → summary → actions → filed note).
+The limit was the trigger. Cost, privacy, not depending on one vendor were the reasons to stay local.
+Say the hinge line slowly.
+-->
+
+---
+
+<div class="kicker">3 · Drift</div>
+
+# Same meeting. Same answers. *My May workflow.*
+
+<div class="body">
+
+<div class="word"><em>drift</em> = the AI slowly goes off track, and does not notice</div>
+
+<div class="cols" style="margin-top:14px">
+  <div class="card bad">
+    <div class="sub">Run 1 · Qwen on my own computer</div>
+    <ul class="checks">
+      <li><span class="no">✗</span><span class="t">Wrote the note <b>before</b> it knew who was speaking</span></li>
+      <li><span class="no">✗</span><span class="t">Named <b>4 of 4</b> speakers wrong. The CEO became “head of alliances”</span></li>
+      <li><span class="no">✗</span><span class="t">Deleted the transcript <b>without asking</b></span></li>
+    </ul>
+  </div>
+  <div class="card bad">
+    <div class="sub">Run 2 · same model, in the cloud · “seemed smarter”</div>
+    <ul class="checks">
+      <li><span class="no">✗</span><span class="t"><b>Two</b> notes for one meeting</span></li>
+      <li><span class="no">✗</span><span class="t">The <b>wrong date</b></span></li>
+      <li><span class="no">✗</span><span class="t"><b>2 of 5</b> quotes given to the wrong person</span></li>
+      <li><span class="no">✗</span><span class="t">A Chinese word in an English sentence: “metric归属”</span></li>
+    </ul>
+  </div>
+</div>
+
+<p style="font-size:0.64em;color:var(--muted);margin-top:10px">Test meeting: “OKR Planning with GitLab Executive Team”, GitLab Unfiltered, public on YouTube.</p>
+
+</div>
+
+<div class="inshort"><b>In short</b> Smarter is not the same as correct.</div>
+
+<!--
+"On Claude it worked. On Qwen it drifted."
+Local run: 35 min, stopped by hand. Cloud run: better precision, same kinds of mistakes, better hidden.
+Line: "It knew the right names and still put the wrong name on the quote."
+-->
+
+---
+
+<div class="kicker">4 · My first fix: more words</div>
+
+# More instructions. Then *SHOUTING*.
+
+<div class="body">
+
+<div class="cols" style="grid-template-columns: 1.35fr 1fr; align-items:start">
+<div>
+
+<div class="metric"><div class="mlabel">Lines in the prompt <span>(instructions to the AI)</span></div>
+<div class="bars">
+  <div class="when">11 May</div><div class="bar ink" style="width:17.5%">73</div>
+  <div class="when">8 Sep</div><div class="bar ink" style="width:100%">416</div>
+  <div class="when">17 Sep</div><div class="bar ink" style="width:57.7%">240</div>
+</div></div>
+
+<div class="metric"><div class="mlabel">Warnings in CAPITALS <span>(MUST, NEVER, STOP…)</span></div>
+<div class="bars">
+  <div class="when">11 May</div><div class="bar zero" style="width:8%">0</div>
+  <div class="when">8 Sep</div><div class="bar red" style="width:100%">13</div>
+  <div class="when">17 Sep</div><div class="bar zero" style="width:8%">0</div>
+</div></div>
+
+<div class="metric"><div class="mlabel">Scripts doing the sure things <span>(normal code)</span></div>
+<div class="bars">
+  <div class="when">11 May</div><div class="bar green" style="width:16.7%">1</div>
+  <div class="when">8 Sep</div><div class="bar green" style="width:66.7%">4</div>
+  <div class="when">17 Sep</div><div class="bar green" style="width:100%">6</div>
+</div></div>
+
+</div>
+<div>
+
+<div class="terminal"><span class="who">A real line from 8 September</span>If preconditions fail → STOP. Report gate failure.</div>
+
+<div class="card soft" style="margin-top:14px">
+<p><b>It helped a little.</b></p>
+<p>But an instruction is only a suggestion. The model can still decide something else matters more.</p>
+<p>What worked: moving the work <b>out of the prompt</b> and into code.</p>
+</div>
+
+</div>
+</div>
+
+</div>
+
+<div class="inshort"><b>In short</b> If you write MUST in capitals, your process is missing a check.</div>
+
+<!--
+"Every time it skipped a step, I added a line."
+"The prompt got shorter as the scripts took over: one in May, four by early September, six today. The work didn't disappear. It moved out of the prompt."
+Source: git history of .pi/skills/process-meeting/SKILL.md.
+-->
+
+---
+
+<div class="kicker">5 · The turn</div>
+
+# Split the work into three parts
+
+<div class="body">
+
+<div class="trio">
+  <div class="box model">
+    <svg viewBox="0 0 48 48" fill="none" stroke="#A63E12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M24 6a12 12 0 0 0-7 21.7V33h14v-5.3A12 12 0 0 0 24 6z"/><path d="M19 38h10M21 43h6"/></svg>
+    <div class="who">Model</div>
+    <div class="verb">thinks · judgement</div>
+    <ul><li>Who is speaking?</li><li>What was important?</li><li>What did people agree to do?</li></ul>
+  </div>
+  <div class="box scripts">
+    <svg viewBox="0 0 48 48" fill="none" stroke="#33544A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="7"/><path d="M24 5v6M24 37v6M5 24h6M37 24h6M10.6 10.6l4.2 4.2M33.2 33.2l4.2 4.2M10.6 37.4l4.2-4.2M33.2 14.8l4.2-4.2"/></svg>
+    <div class="who">Scripts</div>
+    <div class="verb">do · the sure things</div>
+    <ul><li>Dates and file names</li><li>Filing the note</li><li>Checking every step</li></ul>
+  </div>
+  <div class="box files">
+    <svg viewBox="0 0 48 48" fill="none" stroke="#231B12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M13 5h16l8 8v30H13z"/><path d="M29 5v8h8M18 22h14M18 29h14M18 36h9"/></svg>
+    <div class="who">Files</div>
+    <div class="verb">remember · memory</div>
+    <ul><li>Which step we are on</li><li>What is already done</li><li>What each step produced</li></ul>
+  </div>
+</div>
+
+<p style="font-size:0.74em;margin-top:14px">Qwen is good at two things: <b>calling tools</b> and <b>writing clean data (JSON)</b>. So I gave it only the judgement. I worked this out with help from Claude and Qwen.</p>
+
+</div>
+
+<div class="inshort"><b>In short</b> The model thinks. Scripts do. Files remember.</div>
+
+<!--
+"The fix wasn't a smarter model. It was a different shape."
+Full script only: every step is safe to run twice (idempotent), so a restart never duplicates.
+The next slides are these three pieces.
+-->
+
+---
+
+<div class="kicker">6 · Rule 1</div>
+
+# Give each step to *the right worker*
+
+<div class="body">
+
+<div class="sorter">
+  <div class="col model">
+    <div class="head">Model</div>
+    <div class="q">Does this need judgement?</div>
+    <div class="chips"><span class="chip">Who is speaking</span><span class="chip">Summary</span><span class="chip">Actions</span><span class="chip">Priorities</span><span class="chip">Tone of the meeting</span></div>
+  </div>
+  <div class="col script">
+    <div class="head">Script</div>
+    <div class="q">Is there only one right answer?</div>
+    <div class="chips"><span class="chip">Date and time</span><span class="chip">File name and folder</span><span class="chip">Copy the transcript</span><span class="chip">Link to the project</span><span class="chip">Delete old files</span></div>
+  </div>
+</div>
+
+<div class="evidence">
+  <div class="fact"><div class="big">5,000 words</div><div class="small">In May, the model retyped the whole transcript. It ran out of space, and I paid for every word.</div></div>
+  <div class="fact"><div class="big">Wrong date</div><div class="small">The date was already in the file name. The model still got it wrong.</div></div>
+  <div class="fact green"><div class="big">1 → 6 scripts</div><div class="small">Today, scripts do the sure things. They get them right every time.</div></div>
+</div>
+
+</div>
+
+<div class="inshort"><b>In short</b> If the answer never changes, don’t ask a model.</div>
+
+<!--
+Eleven steps: discover, speakers, context, summary, sentiment, personal notes, actions, triage, follow-up, file, clean up.
+For non-coders: a "script" can be a template, a spreadsheet formula or a form. Anything that gives the same answer every time.
+Link back to Opusfived: paid-for work again.
+-->
+
+---
+
+<div class="kicker">6 · Rule 2</div>
+
+# Every step leaves *a file*
 
 <div class="body">
 
 <div class="flow">
-  <div class="step">Pull the error logs</div>
-  <div class="arrow">→</div>
-  <div class="step">Identify affected systems</div>
-  <div class="arrow">→</div>
-  <div class="step">Assess the severity</div>
-  <div class="arrow">→</div>
-  <div class="step">Draft a response plan</div>
-  <div class="arrow">→</div>
-  <div class="step">Page the on-call</div>
-  <div class="arrow">→</div>
-  <div class="step">Write the postmortem</div>
+  <div class="step">Map the speakers</div><div class="arrow">→</div>
+  <div class="step file">speaker-map.json</div><div class="arrow">→</div>
+  <div class="step">Summarise</div><div class="arrow">→</div>
+  <div class="step file">summary.json</div><div class="arrow">→</div>
+  <div class="step">Find actions</div><div class="arrow">→</div>
+  <div class="step file">actions.json</div><div class="arrow">→</div>
+  <div class="step">Script files the note</div>
 </div>
 
-One request sets off a chain of small jobs.
-
-Each job needs the one before it. If one step drifts, every step after it drifts too.
+<div class="cols" style="margin-top:10px">
+  <div class="card soft"><h3>A chat forgets</h3><p>It gets long. Early details get lost. You cannot check it.</p></div>
+  <div class="card good"><h3>A file remembers</h3><p>The next step starts from the file, not the chat. A script can check it: <b>is it there? does it have the right shape?</b></p></div>
+</div>
 
 </div>
+
+<div class="inshort"><b>In short</b> Each step writes down its result, so the next step never has to remember.</div>
+
+<!--
+Dashed boxes are files. Solid boxes are work.
+The final note is built by a script (file-meeting.py) from these files. The model never writes it by hand.
+-->
 
 ---
 
-# The demo vs. production gap
+<div class="kicker">7 · Rule 3</div>
+
+# Keep progress *outside* the model
 
 <div class="body">
 
-<div class="split">
-  <div class="panel demo">
-    <div class="panel-title">In a demo</div>
-    <ul>
-      <li>One uninterrupted session</li>
-      <li>Mistakes are annoying</li>
-      <li>A human watches the whole time</li>
-      <li>A frontier model</li>
-    </ul>
-  </div>
-  <div class="panel prod">
-    <div class="panel-title">In production</div>
-    <ul>
-      <li>Compaction, reset, walk-aways</li>
-      <li>Mistakes are data loss</li>
-      <li>A human checks hours later</li>
-      <li>A cheaper model that drifts</li>
-    </ul>
-  </div>
-</div>
-
-A demo works because nothing interrupts it.
-
-In production, the session ends, the model changes, and a mistake now costs you.
-
-</div>
-
----
-
-# A JSON file is the *source of truth*
-
-<div class="body">
-
+<div class="cols" style="grid-template-columns: 1fr 1.15fr; align-items:center">
+<div>
 <div class="statefile">
-  <div class="tab"><span><span class="dot"></span>process-state.json</span><span>meeting_id: 2026-01-15_140000</span></div>
+  <div class="tab"><span><span class="dot"></span>progress file</span><span>.process-state.json</span></div>
   <div class="fields">
     <div class="field active"><span class="key">current_step</span><span class="val">2.6</span></div>
-    <div class="field"><span class="key">completed_steps</span><span class="val">[-1, 0, 1, 2, 2.5, 2.6]</span></div>
-    <div class="field"><span class="key">user_confirmed.summary</span><span class="val">true</span></div>
-    <div class="field"><span class="key">aborted</span><span class="val">false</span></div>
+    <div class="field"><span class="key">completed_steps</span><span class="val">-1, 0, 1, 2, 2.5, 2.6</span></div>
+    <div class="field"><span class="key">speakers confirmed</span><span class="val">yes</span></div>
+    <div class="field"><span class="key">aborted</span><span class="val">no</span></div>
+  </div>
+</div>
+</div>
+<div>
+<div class="resume-labels"><span>working</span><span>I quit</span><span>I reopen</span><span>carries on</span></div>
+<div class="resume"><div class="seg"></div><div class="file">step 3<br>half done</div><div class="gap"></div><div class="file">reads the file</div><div class="seg"></div></div>
+<p style="font-size:0.76em;margin-top:14px">In rehearsal I closed everything in the middle of step 3. When I opened it again, it read this file and carried on. <b>Nothing repeated. Nothing lost.</b></p>
+<p style="font-size:0.76em">The same file let me run the demos on my local Qwen and on a cloud copy <b>without changing a line</b>.</p>
+</div>
+</div>
+
+</div>
+
+<div class="inshort"><b>In short</b> The model forgets everything. The file doesn’t.</div>
+
+<!--
+"The model had forgotten everything. The file hadn't."
+Also an audit trail: open the file and see what ran and who said yes.
+-->
+
+---
+
+<div class="kicker">8 · Rule 4</div>
+
+# Check *before* and *after* every step
+
+<div class="body">
+
+<div class="gatecheck">
+  <div class="q"><b>Before</b>Is it this step’s turn?</div>
+  <div class="arr">→</div>
+  <div class="work">Do the step</div>
+  <div class="arr">→</div>
+  <div class="q"><b>After</b>Did it leave its file, in the right shape?</div>
+</div>
+<div class="stopline"><div class="stop">if no<br><span>STOP</span></div><div></div><div></div><div></div><div class="stop">if no<br><span>STOP</span></div></div>
+
+<div class="cols">
+  <div class="card">
+    <div class="sub">What it caught · speakers</div>
+    <p>The model still guessed wrong: <b>2 of 4</b> speakers. But now it had to <b>stop and show me first</b>. I fixed it in one line, before anything was written.</p>
+  </div>
+  <div class="card">
+    <div class="sub">What it caught · my own bug</div>
+    <p>A time-zone bug made the script look for a <b>12:00</b> note. The meeting was at <b>10:00</b>. It <b>refused to file</b> and stopped, instead of filing at the wrong time.</p>
   </div>
 </div>
 
-Every step reads the same file before it runs. It shows the last step done — here 2.6, so the next is 3.
-
-If the session dies, the next run starts from that same file and that same step, and redoes nothing.
-
 </div>
+
+<div class="inshort"><b>In short</b> The check is a small script, not a sentence in the prompt. The model cannot talk it round.</div>
+
+<!--
+"If either answer is no, stop. Don't patch it by hand: a hand patch is exactly the drift you're trying to catch."
+Script: scripts/meeting-state.py check / complete. Prints GATE BLOCKED.
+Don't claim both bugs failed loudly: only the time shift did.
+-->
 
 ---
 
-# A gate is *authority*, not just quality control
+<div class="kicker">9 · The result</div>
+
+# My flow in May vs *my flow today*
 
 <div class="body">
 
-<div class="gates">
-  <div class="gate auto">
-    <div class="dot"></div>
-    <div class="gate-title">Auto</div>
-    <p>Runs without stopping. Nothing irreversible here, and a human checks it at a later gate.</p>
-    <p class="when">Reads, health checks, sentiment.</p>
-  </div>
-  <div class="gate human">
-    <div class="dot"></div>
-    <div class="gate-title">Human</div>
-    <p>Stops and waits for your yes before continuing.</p>
-    <p class="when">Anything that changes data.</p>
-  </div>
-  <div class="gate blocked">
-    <div class="dot"></div>
-    <div class="gate-title">Blocked</div>
-    <p>Cannot continue. Something required is missing or broken.</p>
-    <p class="when">Missing file, corrupted state.</p>
-  </div>
+<div class="score">
+  <div class="h">Same meeting, model and answers</div><div class="h old">May</div><div class="h new">Today</div>
+  <div class="lab">Checked the speakers before writing</div><div><span class="no">✗</span></div><div><span class="yes">✓</span></div>
+  <div class="lab">Quotes given to the right person</div><div><span class="no">✗</span> 3 of 5</div><div><span class="yes">✓</span> 5 of 5</div>
+  <div class="lab">One note per meeting</div><div><span class="no">✗</span> 2 notes</div><div><span class="yes">✓</span> 1 note</div>
+  <div class="lab">Right date</div><div><span class="no">✗</span></div><div><span class="yes">✓</span></div>
+  <div class="lab">Asked before filing or deleting</div><div><span class="no">✗</span></div><div><span class="yes">✓</span></div>
+  <div class="lab">Carried on after I quit</div><div><span class="na">–</span> not tested</div><div><span class="yes">✓</span></div>
 </div>
 
-"Auto" does not mean the model got it right. It means a mistake here is cheap and always reviewed later.
-
-<div class="dial">
-  <div class="track"><div class="marker" style="left:28%"></div></div>
-  <div class="labels"><span>Reviews every step</span><span>Guards only the irreversible</span></div>
-</div>
-
-You don't remove the human as the model improves. You move it: from checking every step, to guarding only the steps that cannot be undone.
+<p style="font-size:0.66em;color:var(--muted);margin-top:10px">To be fair: today’s flow also has more steps and better scripts. This is not a lab test. It is my flow in May against my flow today.</p>
 
 </div>
+
+<div class="inshort"><b>In short</b> The old flow went wrong quietly. The new one goes wrong loudly, early, and where I can fix it.</div>
+
+<!--
+"More steps means more places to go wrong. It also means more places to notice."
+May column = cloud run A (qwen3.6-35b-a3b on OpenRouter). Today = run B, same model.
+If asked: ten unchecked steps at 95% each come out right only about 60% of the time.
+-->
 
 ---
 
-# Each step declares its *contract*
+<div class="kicker">10 · Rule 5</div>
+
+# Mark the *one-way doors*
 
 <div class="body">
 
-<div class="flow">
-  <div class="step">Step 0<br>Speaker Mapping</div>
-  <div class="arrow">→ produces</div>
-  <div class="step file">speaker-map.json</div>
-  <div class="arrow">→ required by</div>
-  <div class="step">Step 1<br>Context Extraction</div>
+<div class="word"><em>one-way door</em> = a step you cannot undo: filing, deleting, sending</div>
+
+<div class="cols" style="grid-template-columns: 0.9fr 1.3fr; margin-top:16px; align-items:start">
+<div>
+<div class="dialog">
+  <div class="bar">One-way door · step 7</div>
+  <div class="msg">Delete the transcript, audio and progress file for this meeting. Approve?</div>
+  <div class="btns"><span class="btn ok">Approve</span><span class="btn block">Block</span></div>
+</div>
+<p style="font-size:0.7em;margin-top:12px">Only a person can answer this. The model cannot see or click it. Every “yes” is saved in a log.</p>
+</div>
+<div>
+<div class="terminal"><span class="who">Pi → model, after I clicked Block</span><span class="gate">Amar blocked step 7. Stop and ask what to change. Do not run it another way.</span></div>
+<div class="terminal"><span class="who">Model, 40 seconds later</span><span class="model">Let me try with --dry-run…</span></div>
+<div class="stamp">Pi session log, 24 Sep 2026, 14:33:33 and 14:34:13</div>
+</div>
 </div>
 
-Every step declares two things: what it produces, and what it needs.
-
-Before a step runs, it checks its inputs really exist on disk. Missing input? It stops and says so — never guesses.
-
 </div>
+
+<div class="inshort"><b>In short</b> The instruction said stop. The model kept going. The check held.</div>
+
+<!--
+"It was harmless, a dry run. But the instruction said stop, and the model kept going. The check held where the instruction didn't."
+Only on the doors: nine hard gates per meeting would train me to rubber-stamp.
+-->
 
 ---
 
-# Interruption is not a bug
+<div class="kicker">11 · The whole talk in one sentence</div>
+
+# The model offered to *approve itself*
 
 <div class="body">
 
-<div class="resume-labels"><span>step 3 finishes</span><span>context reset · you walk away</span><span>next run resumes at 4</span></div>
-<div class="resume">
-  <div class="seg"></div>
-  <div class="file">aborted:<br>true</div>
-  <div class="gap"></div>
-  <div class="file">step: 3<br>→ step 4</div>
-  <div class="seg"></div>
+<div class="pullquote" style="font-size:1.15em">If you’re okay with me recording the approval directly in the state file, I can set human_approved for step 6 and rerun.</div>
+<div class="stamp">The model, when the approval dialog could not appear. Pi session log, 24 Sep 2026, 16:36</div>
+
+<div class="card soft" style="margin-top:18px">
+<div class="sub">This month · Jev, from TypeSafe AI</div>
+<p>A new model built only to <b>make decisions</b>, not to write text. A write-up that week was called <b>“The State Machine Is the Agent”</b>.</p>
+<p>Days later, an engineer showed that <b>fake approval text</b> changed Jev’s decision: its “block” score went from <b>0.76 to 0.48</b>.</p>
 </div>
-
-The file is written after every step, so nothing depends on memory.
-
-Step 3 finishes → the file is on disk → the session dies (context reset, or you leave) → the next run reads the file → resumes at 4, redoing nothing.
 
 </div>
 
----
+<div class="inshort"><b>In short</b> The model means well. A helpful model will walk through a door you meant to keep shut.</div>
 
-# One real pipeline: *11 steps, 8 LLM calls*
-
-<div class="body">
-
-<div class="pipeline">
-  <div class="node human"><span class="dot"></span>discovery</div>
-  <div class="node human"><span class="dot"></span>speakers</div>
-  <div class="node human"><span class="dot"></span>context</div>
-  <div class="node human"><span class="dot"></span>summary</div>
-  <div class="node auto"><span class="dot"></span>sentiment</div>
-  <div class="node human"><span class="dot"></span>personal</div>
-  <div class="node human"><span class="dot"></span>actions</div>
-  <div class="node human"><span class="dot"></span>triage</div>
-  <div class="node human"><span class="dot"></span>follow-up</div>
-  <div class="node human"><span class="dot"></span>file</div>
-  <div class="node optional"><span class="dot"></span>cleanup</div>
-</div>
-
-<div class="legend">
-  <span><i class="d-human"></i>stops for a human</span>
-  <span><i class="d-auto"></i>runs alone</span>
-  <span><i class="d-opt"></i>optional</span>
-</div>
-
-<div class="stats">
-  <div class="stat"><div class="n">9</div><div class="l">Human checkpoints</div></div>
-  <div class="stat"><div class="n">4</div><div class="l">Scripts</div></div>
-  <div class="stat"><div class="n">1</div><div class="l">State file</div></div>
-</div>
-
-Nine of the 11 steps stop for a human; two do not (sentiment runs alone, cleanup is optional).
-
-</div>
-
----
-
-# What broke after months of daily use
-
-<div class="body">
-
-I ran this every working day for months — processing my meetings end to end. Three things broke, and each fix pushed the decision into the file, not into the model.
-
-<div class="icon-list">
-  <div class="row"><div class="badge">✎</div><div class="txt">The state file got edited to the wrong step → <em>validate on load</em></div></div>
-  <div class="row"><div class="badge">⏭</div><div class="txt">The LLM skipped a gate → <em>the file decides, not the prompt</em></div></div>
-  <div class="row win"><div class="badge">✓</div><div class="txt">The context reset mid-pipeline → <em>the file survived, and it resumed where it left off</em> — the win</div></div>
-</div>
-
-Trust the file, and check the artifact itself.
-
-Never trust what the previous step said it did.
-
-</div>
-
----
-
-# The model is always changing
-
-<div class="body">
-
-<div class="timeline">
-  <div class="point"><div class="pt-title">2024</div><p>A bigger model fixed the problem.</p></div>
-  <div class="point"><div class="pt-title">2026</div><p>Bigger models stopped helping. New models kept coming.</p></div>
-  <div class="point"><div class="pt-title">This month</div><p><strong>Jev</strong> — it returns a decision, not a paragraph.</p></div>
-</div>
-
-Scaling hit a wall: paying for a bigger model stopped buying reliability. Yet a new model still lands every month, so the pressure moves onto the cheaper ones — which is exactly where the drift lives.
-
-This month it was Jev. It cannot hallucinate, because it does not write text. But the first good write-up of it was titled:
-
-<div class="pullquote">"The State Machine Is the Agent."</div>
-
-And days later, researchers showed prompt injection can still bend its decisions. Even a model built to be safe sits behind a deterministic loop and a human.
-
-The model changes every month. What stays reliable is the structure around it, not the model.
-
-</div>
-
----
-
-# The same pattern fits many jobs
-
-<div class="body">
-
-<div class="mapping">
-  <div class="row"><div class="left">Meeting processing</div><div class="arrow">→</div><div class="right">Customer-call analysis</div></div>
-  <div class="row"><div class="left">Inbox routing</div><div class="arrow">→</div><div class="right">Email triage &amp; classification</div></div>
-  <div class="row"><div class="left">Task tracking</div><div class="arrow">→</div><div class="right">KPI dashboards</div></div>
-  <div class="row"><div class="left">Model-agnostic guardrails</div><div class="arrow">→</div><div class="right">Many models, one coordinator</div></div>
-</div>
-
-Every row is the same shape: read → transform → a human approves → write to the system of record. Only the names change.
-
-"Many models, one coordinator" just means several different models, each doing a step, all managed by the same state file.
-
-</div>
-
----
-
-# Five rules — and how to check your own workflow
-
-<div class="body">
-
-<div class="rules">
-  <div class="rule"><div class="num">1</div><div class="txt">The <strong>state file</strong> is the source of truth.</div></div>
-  <div class="rule"><div class="num">2</div><div class="txt"><strong>Gates</strong> are structural, not optional.</div></div>
-  <div class="rule"><div class="num">3</div><div class="txt">Declare <strong>artifacts</strong> before they're needed.</div></div>
-  <div class="rule"><div class="num">4</div><div class="txt">Design for <strong>interruption</strong>.</div></div>
-  <div class="rule"><div class="num">5</div><div class="txt"><strong>Architecture &gt; intelligence</strong>.</div></div>
-</div>
-
-Run these three questions over your own agent:
-
-<div class="rules">
-  <div class="rule"><div class="num">a</div><div class="txt">What is your single source of truth — a file, a row, a record?</div></div>
-  <div class="rule"><div class="num">b</div><div class="txt">Where do you stop for a human, and can a step be skipped without one?</div></div>
-  <div class="rule"><div class="num">c</div><div class="txt">Does each step check its inputs exist before it runs?</div></div>
-</div>
-
-Tonight: add one field — current_step — read it back before each step, and stop if it doesn't match.
-
-</div>
+<!--
+Read the quote slowly. Pause.
+Jev: early access 15 Sep, TypeSafe AI. StackToHeap write-up 21 Sep. VentureBeat 21 Sep, one Octomind engineer (not "researchers").
+"Even the model built to decide still sits inside a loop, with a person at the one-way doors."
+-->
 
 ---
 
 <!-- _class: close -->
 
-# Key takeaways
+<div class="kicker">12 · Take these home</div>
+
+# Five rules. *None of them needs code.*
 
 <div class="body">
 
-- **The model changes. The structure stays.** A chain of steps breaks wherever it isn't supervised. Put a state file in charge.
-- **The human does not disappear.** Better models move it to the irreversible steps. Consequence: the model cannot delete, overwrite, or send without a yes.
-- **The same structure runs any model.** When next month's model arrives, your workflow does not change.
+<div class="rules">
+  <div class="rule"><div class="num">1</div><div class="txt"><b>Write the steps down,</b> and give each one to the right worker. <span style="color:#A79987">Judgement → model. One right answer → script.</span></div></div>
+  <div class="rule"><div class="num">2</div><div class="txt"><b>Make every step leave a file.</b> <span style="color:#A79987">The next step starts from the file, not the chat.</span></div></div>
+  <div class="rule"><div class="num">3</div><div class="txt"><b>Keep progress outside the model.</b> <span style="color:#A79987">A note says which step you are on.</span></div></div>
+  <div class="rule"><div class="num">4</div><div class="txt"><b>Check before and after every step.</b> <span style="color:#A79987">If the answer is no, stop.</span></div></div>
+  <div class="rule"><div class="num">5</div><div class="txt"><b>Mark the one-way doors.</b> <span style="color:#A79987">A person says yes before anything is sent, deleted or filed.</span></div></div>
+</div>
 
-**Reliability at the boundaries.**
+<p style="font-size:0.8em;margin-top:10px"><b>Try one tonight:</b> take your messiest AI workflow. Write down the steps, and what each one should produce.</p>
 
 </div>
+
+<div class="inshort"><b>In short</b> A checklist and a shared folder are enough to start.</div>
+
+<!--
+Leave this slide up through Q&A.
+Limit: "my gate stops a model that drifts past a question. It won't stop one that edits the file on purpose. That's the next layer."
+Works for a hiring process, a month-end report, customer onboarding.
+-->
+
+---
+
+<!-- _class: close lead -->
+<!-- _paginate: false -->
+
+# Models change every month.
+
+<div class="pullquote" style="font-size:1.35em">Build your flow so the model is a part you can swap.</div>
+
+<div class="author" style="color:#A79987;margin-top:1.2em">Thank you · Amar Patel · linkedin.com/in/amarapatel</div>
+
+<!--
+"I started this to save money. I ended up with a system I trust more than the frontier model I left, running on a graphics card built for games."
+Then the take-home line. Thank you. Go back to the five-rules slide for Q&A.
+-->

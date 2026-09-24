@@ -367,3 +367,183 @@ section.close .pullquote::before { color: var(--accentH); }
 .legend .d-human { background: var(--accent); }
 .legend .d-auto { background: var(--structure); }
 .legend .d-opt { background: var(--hairline); border: 1px solid var(--muted); }
+
+/* =========================================================================
+   v4 COMPONENTS (24 Sep): plain-language cues for a mixed-language room
+   ========================================================================= */
+
+/* ---------- .inshort — one plain sentence at the foot of every slide ---------- */
+.inshort {
+  margin-top: auto;
+  display: flex; align-items: baseline; gap: 14px;
+  border-top: 2px solid var(--ink);
+  padding-top: 12px;
+  margin-bottom: 18px;
+  font-size: 0.82em;
+}
+.inshort b {
+  font-family: var(--mono); font-weight: 600; font-size: 0.62em;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--paper); background: var(--accent);
+  padding: 3px 9px; border-radius: 4px; flex-shrink: 0;
+}
+section.close .inshort { border-top-color: var(--paper); }
+
+/* ---------- .kicker — small label above the title (section cue) ---------- */
+.kicker {
+  font-family: var(--mono); font-size: 16px; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 6px;
+}
+section.close .kicker { color: var(--accentH); }
+
+/* ---------- .word — a glossary chip for one hard word ---------- */
+.word {
+  display: inline-flex; gap: 10px; align-items: baseline;
+  background: var(--paper2); border: 1px dashed var(--muted);
+  border-radius: 8px; padding: 6px 12px; font-size: 0.62em; color: var(--ink);
+}
+.word em { font-style: normal; font-family: var(--mono); font-weight: 600; color: var(--structure); }
+
+/* ---------- .cols — generic 2 or 3 column grid ---------- */
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 0.4em 0 0.6em; }
+.cols.three { grid-template-columns: 1fr 1fr 1fr; }
+.card { background: #fff; border: 2px solid var(--ink); border-radius: 14px; padding: 16px 20px; box-shadow: 4px 4px 0 var(--hairline); }
+.card.bad { border-color: var(--blocked); background: #F6E4DE; }
+.card.good { border-color: var(--structure); background: #E4EEE9; }
+.card.soft { border-color: var(--hairline); background: var(--paper2); box-shadow: none; }
+.card h3 { font-size: 0.95em; margin-bottom: 0.3em; }
+.card .sub { font-family: var(--mono); font-size: 0.5em; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
+.card ul { margin: 0; padding-left: 1.05em; font-size: 0.7em; }
+.card li { margin: 0.25em 0; }
+.card p { font-size: 0.7em; margin: 0.2em 0; }
+
+/* ---------- ticks and crosses ---------- */
+.yes, .no, .na { display: inline-flex; align-items: center; justify-content: center;
+  width: 30px; height: 30px; border-radius: 50%; font-weight: 700; font-size: 0.8em; color: #fff; flex-shrink: 0; }
+.yes { background: var(--structure); }
+.no  { background: var(--blocked); }
+.na  { background: var(--hairline); color: var(--muted); }
+
+.checks { list-style: none; padding: 0; margin: 0; }
+.checks li { display: flex; gap: 12px; align-items: flex-start; margin: 0.35em 0; }
+.checks li::marker { content: none; }
+.checks .t { font-size: 0.72em; padding-top: 0.12em; }
+
+/* ---------- .bars — tiny grouped bar chart built in CSS ---------- */
+.metric { margin: 0.2em 0 0.55em; }
+.metric .mlabel { font-weight: 700; font-size: 0.66em; margin-bottom: 6px; }
+.metric .mlabel span { font-weight: 400; color: var(--muted); }
+.bars { display: grid; grid-template-columns: 110px 1fr; row-gap: 5px; column-gap: 12px; align-items: center; }
+.bars .when { font-family: var(--mono); font-size: 0.5em; color: var(--muted); text-align: right; }
+.bars .bar { height: 26px; border-radius: 4px; display: flex; align-items: center; padding-left: 10px;
+  font-family: var(--mono); font-weight: 600; font-size: 0.56em; color: #fff; min-width: 34px; box-sizing: border-box; }
+.bars .bar.ink { background: var(--ink); }
+.bars .bar.red { background: var(--accent); }
+.bars .bar.green { background: var(--structure); }
+.bars .bar.zero { background: transparent; color: var(--muted); border: 1px dashed var(--muted); }
+
+/* ---------- .trio — model / scripts / files ---------- */
+.trio { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 22px; margin: 0.5em 0 0.4em; }
+.trio .box { border-radius: 16px; padding: 18px 20px 16px; border: 3px solid var(--ink); background: #fff; box-shadow: 5px 5px 0 var(--hairline); }
+.trio .box svg { width: 54px; height: 54px; display: block; margin-bottom: 6px; }
+.trio .who { font-family: var(--display); font-size: 1.25em; font-weight: 700; line-height: 1; }
+.trio .verb { font-family: var(--mono); font-size: 0.56em; text-transform: uppercase; letter-spacing: 0.08em; margin: 6px 0 10px; }
+.trio .model { border-color: var(--accent); } .trio .model .verb { color: var(--accent); }
+.trio .scripts { border-color: var(--structure); } .trio .scripts .verb { color: var(--structure); }
+.trio .files { border-color: var(--ink); } .trio .files .verb { color: var(--ink); }
+.trio ul { margin: 0; padding-left: 1em; font-size: 0.64em; }
+.trio li { margin: 0.2em 0; }
+
+/* ---------- .sorter — sort jobs into two workers ---------- */
+.sorter { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.sorter .col { border-radius: 14px; padding: 14px 18px; }
+.sorter .col.model { background: #F3E1D2; border: 2px solid var(--accent); }
+.sorter .col.script { background: #E4EEE9; border: 2px solid var(--structure); }
+.sorter .head { font-family: var(--display); font-weight: 700; font-size: 0.9em; margin-bottom: 2px; }
+.sorter .q { font-size: 0.6em; color: var(--muted); margin-bottom: 8px; font-style: italic; }
+.sorter .chips { display: flex; flex-wrap: wrap; gap: 7px; }
+.sorter .chip { background: #fff; border: 1px solid var(--ink); border-radius: 999px; padding: 4px 12px; font-size: 0.58em; font-weight: 600; }
+
+/* ---------- .evidence — small numbered facts ---------- */
+.evidence { display: flex; gap: 18px; margin-top: 14px; }
+.evidence .fact { flex: 1; border-left: 5px solid var(--accent); padding: 4px 0 4px 14px; }
+.evidence .fact .big { font-family: var(--display); font-weight: 700; font-size: 1.15em; color: var(--accent); line-height: 1.05; }
+.evidence .fact .small { font-size: 0.6em; color: var(--ink); margin-top: 3px; }
+.evidence .fact.green { border-left-color: var(--structure); }
+.evidence .fact.green .big { color: var(--structure); }
+
+/* ---------- .gatecheck — before / step / after with a stop branch ---------- */
+.gatecheck { display: grid; grid-template-columns: 1fr 44px 0.8fr 44px 1fr; align-items: center; margin: 0.4em 0 0.3em; }
+.gatecheck .q { border: 2px solid var(--structure); background: #E4EEE9; border-radius: 12px; padding: 12px 14px; font-size: 0.64em; }
+.gatecheck .q b { display: block; font-family: var(--mono); font-size: 0.8em; color: var(--structure); text-transform: uppercase; letter-spacing: 0.06em; }
+.gatecheck .work { border: 3px solid var(--ink); background: #fff; border-radius: 12px; padding: 16px 12px; text-align: center; font-weight: 700; font-size: 0.72em; }
+.gatecheck .arr { text-align: center; color: var(--accent); font-family: var(--mono); font-size: 1.1em; }
+.stopline { display: grid; grid-template-columns: 1fr 44px 0.8fr 44px 1fr; margin-bottom: 0.4em; }
+.stopline .stop { text-align: center; font-family: var(--mono); font-size: 0.56em; color: var(--blocked); font-weight: 700; }
+.stopline .stop span { display: inline-block; background: var(--blocked); color: #fff; border-radius: 6px; padding: 3px 10px; margin-top: 4px; }
+
+/* ---------- .terminal — one or two big lines of real model output ---------- */
+.terminal { background: #1E1710; color: #F1E7D3; border-radius: 12px; padding: 18px 24px; font-family: var(--mono); font-size: 0.66em; line-height: 1.5; margin: 0.3em 0; }
+.terminal .who { font-size: 0.72em; letter-spacing: 0.08em; text-transform: uppercase; color: #A79987; display: block; margin-bottom: 2px; }
+.terminal .gate { color: var(--accentH); }
+.terminal .model { color: #CFE3DB; }
+.terminal + .terminal { margin-top: 10px; }
+.stamp { font-family: var(--mono); font-size: 0.5em; color: var(--muted); margin-top: 4px; }
+
+/* ---------- .dialog — the approval dialog, drawn ---------- */
+.dialog { border: 3px solid var(--ink); border-radius: 12px; background: #fff; box-shadow: 6px 6px 0 var(--hairline); overflow: hidden; }
+.dialog .bar { background: var(--accent); color: #fff; font-family: var(--mono); font-size: 0.56em; padding: 6px 14px; letter-spacing: 0.04em; }
+.dialog .msg { padding: 12px 16px 6px; font-size: 0.64em; }
+.dialog .btns { display: flex; gap: 10px; padding: 6px 16px 14px; }
+.dialog .btn { font-family: var(--mono); font-size: 0.56em; font-weight: 700; padding: 6px 16px; border-radius: 6px; border: 2px solid var(--ink); }
+.dialog .btn.ok { background: var(--structure); color: #fff; border-color: var(--structure); }
+.dialog .btn.block { background: var(--blocked); color: #fff; border-color: var(--blocked); }
+
+/* ---------- .score — the scorecard as a grid with symbols ---------- */
+.score { display: grid; grid-template-columns: 1.7fr 1fr 1fr; border: 2px solid var(--ink); border-radius: 12px; overflow: hidden; background: #fff; }
+.score > div { padding: 8px 16px; border-bottom: 1px solid var(--hairline); display: flex; align-items: center; gap: 10px; font-size: 0.64em; }
+.score .h { background: var(--ink); color: var(--paper); font-family: var(--mono); font-size: 0.5em; text-transform: uppercase; letter-spacing: 0.08em; }
+.score .h.old { background: var(--blocked); } .score .h.new { background: var(--structure); }
+.score .lab { font-weight: 600; }
+.score > div:nth-last-child(-n+3) { border-bottom: none; }
+
+/* ---------- .timeline small tweak: allow a highlighted point ---------- */
+.timeline .point.hot::before { background: var(--blocked); }
+.timeline .point.green::before { background: var(--structure); }
+
+/* ---------- loop diagram for Opusfived ---------- */
+.loop { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 0.5em 0; }
+.loop .task { background: var(--ink); color: var(--paper); border-radius: 10px; padding: 12px 18px; font-weight: 700; font-size: 0.7em; }
+.loop .task i { display:inline-block; width:18px; height:18px; border-radius:4px; background:#9aa0a6; vertical-align:-3px; margin-left:8px; }
+.loop .c { border: 2px dashed var(--accent); border-radius: 999px; padding: 7px 14px; font-size: 0.6em; font-weight: 600; background: #fff; }
+.loop .a { color: var(--accent); font-family: var(--mono); }
+.coin { display:inline-flex; align-items:center; justify-content:center; width:26px; height:26px; border-radius:50%; background:#E0B24A; border:2px solid #8a6a1c; color:#5a430f; font-weight:800; font-size:0.5em; }
+
+/* ---------- v4 readability pass: nothing important below ~19px at 1280 wide ---------- */
+.card ul { font-size: 0.8em; }
+.card p { font-size: 0.8em; }
+.card .sub { font-size: 0.56em; }
+.checks .t { font-size: 0.86em; }
+.trio li { font-size: 0.76em; }
+.sorter .chip { font-size: 0.68em; padding: 5px 13px; }
+.sorter .q { font-size: 0.68em; }
+.evidence .fact .small { font-size: 0.68em; }
+.gatecheck .q { font-size: 0.74em; }
+.gatecheck .work { font-size: 0.8em; }
+.stopline .stop { font-size: 0.62em; }
+.score > div { font-size: 0.76em; padding: 10px 16px; }
+.score .h { font-size: 0.56em; }
+.terminal { font-size: 0.74em; }
+.stamp { font-size: 0.56em; }
+.dialog .msg { font-size: 0.72em; }
+.word { font-size: 0.7em; }
+.rules { gap: 16px; }
+.rules .txt { font-size: 0.92em; }
+.metric { margin: 0 0 0.35em; }
+.metric .mlabel { font-size: 0.62em; margin-bottom: 4px; }
+.bars { row-gap: 4px; }
+.bars .bar { height: 22px; font-size: 0.54em; }
+.resume-labels { font-size: 0.66em; }
+.trio ul { font-size: 0.76em; }
+.trio li { font-size: 1em; }
+.score > div { font-size: 0.72em; padding: 7px 16px; }
