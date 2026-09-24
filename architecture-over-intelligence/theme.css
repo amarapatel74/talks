@@ -159,15 +159,19 @@ footer {
 }
 section.close footer { color: #A79987; }
 
-/* ---------- page number (bottom-right) ---------- */
+/* ---------- page number (bottom-right, on the footer's line) ----------
+   padding: 0 overrides Marp's default padding: inherit, which otherwise
+   lifts the number off the footer line and into the slide content. */
 section::after {
   font-family: var(--mono);
   font-size: 15px;
+  line-height: 1.42;
   color: var(--muted);
   content: attr(data-marpit-pagination);
   position: absolute;
   right: 88px;
   bottom: 28px;
+  padding: 0;
 }
 
 /* =========================================================================
