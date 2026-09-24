@@ -4,9 +4,9 @@
 **Subtitle:** *How I made AI workflows reliable, even on a small model*
 **Length:** 15 min talk + 5 min Q&A
 **Event:** The AI Fellowship Madrid · 9 October 2026
-**Deck:** `architecture-over-intelligence/deck.md`, 15 slides
+**Deck:** `architecture-over-intelligence/deck.md`, 16 slides
 
-> Sections use the page number printed bottom right on each slide. The label above each heading (for example "1 · A game") is the kicker, and runs one behind the page number. The untrimmed version lives in `script-full.md`.
+> Sections use the page number printed bottom right on each slide. The label above each heading (for example "A game") is the kicker. The untrimmed version lives in `script-full.md`.
 
 ## The shape of the talk
 
@@ -17,7 +17,8 @@
 | The turn | 6 | The model thinks. Scripts do. Files remember. |
 | Five rules | 7-12 | One slide per rule, each with the evidence from my own logs |
 | Proof | 13 | Same meeting, May against today |
-| Take home | 14-15 | Five rules, none needs code. Make the model a part you can swap. |
+| What's next | 14 | A new kind of model, a decider, slots into one box. |
+| Take home | 15-16 | Five rules, none needs code. Make the model a part you can swap. |
 
 **Through-line:** smarter is not the same as correct. Reliability comes from the shape of the workflow, not the size of the model.
 
@@ -33,7 +34,7 @@
 
 ---
 
-## Page 2 · "1 · A game": Make one button blue. *Nothing else.*
+## Page 2 · "A game": Make one button blue. *Nothing else.*
 
 **On screen:** Opusfived live. The slide shows the loop: task, check the work, check the check, call more agents, explain why checking matters, check again.
 
@@ -53,7 +54,7 @@
 
 ---
 
-## Page 3 · "2 · Why I changed models": I hit my limit, halfway through a meeting
+## Page 3 · "Why I changed models": I hit my limit, halfway through a meeting
 
 **On screen:** Claude in the cloud against Qwen 3.6 on my desk.
 
@@ -73,7 +74,7 @@
 
 ---
 
-## Page 4 · "3 · Drift": Smarter is not the same as *correct*
+## Page 4 · "Drift": Smarter is not the same as *correct*
 
 **On screen:** Two red cards, Run 1 (local) and Run 2 (cloud). Test meeting: "OKR Planning with GitLab Executive Team", public on YouTube.
 
@@ -93,7 +94,7 @@
 
 ---
 
-## Page 5 · "4 · My first fix: more words": More instructions. Then *SHOUTING*.
+## Page 5 · "My first fix: more words": More instructions. Then *SHOUTING*.
 
 **On screen:** Three bar charts across 11 May, 8 Sep, 17 Sep: prompt lines, capital-letter warnings, scripts. A real prompt line from 8 September.
 
@@ -113,7 +114,7 @@
 
 ---
 
-## Page 6 · "5 · The turn": Split the work into three parts
+## Page 6 · "The turn": Split the work into three parts
 
 **On screen:** Three boxes. Model: thinks. Scripts: do. Files: remember.
 
@@ -129,7 +130,7 @@
 
 ---
 
-## Page 7 · "6 · Rule 1": Give each step to *the right worker*
+## Page 7 · "Rule 1": Give each step to *the right worker*
 
 **On screen:** Two columns sorted by one question each. Three facts: 5,000 words, wrong date, 1 → 6 scripts.
 
@@ -147,7 +148,7 @@
 
 ---
 
-## Page 8 · "7 · Rule 2": Every step leaves *a file*
+## Page 8 · "Rule 2": Every step leaves *a file*
 
 **On screen:** A chain of work boxes and dashed file boxes: speaker-map.json, summary.json, actions.json, then a script files the note.
 
@@ -161,7 +162,7 @@
 
 ---
 
-## Page 9 · "8 · Rule 3": Keep progress *outside* the model
+## Page 9 · "Rule 3": Keep progress *outside* the model
 
 **On screen:** The progress file card, and the quit-and-reopen timeline.
 
@@ -177,7 +178,7 @@
 
 ---
 
-## Page 10 · "9 · Rule 4": Check *before* and *after* every step
+## Page 10 · "Rule 4": Check *before* and *after* every step
 
 **On screen:** Before, do the step, after, with STOP under each check. Two cards: what it caught.
 
@@ -185,7 +186,7 @@
 >
 > And don't patch it by hand. A hand patch is exactly the drift you're trying to catch.
 >
-> Here's what it caught. The model still guessed wrong on the speakers: two of four. But now it had to stop and show me first, and I fixed it in one line before anything was written.
+> It caught two things. The model still guessed wrong on the speakers: two of four. But now it had to stop and show me first, and I fixed it in one line before anything was written.
 >
 > And it caught my own bug. A time-zone bug made the script look for a 12 o'clock note. The meeting was at 10. It refused to file, and stopped, instead of filing at the wrong time.
 >
@@ -197,7 +198,7 @@
 
 ---
 
-## Page 11 · "10 · Rule 5": Mark the *one-way doors*
+## Page 11 · "Rule 5": Mark the *one-way doors*
 
 **On screen:** The approval dialog for step 7, and three lines from the Pi session log, 24 Sep, 14:33 to 14:34.
 
@@ -215,29 +216,29 @@
 
 ---
 
-## Page 12 · "11 · Rule 5, under pressure": The model offered to *approve itself*
+## Page 12 · "Rule 5, under pressure": The model offered to *approve itself*
 
-**On screen:** The model's own words, from the Pi session log, 24 Sep, 16:36. A card on Jev.
+**On screen:** The model's own words, from the Pi session log, 24 Sep, 16:36. Two cards: the record and the lock.
 
-> "Two hours later, it got better. The approval dialog failed to appear. And the model offered this."
+> "Two hours later, it got better. The approval dialog couldn't appear. And the model offered this."
 
 **Cue:** Read the quote slowly. Then pause.
 
 > "'If you're okay with me recording the approval directly in the state file, I can set human_approved for step 6 and rerun.'
 >
-> It offered to approve itself. Not out of malice. It was trying to be helpful. And a helpful model will walk through a door you meant to keep shut.
+> It offered to approve itself. Not out of malice. It was trying to be helpful, and a helpful model will walk through a door you meant to keep shut.
 >
-> This isn't only a small-model problem. This month TypeSafe AI released Jev, a model built only to make decisions, not to write text. A write-up that week was called 'The State Machine Is the Agent'. Days later, an engineer at Octomind showed that fake approval text changed Jev's decision: its block score dropped from 0.76 to 0.48.
+> But look at what it offered to change: a line in a file. That line is a record. The lock is the dialog on my screen, in front of the filing script itself, and the dialog never reads that record. So even a yes would not have opened the door. The next run picked up at step 6, showed me the dialog, and filed only after my click.
 >
-> Even the model built to decide still sits inside a loop, with a person at the one-way doors."
+> A model can edit the record. It can't click the lock."
 
-**Accuracy note:** one Octomind engineer, not "researchers".
+**Accuracy note:** at the time I didn't answer; the session ended on that message. If asked about the limit: a model set on getting round the gate could write the note by hand. The gate stops a model drifting past a question, not one routing round it on purpose.
 
-**Time:** ~1 min 15
+**Time:** ~1 min
 
 ---
 
-## Page 13 · "12 · The result": My flow in May vs *my flow today*
+## Page 13 · "The result": My flow in May vs *my flow today*
 
 **On screen:** Six rows, May against today, same meeting, model and answers.
 
@@ -245,7 +246,7 @@
 >
 > It checks the speakers before writing. Quotes go to the right person: five of five, up from three. One note, not two. The right date. It asks before filing or deleting. And it carries on after I quit.
 >
-> To be fair: today's flow also has more steps and better scripts. This isn't a lab test. It's my flow in May against my flow today.
+> To be fair: today's flow also has more steps and better scripts. So treat this as my flow in May against my flow today, not a lab test.
 >
 > More steps means more places to go wrong. It also means more places to notice.
 >
@@ -255,7 +256,25 @@
 
 ---
 
-## Page 14 · "13 · Take these home": Five rules. *None of them needs code.*
+## Page 14 · "What's next": A new kind of model arrived *this month*
+
+**On screen:** The model box split into a writer and a decider, the steps that only choose, and a confidence dial.
+
+> "Models change every month, and this month a new kind arrived. TypeSafe AI released Jev, a model that only makes decisions. It doesn't write text. It gives you a choice, and how sure it is.
+>
+> Look at my flow. Some judgement steps write: the summary, the actions. But many only choose: the sentiment, the priority, the project, whether to send a follow-up, whether a task is a duplicate, which name goes with which voice.
+>
+> A decider fits those. The flow offers only the legal options, and a script checks the answer is one of them. And its confidence can decide who answers: sure, carry on; unsure, ask me. I'd be asked less, and only when it matters.
+>
+> I haven't wired it in yet. But it slots into one box, and nothing else in the flow changes."
+
+**Accuracy note:** Jev early access opened 15 Sep. Say "TypeSafe says" for any claim about accuracy or speed. Be clear it isn't wired in.
+
+**Time:** ~1 min
+
+---
+
+## Page 15 · "Take these home": Five rules. *None of them needs code.*
 
 **On screen:** The five rules. Leave this slide up through Q&A.
 
@@ -269,7 +288,7 @@
 
 ---
 
-## Page 15 · Close: Models change every month.
+## Page 16 · Close: Models change every month.
 
 > "I started this to save money. I ended up with a system I trust more than the frontier model I left, running on a graphics card built for games.
 >
@@ -277,7 +296,7 @@
 >
 > Thank you."
 
-**Cue:** Go back to page 14 for Q&A.
+**Cue:** Go back to page 15 for Q&A.
 
 **Time:** ~30 sec
 
@@ -287,12 +306,13 @@
 
 | Part | Pages | Time |
 |---|---|---|
-| Hook | 1-2 | 1:30 |
-| What broke | 3-5 | 3:45 |
+| Hook | 1-2 | 1:15 |
+| What broke | 3-5 | 3:30 |
 | The turn | 6 | 1:00 |
-| Five rules | 7-12 | 6:30 |
+| Five rules | 7-12 | 6:15 |
 | Proof | 13 | 1:00 |
-| Take home | 14-15 | 1:15 |
+| What's next | 14 | 1:00 |
+| Take home | 15-16 | 1:00 |
 | **Total** | | **15:00** |
 
 **Running long?** Cut in this order:
@@ -323,7 +343,7 @@ Never cut page 4 or page 12. Page 4 is your evidence that the problem is real. P
 > "Same problem, different scale. They give you durable workflows with servers and workers. Mine is a progress file, some small scripts, and one rule: check before and after every step. For one person or a small team that's enough. At company scale, use Temporal."
 
 **Q: Jev is built for decisions. Doesn't it replace all this?**
-> "It's a better part, not the structure. It doesn't remember which step you're on, or survive a restart, or hold a door shut. And fake approval text moved its decision the week it launched. It still needs the loop around it."
+> "It's a better part, not the structure. It doesn't remember which step you're on, or survive a restart, or hold a door shut. It still needs the loop around it."
 
 **Q: I don't write code. Can I use this?**
 > "Yes. A script is anything that gives the same answer every time: a template, a spreadsheet formula, a form. A checklist and a shared folder are enough to start."

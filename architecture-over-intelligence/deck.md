@@ -25,7 +25,7 @@ Walk on. Ask for a volunteer before saying anything else.
 
 ---
 
-<div class="kicker">1 · A game</div>
+<div class="kicker">A game</div>
 
 # Make one button blue. *Nothing else.*
 
@@ -57,7 +57,7 @@ If the site doesn't load in 10 seconds: describe it in two sentences, move on.
 
 ---
 
-<div class="kicker">2 · Why I changed models</div>
+<div class="kicker">Why I changed models</div>
 
 # I hit my limit, halfway through a meeting
 
@@ -98,7 +98,7 @@ Say the hinge line slowly.
 
 ---
 
-<div class="kicker">3 · Drift</div>
+<div class="kicker">Drift</div>
 
 # Smarter is not the same as *correct*
 
@@ -140,7 +140,7 @@ Line: "It knew the right names and still put the wrong name on the quote."
 
 ---
 
-<div class="kicker">4 · My first fix: more words</div>
+<div class="kicker">My first fix: more words</div>
 
 # More instructions. Then *SHOUTING*.
 
@@ -196,7 +196,7 @@ Source: git history of .pi/skills/process-meeting/SKILL.md.
 
 ---
 
-<div class="kicker">5 · The turn</div>
+<div class="kicker">The turn</div>
 
 # Split the work into three parts
 
@@ -237,7 +237,7 @@ The next slides are these three pieces.
 
 ---
 
-<div class="kicker">6 · Rule 1</div>
+<div class="kicker">Rule 1</div>
 
 # Give each step to *the right worker*
 
@@ -274,7 +274,7 @@ Link back to Opusfived: paid-for work again.
 
 ---
 
-<div class="kicker">7 · Rule 2</div>
+<div class="kicker">Rule 2</div>
 
 # Every step leaves *a file*
 
@@ -306,7 +306,7 @@ The final note is built by a script (file-meeting.py) from these files. The mode
 
 ---
 
-<div class="kicker">8 · Rule 3</div>
+<div class="kicker">Rule 3</div>
 
 # Keep progress *outside* the model
 
@@ -342,7 +342,7 @@ Also an audit trail: open the file and see what ran and who said yes.
 
 ---
 
-<div class="kicker">9 · Rule 4</div>
+<div class="kicker">Rule 4</div>
 
 # Check *before* and *after* every step
 
@@ -380,7 +380,7 @@ Don't claim both bugs failed loudly: only the time shift did.
 
 ---
 
-<div class="kicker">10 · Rule 5</div>
+<div class="kicker">Rule 5</div>
 
 # Mark the *one-way doors*
 
@@ -416,7 +416,7 @@ Only on the doors: nine hard gates per meeting would train me to rubber-stamp.
 
 ---
 
-<div class="kicker">11 · Rule 5, under pressure</div>
+<div class="kicker">Rule 5, under pressure</div>
 
 # The model offered to *approve itself*
 
@@ -425,25 +425,35 @@ Only on the doors: nine hard gates per meeting would train me to rubber-stamp.
 <div class="pullquote" style="font-size:1.15em">If you’re okay with me recording the approval directly in the state file, I can set human_approved for step 6 and rerun.</div>
 <div class="stamp">The model, when the approval dialog could not appear. Pi session log, 24 Sep 2026, 16:36</div>
 
-<div class="card soft" style="margin-top:18px">
-<div class="sub">This month · Jev, from TypeSafe AI</div>
-<p>A new model built only to <b>make decisions</b>, not to write text. A write-up that week was called <b>“The State Machine Is the Agent”</b>.</p>
-<p>Days later, an engineer showed that <b>fake approval text</b> changed Jev’s decision: its “block” score went from <b>0.76 to 0.48</b>.</p>
+<div class="cols" style="margin-top:16px">
+  <div class="card soft">
+    <div class="sub">The record</div>
+    <p>A line in the progress file: <code>human_approved: yes</code>.</p>
+    <p><b>The model can edit it.</b></p>
+  </div>
+  <div class="card good">
+    <div class="sub">The lock</div>
+    <p>A dialog on my screen, in front of the filing script itself. It never reads the record.</p>
+    <p><b>The model cannot click it.</b></p>
+  </div>
 </div>
+
+<p style="font-size:0.72em;margin-top:12px">So even a “yes” would not have opened the door. The next run picked up at step 6, showed me the dialog, and filed only after my click.</p>
 
 </div>
 
-<div class="inshort"><b>In short</b> The model means well. A helpful model will walk through a door you meant to keep shut.</div>
+<div class="inshort"><b>In short</b> A model can edit the record. It cannot click the lock.</div>
 
 <!--
 Read the quote slowly. Pause.
-Jev: early access 15 Sep, TypeSafe AI. StackToHeap write-up 21 Sep. VentureBeat 21 Sep, one Octomind engineer (not "researchers").
-"Even the model built to decide still sits inside a loop, with a person at the one-way doors."
+I didn't answer at the time: the session ended there. Say so if asked.
+The dialog guards running file-meeting.py; it never reads human_approved. A forged flag would satisfy the record check, not the lock.
+Limit, if asked: a model set on getting round it could write the note by hand and delete the working files. The gate stops a model drifting past a question, not one routing round it on purpose.
 -->
 
 ---
 
-<div class="kicker">12 · The result</div>
+<div class="kicker">The result</div>
 
 # My flow in May vs *my flow today*
 
@@ -473,9 +483,55 @@ If asked: ten unchecked steps at 95% each come out right only about 60% of the t
 
 ---
 
+<div class="kicker">What’s next</div>
+
+# A new kind of model arrived *this month*
+
+<div class="body">
+
+<div class="cols three" style="align-items:stretch">
+  <div class="card">
+    <div class="sub">Split the model box in two</div>
+    <p><b>Writer:</b> summary, actions.</p>
+    <p><b>Decider:</b> picks one answer from a list.</p>
+    <p style="color:var(--muted)">Jev (TypeSafe AI) only decides: a choice, and how sure it is.</p>
+  </div>
+  <div class="card">
+    <div class="sub">Steps that only choose</div>
+    <div class="chips" style="display:flex;flex-wrap:wrap;gap:6px">
+      <span class="chip" style="background:#fff;border:1px solid var(--ink);border-radius:999px;padding:3px 10px;font-size:0.56em;font-weight:600">Sentiment</span>
+      <span class="chip" style="background:#fff;border:1px solid var(--ink);border-radius:999px;padding:3px 10px;font-size:0.56em;font-weight:600">Priority</span>
+      <span class="chip" style="background:#fff;border:1px solid var(--ink);border-radius:999px;padding:3px 10px;font-size:0.56em;font-weight:600">Project</span>
+      <span class="chip" style="background:#fff;border:1px solid var(--ink);border-radius:999px;padding:3px 10px;font-size:0.56em;font-weight:600">Follow-up? yes / no</span>
+      <span class="chip" style="background:#fff;border:1px solid var(--ink);border-radius:999px;padding:3px 10px;font-size:0.56em;font-weight:600">Duplicate? yes / no</span>
+      <span class="chip" style="background:#fff;border:1px solid var(--ink);border-radius:999px;padding:3px 10px;font-size:0.56em;font-weight:600">Speaker</span>
+    </div>
+    <p style="margin-top:8px">The flow offers only legal options. A script checks the answer.</p>
+  </div>
+  <div class="card good">
+    <div class="sub">How sure is it?</div>
+    <div class="dial"><div class="track"><div class="marker" style="left:78%"></div></div><div class="labels"><span>ask me</span><span>carry on</span></div></div>
+    <p style="margin-top:8px">I am asked only when it is unsure.</p>
+    <p style="color:var(--muted)">Not wired in yet. This is where it would go.</p>
+  </div>
+</div>
+
+</div>
+
+<div class="inshort"><b>In short</b> A new model slots into one box. The flow stays the same.</div>
+
+<!--
+"Models change every month. This month, a new kind arrived: a model that only decides."
+Jev: TypeSafe AI, early access 15 Sep 2026. Returns typed values (a choice) with probabilities; TypeSafe claims it can't hallucinate because it doesn't write text.
+Write-up that week: "Jev at the Branches: The State Machine Is the Agent" (StackToHeap, 21 Sep).
+Be clear: not wired in yet.
+-->
+
+---
+
 <!-- _class: close -->
 
-<div class="kicker">13 · Take these home</div>
+<div class="kicker">Take these home</div>
 
 # Five rules. *None of them needs code.*
 
