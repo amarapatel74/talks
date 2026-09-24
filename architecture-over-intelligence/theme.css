@@ -466,10 +466,11 @@ section.close .kicker { color: var(--accentH); }
 
 /* ---------- .evidence — small numbered facts ---------- */
 .evidence { display: flex; gap: 18px; margin-top: 14px; }
-.evidence .fact { flex: 1; border-left: 5px solid var(--accent); padding: 4px 0 4px 14px; }
+.evidence .fact { flex: 1; }
+.evidence .fact::before { content: ''; display: block; width: 40px; height: 5px; border-radius: 2px; background: var(--accent); margin-bottom: 8px; }
 .evidence .fact .big { font-family: var(--display); font-weight: 700; font-size: 1.15em; color: var(--accent); line-height: 1.05; }
 .evidence .fact .small { font-size: 0.6em; color: var(--ink); margin-top: 3px; }
-.evidence .fact.green { border-left-color: var(--structure); }
+.evidence .fact.green::before { background: var(--structure); }
 .evidence .fact.green .big { color: var(--structure); }
 
 /* ---------- .gatecheck — before / step / after with a stop branch ---------- */

@@ -4,6 +4,7 @@ theme: meetup
 paginate: true
 size: 16:9
 html: true
+lang: en
 footer: 'Architecture Over Intelligence · The AI Fellowship Madrid · 9 Oct 2026'
 ---
 
