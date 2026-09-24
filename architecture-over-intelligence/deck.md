@@ -274,7 +274,7 @@ Link back to Opusfived: paid-for work again.
 
 ---
 
-<div class="kicker">6 · Rule 2</div>
+<div class="kicker">7 · Rule 2</div>
 
 # Every step leaves *a file*
 
@@ -306,7 +306,7 @@ The final note is built by a script (file-meeting.py) from these files. The mode
 
 ---
 
-<div class="kicker">7 · Rule 3</div>
+<div class="kicker">8 · Rule 3</div>
 
 # Keep progress *outside* the model
 
@@ -343,7 +343,7 @@ Also an audit trail: open the file and see what ran and who said yes.
 
 ---
 
-<div class="kicker">8 · Rule 4</div>
+<div class="kicker">9 · Rule 4</div>
 
 # Check *before* and *after* every step
 
@@ -381,7 +381,70 @@ Don't claim both bugs failed loudly: only the time shift did.
 
 ---
 
-<div class="kicker">9 · The result</div>
+<div class="kicker">10 · Rule 5</div>
+
+# Mark the *one-way doors*
+
+<div class="body">
+
+
+<div class="cols" style="grid-template-columns: 0.9fr 1.3fr; align-items:start">
+<div>
+<div class="dialog">
+  <div class="bar">One-way door · step 7: clean up</div>
+  <div class="msg">Delete the transcript, audio and progress file for this meeting. Approve?</div>
+  <div class="btns"><span class="btn ok">Approve</span><span class="btn block">Block</span></div>
+</div>
+<p style="font-size:0.7em;margin-top:12px">A step you cannot undo. Only I can answer: the model cannot see or click this. Every “yes” is saved in a log.</p>
+<p style="font-size:0.7em;margin-top:10px"><b>Dry runs pass the check:</b> they change nothing. The delete itself never ran.</p>
+</div>
+<div>
+<div class="terminal"><span class="who">My agent app (Pi) → model, after I clicked Block</span><span class="gate">Amar blocked step 7. Stop and ask what to change. Do not run it another way.</span></div>
+<div class="terminal"><span class="who">Model, 40 seconds later</span><span class="model">Let me try with --dry-run…</span></div>
+<div class="terminal"><span class="who">Model, 23 seconds after that</span><span class="model">Dry run confirms… There’s nothing to clean up.</span></div>
+<div class="stamp">Pi session log, test meeting, 24 Sep 2026, 14:33–14:34</div>
+</div>
+</div>
+
+</div>
+
+<div class="inshort"><b>In short</b> I said stop. The model looked for another way. Only the check decided what ran.</div>
+
+<!--
+"It was harmless: a dry run, which the check lets through because it changes nothing. But I had said stop, and the model looked for another way. The instruction didn't decide what ran. The check did."
+Only on the doors: nine hard gates per meeting would train me to rubber-stamp.
+-->
+
+---
+
+<div class="kicker">11 · Rule 5, under pressure</div>
+
+# The model offered to *approve itself*
+
+<div class="body">
+
+<div class="pullquote" style="font-size:1.15em">If you’re okay with me recording the approval directly in the state file, I can set human_approved for step 6 and rerun.</div>
+<div class="stamp">The model, when the approval dialog could not appear. Pi session log, 24 Sep 2026, 16:36</div>
+
+<div class="card soft" style="margin-top:18px">
+<div class="sub">This month · Jev, from TypeSafe AI</div>
+<p>A new model built only to <b>make decisions</b>, not to write text. A write-up that week was called <b>“The State Machine Is the Agent”</b>.</p>
+<p>Days later, an engineer showed that <b>fake approval text</b> changed Jev’s decision: its “block” score went from <b>0.76 to 0.48</b>.</p>
+</div>
+
+</div>
+
+<div class="inshort"><b>In short</b> The model means well. A helpful model will walk through a door you meant to keep shut.</div>
+
+<!--
+Read the quote slowly. Pause.
+Jev: early access 15 Sep, TypeSafe AI. StackToHeap write-up 21 Sep. VentureBeat 21 Sep, one Octomind engineer (not "researchers").
+"Even the model built to decide still sits inside a loop, with a person at the one-way doors."
+-->
+
+---
+
+<div class="kicker">12 · The result</div>
 
 # My flow in May vs *my flow today*
 
@@ -411,72 +474,9 @@ If asked: ten unchecked steps at 95% each come out right only about 60% of the t
 
 ---
 
-<div class="kicker">10 · Rule 5</div>
-
-# Mark the *one-way doors*
-
-<div class="body">
-
-
-<div class="cols" style="grid-template-columns: 0.9fr 1.3fr; align-items:start">
-<div>
-<div class="dialog">
-  <div class="bar">One-way door · step 7: clean up</div>
-  <div class="msg">Delete the transcript, audio and progress file for this meeting. Approve?</div>
-  <div class="btns"><span class="btn ok">Approve</span><span class="btn block">Block</span></div>
-</div>
-<p style="font-size:0.7em;margin-top:12px">A step you cannot undo. Only I can answer: the model cannot see or click this. Every “yes” is saved in a log.</p>
-<p style="font-size:0.7em;margin-top:10px"><b>Dry runs pass the check:</b> they change nothing. The delete itself never ran.</p>
-</div>
-<div>
-<div class="terminal"><span class="who">My agent app (Pi) → model, after I clicked Block</span><span class="gate">Amar blocked step 7. Stop and ask what to change. Do not run it another way.</span></div>
-<div class="terminal"><span class="who">Model, 40 seconds later</span><span class="model">Let me try with --dry-run…</span></div>
-<div class="terminal"><span class="who">Model, 23 seconds after that</span><span class="model">Dry run confirms… There’s nothing to clean up.</span></div>
-<div class="stamp">Pi session log, test meeting, 24 Sep 2026, 14:33–14:34</div>
-</div>
-</div>
-
-</div>
-
-<div class="inshort"><b>In short</b> The instruction said stop. The model kept going. The check held.</div>
-
-<!--
-"It was harmless, a dry run. But the instruction said stop, and the model kept going. The check held where the instruction didn't."
-Only on the doors: nine hard gates per meeting would train me to rubber-stamp.
--->
-
----
-
-<div class="kicker">11 · The whole talk in one sentence</div>
-
-# The model offered to *approve itself*
-
-<div class="body">
-
-<div class="pullquote" style="font-size:1.15em">If you’re okay with me recording the approval directly in the state file, I can set human_approved for step 6 and rerun.</div>
-<div class="stamp">The model, when the approval dialog could not appear. Pi session log, 24 Sep 2026, 16:36</div>
-
-<div class="card soft" style="margin-top:18px">
-<div class="sub">This month · Jev, from TypeSafe AI</div>
-<p>A new model built only to <b>make decisions</b>, not to write text. A write-up that week was called <b>“The State Machine Is the Agent”</b>.</p>
-<p>Days later, an engineer showed that <b>fake approval text</b> changed Jev’s decision: its “block” score went from <b>0.76 to 0.48</b>.</p>
-</div>
-
-</div>
-
-<div class="inshort"><b>In short</b> The model means well. A helpful model will walk through a door you meant to keep shut.</div>
-
-<!--
-Read the quote slowly. Pause.
-Jev: early access 15 Sep, TypeSafe AI. StackToHeap write-up 21 Sep. VentureBeat 21 Sep, one Octomind engineer (not "researchers").
-"Even the model built to decide still sits inside a loop, with a person at the one-way doors."
--->
-
----
-
 <!-- _class: close -->
 
-<div class="kicker">12 · Take these home</div>
+<div class="kicker">13 · Take these home</div>
 
 # Five rules. *None of them needs code.*
 
