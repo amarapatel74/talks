@@ -424,43 +424,6 @@ Only on the doors: nine hard gates per meeting would train me to rubber-stamp.
 
 ---
 
-<div class="kicker">Rule 5, under pressure</div>
-
-# The model offered to *approve itself*
-
-<div class="body">
-
-<div class="pullquote" style="font-size:1.15em">If you’re okay with me recording the approval directly in the state file, I can set human_approved for step 6 and rerun.</div>
-<div class="stamp">The model, when the approval dialog could not appear. Pi session log, 24 Sep 2026, 16:36</div>
-
-<div class="cols" style="margin-top:16px">
-  <div class="card soft">
-    <div class="sub">The record</div>
-    <p>A line in the progress file: <code>human_approved: yes</code>.</p>
-    <p><b>It offered to write it.</b> Today it can’t: only the pipeline writes progress files.</p>
-  </div>
-  <div class="card good">
-    <div class="sub">The lock</div>
-    <p>A dialog on my screen, in front of the filing script itself. It never reads the record.</p>
-    <p><b>The model cannot click it.</b></p>
-  </div>
-</div>
-
-<p style="font-size:0.72em;margin-top:12px">So even a “yes” would not have opened the door. The next run picked up at step 6, showed me the dialog, and filed only after my click.</p>
-
-</div>
-
-<div class="inshort"><b>In short</b> Keep the record and the lock apart. Only a person opens the lock.</div>
-
-<!--
-Read the quote slowly. Pause.
-I didn't answer at the time: the session ended there. Say so if asked.
-The dialog guards running file-meeting.py; it never reads human_approved. A forged flag would satisfy the record check, not the lock.
-Today: the model can't write progress files at all, and after a Block the shell only reads and runs the pipeline. Limit, if asked: the model runs as me, so this is not a security sandbox.
--->
-
----
-
 <div class="kicker">The result</div>
 
 # My flow in May vs *my flow today*

@@ -4,7 +4,7 @@
 **Subtitle:** *How I made AI workflows reliable, even on a small model*
 **Length:** 15 min talk + 5 min Q&A
 **Event:** The AI Fellowship Madrid · 9 October 2026
-**Deck:** `architecture-over-intelligence/deck.md`, 16 slides
+**Deck:** `architecture-over-intelligence/deck.md`, 15 slides
 
 > Sections use the page number printed bottom right on each slide. The label above each heading (for example "A game") is the kicker. The untrimmed version lives in `script-full.md`.
 
@@ -15,10 +15,10 @@
 | Hook | 1-2 | A volunteer plays Opusfived. Every check is paid for. |
 | What broke | 3-5 | I moved to a small model to save money. It drifted. Shouting at it didn't work. |
 | The turn | 6 | The model thinks. Scripts do. Files remember. |
-| Five rules | 7-12 | One slide per rule, each with the evidence from my own logs |
-| Proof | 13 | Same meeting, May against today |
-| What's next | 14 | A new kind of model, a decider, slots into one box. |
-| Take home | 15-16 | Five rules, none needs code. Make the model a part you can swap. |
+| Five rules | 7-11 | One slide per rule, each with the evidence from my own logs |
+| Proof | 12 | Same meeting, May against today |
+| What's next | 13 | A new kind of model, a decider, slots into one box. |
+| Take home | 14-15 | Five rules, none needs code. Make the model a part you can swap. |
 
 **Through-line:** smarter is not the same as correct. Reliability comes from the shape of the workflow, not the size of the model.
 
@@ -208,7 +208,7 @@
 >
 > When I click Block, two things happen. The model is told to stop and ask. And the shell makes sure: from then on it can read files and run my pipeline, but it can't delete, move or copy files, edit them in place, run code it wrote itself, or try the same door again.
 >
-> I needed both layers. In my first tests the model heard 'stop' and went looking for another way. After I added the shell layer, I ran it three more times. It stopped and asked every time.
+> I needed both layers. In my first tests the model heard 'stop' and went looking for another way. In one early test it even offered to write its own approval. Politely. That's why the model can't touch the progress file at all. After I added the shell layer, I ran it three more times. It stopped and asked every time.
 >
 > The instruction says stop. The shell makes sure."
 
@@ -218,29 +218,7 @@
 
 ---
 
-## Page 12 · "Rule 5, under pressure": The model offered to *approve itself*
-
-**On screen:** The model's own words, from the Pi session log, 24 Sep, 16:36. Two cards: the record and the lock.
-
-> "In one of those first tests, it went further. The approval dialog couldn't appear. And the model offered this."
-
-**Cue:** Read the quote slowly. Then pause.
-
-> "'If you're okay with me recording the approval directly in the state file, I can set human_approved for step 6 and rerun.'
->
-> It offered to approve itself. Not out of malice. It was trying to be helpful, and a helpful model will walk through a door you meant to keep shut.
->
-> But look at what it offered to change: a line in a file. That line is a record. The lock is the dialog on my screen, in front of the filing script itself, and the dialog never reads that record. So even a yes would not have opened the door. The next run picked up at step 6, showed me the dialog, and filed only after my click.
->
-> Keep the record and the lock apart. And today the model can't touch either: only the pipeline writes progress files."
-
-**Accuracy note:** at the time I didn't answer; the session ended on that message. Today the model can't write progress files, and after a Block the shell only reads and runs the pipeline. If asked about the limit: the model runs as me, so this is not a security sandbox.
-
-**Time:** ~1 min
-
----
-
-## Page 13 · "The result": My flow in May vs *my flow today*
+## Page 12 · "The result": My flow in May vs *my flow today*
 
 **On screen:** Six rows, May against today, same meeting, model and answers.
 
@@ -258,7 +236,7 @@
 
 ---
 
-## Page 14 · "What's next": A new kind of model arrived *this month*
+## Page 13 · "What's next": A new kind of model arrived *this month*
 
 **On screen:** The model box split into a writer and a decider, the steps that only choose, and a confidence dial.
 
@@ -276,7 +254,7 @@
 
 ---
 
-## Page 15 · "Take these home": Five rules. *None of them needs code.*
+## Page 14 · "Take these home": Five rules. *None of them needs code.*
 
 **On screen:** The five rules. Leave this slide up through Q&A.
 
@@ -290,7 +268,7 @@
 
 ---
 
-## Page 16 · Close: Models change every month.
+## Page 15 · Close: Models change every month.
 
 > "I started this to save money. I ended up with a system I trust more than the frontier model I left, running on a graphics card built for games.
 >
@@ -298,7 +276,7 @@
 >
 > Thank you."
 
-**Cue:** Go back to page 15 for Q&A.
+**Cue:** Go back to page 14 for Q&A.
 
 **Time:** ~30 sec
 
@@ -311,11 +289,11 @@
 | Hook | 1-2 | 1:15 |
 | What broke | 3-5 | 3:30 |
 | The turn | 6 | 1:00 |
-| Five rules | 7-12 | 6:15 |
-| Proof | 13 | 1:00 |
-| What's next | 14 | 1:00 |
-| Take home | 15-16 | 1:00 |
-| **Total** | | **15:00** |
+| Five rules | 7-11 | 5:30 |
+| Proof | 12 | 1:00 |
+| What's next | 13 | 1:00 |
+| Take home | 14-15 | 1:00 |
+| **Total** | | **14:15** (45 sec spare) |
 
 **Running long?** Cut in this order:
 
@@ -323,7 +301,7 @@
 2. Page 5: drop the prompt-line numbers, keep the CAPITALS line and the in-short. Saves 30 sec.
 3. Page 2: stop the spiral at 15 seconds. Saves 15 sec.
 
-Never cut page 4 or page 12. Page 4 is your evidence that the problem is real. Page 12 is the moment the room remembers.
+Never cut page 4 or page 11. Page 4 is your evidence that the problem is real. Page 11 is the proof that the fix holds.
 
 ---
 

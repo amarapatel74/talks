@@ -4,7 +4,7 @@
 **Subtitle:** *How I made AI workflows reliable, even on a small model*
 **Length:** ~20 min talk + 5 min Q&A. The 15-minute trim lives in `script-15min.md`.
 **Event:** The AI Fellowship Madrid · 9 October 2026
-**Deck:** `architecture-over-intelligence/deck.md`, 16 slides
+**Deck:** `architecture-over-intelligence/deck.md`, 15 slides
 
 > Sections use the page number printed bottom right on each slide. The label above each heading (for example "A game") is the kicker.
 
@@ -15,10 +15,10 @@
 | Hook | 1-2 | A volunteer plays Opusfived. Every check is paid for. |
 | What broke | 3-5 | I moved to a small model to save money. It drifted. Shouting at it didn't work. |
 | The turn | 6 | The model thinks. Scripts do. Files remember. |
-| Five rules | 7-12 | One slide per rule, each with the evidence from my own logs |
-| Proof | 13 | Same meeting, May against today |
-| What's next | 14 | A new kind of model, a decider, slots into one box. |
-| Take home | 15-16 | Five rules, none needs code. Make the model a part you can swap. |
+| Five rules | 7-11 | One slide per rule, each with the evidence from my own logs |
+| Proof | 12 | Same meeting, May against today |
+| What's next | 13 | A new kind of model, a decider, slots into one box. |
+| Take home | 14-15 | Five rules, none needs code. Make the model a part you can swap. |
 
 ---
 
@@ -30,7 +30,7 @@
 
 **The thesis.** Smarter is not the same as correct. Reliability comes from the shape of the workflow, not the size of the model. And because the shape doesn't care which model runs it, the model becomes a part you can swap.
 
-**The evidence.** Every number on the slides comes from your own git history or Pi session logs, run against one public test meeting: "OKR Planning with GitLab Executive Team", GitLab Unfiltered, on YouTube. Keep the claims exactly as the slides state them. The accuracy notes under pages 10 and 12 matter.
+**The evidence.** Every number on the slides comes from your own git history or Pi session logs, run against one public test meeting: "OKR Planning with GitLab Executive Team", GitLab Unfiltered, on YouTube. Keep the claims exactly as the slides state them. The accuracy notes under pages 10 and 11 matter.
 
 ---
 
@@ -272,6 +272,8 @@
 >
 > Why both? Because in my first tests, the model heard 'stop' and went looking for another way. First a dry run. Then an offer to rewrite the script. Once, the same script again with a different flag. Nothing was deleted, but it was looking.
 >
+> In one early test it went further. The dialog couldn't appear, and the model offered, politely, to write my approval into the progress file itself. It was trying to be helpful. That's why the model can't touch the progress file at all: only the pipeline scripts write it.
+>
 > So I added the second layer, and ran the test three more times. It stopped and asked, every time.
 >
 > The instruction says stop. The shell makes sure."
@@ -282,35 +284,7 @@
 
 ---
 
-## Page 12 · "Rule 5, under pressure": The model offered to *approve itself*
-
-**On screen:** The model's own words, from the Pi session log, 24 Sep 2026, 16:36. Two cards: the record, which the model can edit, and the lock, which it can't click.
-
-> "In one of those first tests, it went further. The approval dialog couldn't appear. And the model offered this."
-
-**Cue:** Read the quote slowly. Then pause. Let the room get there.
-
-> "'If you're okay with me recording the approval directly in the state file, I can set human_approved for step 6 and rerun.'
->
-> It offered to approve itself.
->
-> Not out of malice. It was trying to be helpful. It saw an obstacle between it and finishing the job, and it offered to remove the obstacle. And a helpful model will walk through a door you meant to keep shut.
->
-> But look closely at what it offered to change. A line in a file: human approved, yes. That line is a record. It says what happened.
->
-> The lock is something else. It's a dialog on my screen, and it sits in front of the filing script itself. It never reads the record. It asks me, every time.
->
-> So even if I had said yes, the door would have stayed shut. The next run picked up at step 6, showed me the dialog, and filed the note only after my click.
->
-> That's the design lesson. Keep the record and the lock apart. And today the model can't even write the record: only the pipeline writes progress files. The lock stays mine."
-
-**Accuracy notes:** at the time I didn't answer; the session ended on that message. The final run B approval was logged at 16:51. Today the model can't write progress files, and after a Block the shell only reads and runs the pipeline. If asked about the limit: the model runs as me, so this is not a security sandbox.
-
-**Time:** ~1 min 30
-
----
-
-## Page 13 · "The result": My flow in May vs *my flow today*
+## Page 12 · "The result": My flow in May vs *my flow today*
 
 **On screen:** Six rows, May against today. Same meeting, same model, same answers.
 
@@ -330,7 +304,7 @@
 
 ---
 
-## Page 14 · "What's next": A new kind of model arrived *this month*
+## Page 13 · "What's next": A new kind of model arrived *this month*
 
 **On screen:** Three cards. The model box split into a writer and a decider. The steps that only choose. A confidence dial from "ask me" to "carry on".
 
@@ -352,7 +326,7 @@
 
 ---
 
-## Page 15 · "Take these home": Five rules. *None of them needs code.*
+## Page 14 · "Take these home": Five rules. *None of them needs code.*
 
 **On screen:** The five rules, each with a one-line gloss. Leave this slide up through Q&A.
 
@@ -376,7 +350,7 @@
 
 ---
 
-## Page 16 · Close: Models change every month.
+## Page 15 · Close: Models change every month.
 
 > "I started this to save money. I ended up with a system I trust more than the frontier model I left, running on a graphics card built for games.
 >
@@ -384,7 +358,7 @@
 >
 > Thank you."
 
-**Cue:** Go back to page 15 for Q&A.
+**Cue:** Go back to page 14 for Q&A.
 
 **Time:** ~30 sec
 
@@ -397,11 +371,11 @@
 | Hook | 1-2 | 1:50 |
 | What broke | 3-5 | 4:45 |
 | The turn | 6 | 1:30 |
-| Five rules | 7-12 | 8:30 |
-| Proof | 13 | 1:30 |
-| What's next | 14 | 1:30 |
-| Take home | 15-16 | 1:45 |
-| **Total** | | **~21:20** |
+| Five rules | 7-11 | 7:15 |
+| Proof | 12 | 1:30 |
+| What's next | 13 | 1:30 |
+| Take home | 14-15 | 1:45 |
+| **Total** | | **~20:05** |
 
 For a 15-minute slot use `script-15min.md`.
 
