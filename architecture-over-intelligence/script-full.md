@@ -18,7 +18,7 @@
 | Five rules | 7-11 | One slide per rule, each with the evidence from my own logs |
 | Proof | 12 | Same meeting, May against today |
 | What's next | 13 | A new kind of model, a decider, slots into one box. |
-| Take home | 14-15 | Five rules, none needs code. Make the model a part you can swap. |
+| Take home | 14-15 | Five rules. Start with a checklist; add tested scripts. Make the model a part you can swap. |
 
 ---
 
@@ -326,11 +326,11 @@
 
 ---
 
-## Page 14 · "Take these home": Five rules. *None of them needs code.*
+## Page 14 · "Take these home": Five rules. *Start with a checklist.*
 
 **On screen:** The five rules, each with a one-line gloss. Leave this slide up through Q&A.
 
-> "So, five rules. And none of them needs code.
+> "So, five rules. And you can start without writing any code.
 >
 > One: write the steps down, and give each one to the right worker. Judgement goes to the model. One right answer goes to a script.
 >
@@ -343,6 +343,8 @@
 > Five: mark the one-way doors. A person says yes before anything is sent, deleted or filed.
 >
 > Try one tonight. Take your messiest AI workflow, and write down the steps, and what each one should produce. That's it. A checklist and a shared folder are enough to start.
+>
+> Be honest with yourself about one thing, though. Without code, you are the check. You read each output, and you are the lock on the doors. That works, but it's tiring. So when a check has only one right answer, hand it to a script, and test that script. That's what I did, one step at a time.
 >
 > And this isn't only for meeting notes. It works for a hiring process, a month-end report, customer onboarding. Anywhere there are steps and a door you can't walk back through."
 
@@ -406,6 +408,9 @@ For a 15-minute slot use `script-15min.md`.
 
 **Q: I don't write code. Can I use this?**
 > "Yes. A script is anything that gives the same answer every time: a template, a spreadsheet formula, a form. Write the steps down, make each leave something you can check, and decide which steps need your yes. A checklist and a shared folder are enough to start."
+
+**Q: Weren't your scripts written by an LLM too?**
+> "Yes, most of them. And that's the point. A script drifts once, when it's written. I can read it, test it, and after that it does the same thing every time. A model drifts on every run, differently each time. Testing for this talk found three bugs in those scripts: a two-hour time shift, a dry run that renamed a file, and a gap in the gate. All three fixed, and they stay fixed."
 
 **Q: Can you share the code?**
 > "The shape is the valuable part, and it's all on these slides. My code is tangled up with my own setup: Pi, my notes app, a handful of scripts. Happy to talk through any piece of it."

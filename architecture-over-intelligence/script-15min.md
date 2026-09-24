@@ -18,7 +18,7 @@
 | Five rules | 7-11 | One slide per rule, each with the evidence from my own logs |
 | Proof | 12 | Same meeting, May against today |
 | What's next | 13 | A new kind of model, a decider, slots into one box. |
-| Take home | 14-15 | Five rules, none needs code. Make the model a part you can swap. |
+| Take home | 14-15 | Five rules. Start with a checklist; add tested scripts. Make the model a part you can swap. |
 
 **Through-line:** smarter is not the same as correct. Reliability comes from the shape of the workflow, not the size of the model.
 
@@ -254,15 +254,15 @@
 
 ---
 
-## Page 14 · "Take these home": Five rules. *None of them needs code.*
+## Page 14 · "Take these home": Five rules. *Start with a checklist.*
 
 **On screen:** The five rules. Leave this slide up through Q&A.
 
-> "Five rules, and none of them needs code.
+> "Five rules, and you can start without code.
 >
 > Write the steps down, and give each to the right worker. Make every step leave a file. Keep progress outside the model. Check before and after every step. And mark the one-way doors.
 >
-> Try one tonight. Take your messiest AI workflow, and write down the steps and what each one should produce. A checklist and a shared folder are enough to start. It works just as well for a hiring process, a month-end report, or customer onboarding."
+> Try one tonight. Take your messiest AI workflow, and write down the steps and what each one should produce. A checklist and a shared folder are enough to start. Without code, you are the check. Then hand the checks with one right answer to a script, and test it. It works just as well for a hiring process, a month-end report, or customer onboarding."
 
 **Time:** ~45 sec
 
@@ -327,6 +327,9 @@ Never cut page 4 or page 11. Page 4 is your evidence that the problem is real. P
 
 **Q: I don't write code. Can I use this?**
 > "Yes. A script is anything that gives the same answer every time: a template, a spreadsheet formula, a form. A checklist and a shared folder are enough to start."
+
+**Q: Weren't your scripts written by an LLM too?**
+> "Yes, most of them. The difference: a script drifts once, when it's written, and I can test it. A model drifts on every run. Testing for this talk found three bugs in those scripts. All fixed, and they stay fixed."
 
 **Q: Can you share the code?**
 > "The shape is the valuable part, and it's all on these slides. My code is tangled up with my own setup: Pi, my notes app, a handful of scripts."

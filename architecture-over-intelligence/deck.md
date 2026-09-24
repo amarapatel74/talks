@@ -504,7 +504,7 @@ Be clear: not wired in yet.
 
 <div class="kicker">Take these home</div>
 
-# Five rules. *None of them needs code.*
+# Five rules. *Start with a checklist.*
 
 <div class="body">
 
@@ -520,7 +520,7 @@ Be clear: not wired in yet.
 
 </div>
 
-<div class="inshort"><b>In short</b> A checklist and a shared folder are enough to start.</div>
+<div class="inshort"><b>In short</b> Without code, you are the check. Add scripts where the answer never changes, and test them.</div>
 
 <!--
 Leave this slide up through Q&A.
