@@ -145,11 +145,11 @@
 
 ## Page 6 · "The turn": My whole flow, *split three ways*
 
-**On screen:** The whole meeting flow today, one row per step: Transcribe, Speakers, Context, Summary, Tone, Actions, Priorities, Follow-up, File, Clean up. Columns: Model thinks, Scripts do, You decide, Files remember. Reviews are dashed; the one-way door is solid. A line underneath: between every row, a script checks it's this step's turn and the last step left its file.
+**On screen:** The whole meeting flow today, one row per step: Transcribe, Speakers, Context, Summary, Tone, Actions, Priorities, Follow-up, File, Clean up. Columns: Model thinks, Scripts do, You decide, Files remember. Reviews are dashed; the one-way door is solid. An arrow down the left shows the order, Transcribe to Clean up. A line underneath: between every row, a script checks it's this step's turn and the last step left its file.
 
 > "So here's the turn. The fix wasn't a smarter model. It was a different shape.
 >
-> This is my whole meeting flow as it runs today, one row per step. Read it by column.
+> This is my whole meeting flow as it runs today, one row per step, top to bottom. Read it by column.
 >
 > The model thinks. It does judgement, and only judgement: who is speaking, what was said, who agreed to do what, the tone, how urgent each task is, and a draft follow-up. Things a script can't do.
 >

@@ -117,13 +117,13 @@
 
 ## Page 6 · "The turn": My whole flow, *split three ways*
 
-**On screen:** The whole meeting flow today, one row per step, in columns: Model thinks, Scripts do, You decide, Files remember. Reviews are dashed; the one-way door is solid.
+**On screen:** The whole meeting flow today, one row per step, in columns: Model thinks, Scripts do, You decide, Files remember. Reviews are dashed; the one-way door is solid. An arrow down the left shows the order, Transcribe to Clean up.
 
 > "So here's the turn. The fix wasn't a smarter model. It was a different shape.
 >
 > This is my whole meeting flow today, one row per step.
 >
-> The model does the judgement: who's speaking, what was said, who agreed to do what, how urgent it is. Scripts do the sure things: the transcript, the calendar, spotting duplicates, filing the note. I confirm at a few points, and one step, deleting, is a one-way door. And every step leaves a file.
+> The model does the judgement: who's speaking, what was said, who agreed to do what, how urgent it is. Scripts do the sure things: the transcript, the calendar, spotting duplicates, filing the note. I confirm at four points, and one step, deleting, is a one-way door. And every step leaves a file.
 >
 > Qwen is good at two things: calling tools, and writing clean data. So I gave it only the judgement. I worked this shape out with help from Claude and Qwen themselves.
 >
