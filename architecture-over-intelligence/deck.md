@@ -221,10 +221,10 @@ Source: git history of .pi/skills/process-meeting/SKILL.md.
 <div class="st">Transcribe</div><div></div><div class="c s">Speech-to-text tools</div><div></div><div class="c f">transcript</div>
 <div class="st">Speakers</div><div class="c m">Proposes names</div><div class="c s">Applies them</div><div class="c rev">Confirm</div><div class="c f">speaker-map</div>
 <div class="st">Context</div><div></div><div class="c s">Calendar, date, people</div><div></div><div class="c f">context</div>
-<div class="st">Summary</div><div class="c m">Writes it</div><div></div><div></div><div class="c f">summary</div>
+<div class="st">Summary</div><div class="c m">Writes it</div><div></div><div class="c rev">Review</div><div class="c f">summary</div>
 <div class="st">Tone</div><div class="c m">Chooses 1 of 4</div><div></div><div></div><div class="c f">sentiment</div>
-<div class="st">Actions</div><div class="c m">Finds who agreed to what</div><div class="c s">Checks for duplicates</div><div class="c rev">Review</div><div class="c f">actions</div>
-<div class="st">Priorities</div><div class="c m">Chooses now / next / someday</div><div></div><div class="c rev">Confirm</div><div class="c f">actions</div>
+<div class="st">Actions</div><div class="c m">Finds who agreed to what</div><div class="c s">Checks for duplicates</div><div class="c rev">Review, with priorities</div><div class="c f">actions</div>
+<div class="st">Priorities</div><div class="c m">Chooses now / next / someday</div><div></div><div></div><div class="c f">actions</div>
 <div class="st">Follow-up</div><div class="c m">Drafts the email</div><div></div><div class="c rev">Yes or no</div><div class="c f">draft</div>
 <div class="st">File</div><div></div><div class="c s">Builds the note from the files</div><div></div><div class="c f">the note</div>
 <div class="st">Clean up</div><div></div><div class="c s">Deletes working files</div><div class="c door">One-way door</div><div class="c f">approval log</div>
@@ -238,7 +238,7 @@ Source: git history of .pi/skills/process-meeting/SKILL.md.
 
 <!--
 "The fix wasn't a smarter model. It was a different shape." This is the whole flow today, one row per step.
-Model: 6 jobs, all judgement. Scripts: the sure things. You: 4 quick reviews (dashed) and 1 one-way door (solid).
+Model: 6 jobs, all judgement. Scripts: the sure things. You: 4 quick reviews (dashed: speakers, what was said, actions with priorities, follow-up) and 1 one-way door (solid).
 Full script only: every step is safe to run twice (idempotent), so a restart never duplicates.
 The next slides are the five rules behind this map.
 -->

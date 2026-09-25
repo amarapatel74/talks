@@ -129,7 +129,7 @@
 >
 > The model thinks. Scripts do. Files remember. The next five slides are the rules behind this map."
 
-**Accuracy note:** 6 model jobs, 7 scripts, 4 quick reviews and 1 one-way door. If asked about slide 11's "only on the doors": the reviews are a glance in the chat; the door is a hard stop the model can't see or get round.
+**Accuracy note:** 6 model jobs, 7 scripts, 4 quick reviews (speakers, what was said, actions with priorities, follow-up) and 1 one-way door. If asked about slide 11's "only on the doors": the reviews are a glance in the chat; the door is a hard stop the model can't see or get round.
 
 **Time:** ~1 min 30
 

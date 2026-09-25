@@ -155,7 +155,7 @@
 >
 > Scripts do the sure things. The transcript. The calendar details. Spotting a task I already have. Building the note. Deleting the working files. Things with one right answer.
 >
-> I decide at a few points: I confirm the speakers, glance at the actions and priorities, and say yes or no to a follow-up. And one step, deleting, is a one-way door. More on that later.
+> I decide at four points: I confirm the speakers, check what it says was said, glance at the actions and priorities, and say yes or no to a follow-up. And one step, deleting, is a one-way door. More on that later.
 >
 > And files remember. Every row leaves one. Which step we're on, what's already done, what each step produced. Between every row, a script checks the last file is there before the next step can start.
 >
@@ -165,7 +165,7 @@
 >
 > The model thinks. Scripts do. Files remember. The next five slides are the rules behind this map."
 
-**Accuracy note:** 6 model jobs, 7 scripts, 4 quick reviews and 1 one-way door. The reviews are a glance in the chat; the door is a hard stop the model can't see or get round. That's why slide 11 can say "only on the doors" without contradicting this map.
+**Accuracy note:** 6 model jobs, 7 scripts, 4 quick reviews (speakers, what was said, actions with priorities, follow-up) and 1 one-way door. The reviews are a glance in the chat; the door is a hard stop the model can't see or get round. That's why slide 11 can say "only on the doors" without contradicting this map.
 
 **Extra, full version only:** every step is safe to run twice. If a step runs again after a restart, it produces the same result instead of a duplicate. Engineers call that idempotent. You don't need the word; you need the property.
 
