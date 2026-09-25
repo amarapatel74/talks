@@ -207,6 +207,9 @@ Source: git history of .pi/skills/process-meeting/SKILL.md.
 .flowmap .rev { border:1.5px dashed var(--ink); background:#fff; }
 .flowmap .door { background:var(--blocked); color:#fff; font-weight:700; border:1.5px solid var(--blocked); }
 .flowmap .c.f { font-family:var(--mono); font-size:12px; color:var(--muted); border:1px dashed var(--hairline); background:var(--paper2); }
+.flowmap { position:relative; }
+.flowmap::before { content:''; position:absolute; left:-20px; top:26px; bottom:10px; width:2px; background:var(--muted); }
+.flowmap::after { content:''; position:absolute; left:-25px; bottom:2px; border-left:6px solid transparent; border-right:6px solid transparent; border-top:10px solid var(--muted); }
 .flowmap-note { font-size:0.6em; color:var(--muted); margin:8px 0 14px; }
 </style>
 
