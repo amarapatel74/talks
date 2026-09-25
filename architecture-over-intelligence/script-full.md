@@ -121,7 +121,7 @@
 
 ## Page 5 · "My first fix: more words": More instructions. Then *SHOUTING*.
 
-**On screen:** Three bar charts across 11 May, 8 Sep and 17 Sep: lines in the prompt, warnings in capitals, scripts doing the sure things. A real prompt line from 8 September.
+**On screen:** Three bar charts across 11 May, 8 Sep and today: lines in the prompt, warnings in capitals, scripts doing the sure things. A real prompt line from 8 September.
 
 > "My first fix was the obvious one. More words.
 >
@@ -131,7 +131,7 @@
 >
 > It helped. A little. But an instruction is only a suggestion. However loudly you write it, the model can still decide that something else matters more, in the moment.
 >
-> What worked was moving the work out of the prompt and into code. Look at the bottom row: one script in May, four by early September, six by the 17th, seven today. And look at what the prompt did: back down to 240 lines, and not a single capital letter warning.
+> What worked was moving the work out of the prompt and into code. Look at the bottom row: one script in May, four by early September, seven today. And look at what the prompt did: back down to about 250 lines, and not a single capital letter warning.
 >
 > The work didn't disappear. It moved out of the prompt, into places where it happens the same way every time.
 >
@@ -143,25 +143,29 @@
 
 ---
 
-## Page 6 · "The turn": Split the work into three parts
+## Page 6 · "The turn": My whole flow, *split three ways*
 
-**On screen:** Three boxes. Model: thinks, judgement. Scripts: do, the sure things. Files: remember, memory.
+**On screen:** The whole meeting flow today, one row per step: Transcribe, Speakers, Context, Summary, Tone, Actions, Priorities, Follow-up, File, Clean up. Columns: Model thinks, Scripts do, You decide, Files remember. Reviews are dashed; the one-way door is solid. A line underneath: between every row, a script checks it's this step's turn and the last step left its file.
 
 > "So here's the turn. The fix wasn't a smarter model. It was a different shape.
 >
-> I split the work into three parts.
+> This is my whole meeting flow as it runs today, one row per step. Read it by column.
 >
-> The model thinks. It does judgement: who is speaking, what was important, what did people agree to do. Things a script can't do.
+> The model thinks. It does judgement, and only judgement: who is speaking, what was said, who agreed to do what, the tone, how urgent each task is, and a draft follow-up. Things a script can't do.
 >
-> Scripts do the sure things. Dates and file names. Filing the note. Checking every step. Things with one right answer.
+> Scripts do the sure things. The transcript. The calendar details. Spotting a task I already have. Building the note. Deleting the working files. Things with one right answer.
 >
-> And files remember. Which step we're on. What's already done. What each step produced.
+> I decide at a few points: I confirm the speakers, glance at the actions and priorities, and say yes or no to a follow-up. And one step, deleting, is a one-way door. More on that later.
+>
+> And files remember. Every row leaves one. Which step we're on, what's already done, what each step produced. Between every row, a script checks the last file is there before the next step can start.
 >
 > Then it clicked. Qwen is good at two things: calling tools, and writing clean, structured data. It's bad at holding a long process in its head. So I stopped asking it to. I gave it only the judgement, and took everything else away.
 >
 > I didn't work this out alone, by the way. I worked it out with help from Claude and Qwen themselves.
 >
-> The model thinks. Scripts do. Files remember. The next five slides are those three pieces, as five rules."
+> The model thinks. Scripts do. Files remember. The next five slides are the rules behind this map."
+
+**Accuracy note:** 6 model jobs, 7 scripts, 4 quick reviews and 1 one-way door. The reviews are a glance in the chat; the door is a hard stop the model can't see or get round. That's why slide 11 can say "only on the doors" without contradicting this map.
 
 **Extra, full version only:** every step is safe to run twice. If a step runs again after a restart, it produces the same result instead of a duplicate. Engineers call that idempotent. You don't need the word; you need the property.
 

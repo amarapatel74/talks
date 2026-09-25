@@ -14,7 +14,7 @@
 |---|---|---|
 | Hook | 1-2 | A volunteer plays Opusfived. Every check is paid for. |
 | What broke | 3-5 | I moved to a small model to save money. It drifted. Shouting at it didn't work. |
-| The turn | 6 | The model thinks. Scripts do. Files remember. |
+| The turn | 6 | The whole flow on one map. The model thinks. Scripts do. Files remember. |
 | Five rules | 7-11 | One slide per rule, each with the evidence from my own logs |
 | Proof | 12 | Same meeting, May against today |
 | What it unlocks | 13 | Cheaper, safer, portable. Smaller models on bigger jobs. |
@@ -97,7 +97,7 @@
 
 ## Page 5 · "My first fix: more words": More instructions. Then *SHOUTING*.
 
-**On screen:** Three bar charts across 11 May, 8 Sep, 17 Sep: prompt lines, capital-letter warnings, scripts. A real prompt line from 8 September.
+**On screen:** Three bar charts across 11 May, 8 Sep and today: prompt lines, capital-letter warnings, scripts. A real prompt line from 8 September.
 
 > "My first fix was the obvious one. More words.
 >
@@ -107,7 +107,7 @@
 >
 > It helped a little. But an instruction is only a suggestion. The model can still decide something else matters more.
 >
-> What worked was moving the work out of the prompt and into code. Look at the bottom row: one script in May, four by early September, six by the 17th, seven today. And the prompt came back down to 240 lines, with no capitals at all. The work didn't disappear. It moved out of the prompt.
+> What worked was moving the work out of the prompt and into code. Look at the bottom row: one script in May, four by early September, seven today. And the prompt came back down to about 250 lines, with no capitals at all. The work didn't disappear. It moved out of the prompt.
 >
 > So if you find yourself writing MUST in capitals, your process is missing a check."
 
@@ -115,19 +115,23 @@
 
 ---
 
-## Page 6 · "The turn": Split the work into three parts
+## Page 6 · "The turn": My whole flow, *split three ways*
 
-**On screen:** Three boxes. Model: thinks. Scripts: do. Files: remember.
+**On screen:** The whole meeting flow today, one row per step, in columns: Model thinks, Scripts do, You decide, Files remember. Reviews are dashed; the one-way door is solid.
 
 > "So here's the turn. The fix wasn't a smarter model. It was a different shape.
 >
-> Split the work into three parts. The model thinks: who is speaking, what was important, what did people agree to do. Scripts do the sure things: dates, file names, filing the note, checking every step. And files remember: which step we're on, what's done, what each step produced.
+> This is my whole meeting flow today, one row per step.
+>
+> The model does the judgement: who's speaking, what was said, who agreed to do what, how urgent it is. Scripts do the sure things: the transcript, the calendar, spotting duplicates, filing the note. I confirm at a few points, and one step, deleting, is a one-way door. And every step leaves a file.
 >
 > Qwen is good at two things: calling tools, and writing clean data. So I gave it only the judgement. I worked this shape out with help from Claude and Qwen themselves.
 >
-> The model thinks. Scripts do. Files remember. The next five slides are those pieces, as five rules."
+> The model thinks. Scripts do. Files remember. The next five slides are the rules behind this map."
 
-**Time:** ~1 min
+**Accuracy note:** 6 model jobs, 7 scripts, 4 quick reviews and 1 one-way door. If asked about slide 11's "only on the doors": the reviews are a glance in the chat; the door is a hard stop the model can't see or get round.
+
+**Time:** ~1 min 30
 
 ---
 
@@ -309,13 +313,13 @@
 |---|---|---|
 | Hook | 1-2 | 1:15 |
 | What broke | 3-5 | 3:30 |
-| The turn | 6 | 1:00 |
+| The turn | 6 | 1:30 |
 | Five rules | 7-11 | 5:30 |
 | Proof | 12 | 1:00 |
 | What it unlocks | 13 | 0:45 |
 | What's next | 14 | 1:00 |
 | Take home | 15-16 | 1:00 |
-| **Total** | | **15:00** |
+| **Total** | | **15:30** |
 
 **Running long?** Cut in this order:
 

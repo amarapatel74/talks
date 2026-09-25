@@ -153,21 +153,21 @@ Line: "It knew the right names and still put the wrong name on the quote."
 <div class="bars">
   <div class="when">11 May</div><div class="bar ink" style="width:17.5%">73</div>
   <div class="when">8 Sep</div><div class="bar ink" style="width:100%">416</div>
-  <div class="when">17 Sep</div><div class="bar ink" style="width:57.7%">240</div>
+  <div class="when">Today</div><div class="bar ink" style="width:59.9%">249</div>
 </div></div>
 
 <div class="metric"><div class="mlabel">Warnings in CAPITALS <span>(MUST, NEVER, STOP…)</span></div>
 <div class="bars">
   <div class="when">11 May</div><div class="bar zero" style="width:8%">0</div>
   <div class="when">8 Sep</div><div class="bar red" style="width:100%">13</div>
-  <div class="when">17 Sep</div><div class="bar zero" style="width:8%">0</div>
+  <div class="when">Today</div><div class="bar zero" style="width:8%">0</div>
 </div></div>
 
 <div class="metric"><div class="mlabel">Scripts doing the sure things <span>(normal code)</span></div>
 <div class="bars">
-  <div class="when">11 May</div><div class="bar green" style="width:16.7%">1</div>
-  <div class="when">8 Sep</div><div class="bar green" style="width:66.7%">4</div>
-  <div class="when">17 Sep</div><div class="bar green" style="width:100%">6</div>
+  <div class="when">11 May</div><div class="bar green" style="width:14.3%">1</div>
+  <div class="when">8 Sep</div><div class="bar green" style="width:57.1%">4</div>
+  <div class="when">Today</div><div class="bar green" style="width:100%">7</div>
 </div></div>
 
 </div>
@@ -190,49 +190,57 @@ Line: "It knew the right names and still put the wrong name on the quote."
 
 <!--
 "Every time it skipped a step, I added a line."
-"The prompt got shorter as the scripts took over: one in May, four by early September, six by 17 September, seven today. The work didn't disappear. It moved out of the prompt."
+"The prompt got shorter as the scripts took over: one in May, four by early September, seven today. The work didn't disappear. It moved out of the prompt."
 Source: git history of .pi/skills/process-meeting/SKILL.md.
 -->
 
 ---
 
+<style scoped>
+.flowmap { display:grid; grid-template-columns: 118px 1.35fr 1.35fr 0.9fr 0.8fr; gap:3px 8px; font-size:15px; line-height:1.15; }
+.flowmap .hd { font-family:var(--mono); font-size:12px; letter-spacing:.06em; text-transform:uppercase; padding:0 6px 3px; }
+.flowmap .hd.m { color:var(--accent); } .flowmap .hd.s { color:var(--structure); } .flowmap .hd.y { color:var(--ink); } .flowmap .hd.f { color:var(--muted); }
+.flowmap .st { font-weight:700; padding:4px 0; }
+.flowmap .c { padding:4px 8px; border-radius:6px; }
+.flowmap .c.m { background:#F3E0D2; border:1px solid var(--accent); }
+.flowmap .c.s { background:#E1EAE5; border:1px solid var(--structure); }
+.flowmap .rev { border:1.5px dashed var(--ink); background:#fff; }
+.flowmap .door { background:var(--blocked); color:#fff; font-weight:700; border:1.5px solid var(--blocked); }
+.flowmap .c.f { font-family:var(--mono); font-size:12px; color:var(--muted); border:1px dashed var(--hairline); background:var(--paper2); }
+.flowmap-note { font-size:0.6em; color:var(--muted); margin:8px 0 14px; }
+</style>
+
 <div class="kicker">The turn</div>
 
-# Split the work into three parts
+# My whole flow, *split three ways*
 
 <div class="body">
 
-<div class="trio">
-  <div class="box model">
-    <svg viewBox="0 0 48 48" fill="none" stroke="#A63E12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M24 6a12 12 0 0 0-7 21.7V33h14v-5.3A12 12 0 0 0 24 6z"/><path d="M19 38h10M21 43h6"/></svg>
-    <div class="who">Model</div>
-    <div class="verb">thinks · judgement</div>
-    <ul><li>Who is speaking?</li><li>What was important?</li><li>What did people agree to do?</li></ul>
-  </div>
-  <div class="box scripts">
-    <svg viewBox="0 0 48 48" fill="none" stroke="#33544A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="7"/><path d="M24 5v6M24 37v6M5 24h6M37 24h6M10.6 10.6l4.2 4.2M33.2 33.2l4.2 4.2M10.6 37.4l4.2-4.2M33.2 14.8l4.2-4.2"/></svg>
-    <div class="who">Scripts</div>
-    <div class="verb">do · the sure things</div>
-    <ul><li>Dates and file names</li><li>Filing the note</li><li>Checking every step</li></ul>
-  </div>
-  <div class="box files">
-    <svg viewBox="0 0 48 48" fill="none" stroke="#231B12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M13 5h16l8 8v30H13z"/><path d="M29 5v8h8M18 22h14M18 29h14M18 36h9"/></svg>
-    <div class="who">Files</div>
-    <div class="verb">remember · memory</div>
-    <ul><li>Which step we are on</li><li>What is already done</li><li>What each step produced</li></ul>
-  </div>
+<div class="flowmap">
+<div class="hd"></div><div class="hd m">Model · thinks</div><div class="hd s">Scripts · do</div><div class="hd y">You · decide</div><div class="hd f">Files · remember</div>
+<div class="st">Transcribe</div><div></div><div class="c s">Speech-to-text tools</div><div></div><div class="c f">transcript</div>
+<div class="st">Speakers</div><div class="c m">Proposes names</div><div class="c s">Applies them</div><div class="c rev">Confirm</div><div class="c f">speaker-map</div>
+<div class="st">Context</div><div></div><div class="c s">Calendar, date, people</div><div></div><div class="c f">context</div>
+<div class="st">Summary</div><div class="c m">Writes it</div><div></div><div></div><div class="c f">summary</div>
+<div class="st">Tone</div><div class="c m">Chooses 1 of 4</div><div></div><div></div><div class="c f">sentiment</div>
+<div class="st">Actions</div><div class="c m">Finds who agreed to what</div><div class="c s">Checks for duplicates</div><div class="c rev">Review</div><div class="c f">actions</div>
+<div class="st">Priorities</div><div class="c m">Chooses now / next / someday</div><div></div><div class="c rev">Confirm</div><div class="c f">actions</div>
+<div class="st">Follow-up</div><div class="c m">Drafts the email</div><div></div><div class="c rev">Yes or no</div><div class="c f">draft</div>
+<div class="st">File</div><div></div><div class="c s">Builds the note from the files</div><div></div><div class="c f">the note</div>
+<div class="st">Clean up</div><div></div><div class="c s">Deletes working files</div><div class="c door">One-way door</div><div class="c f">approval log</div>
 </div>
 
-<p style="font-size:0.74em;margin-top:14px">Qwen is good at two things: <b>calling tools</b> and <b>writing clean data (JSON)</b>. So I gave it only the judgement. I worked this out with help from Claude and Qwen.</p>
+<p class="flowmap-note">Between every row, a script checks: is it this step’s turn, and did the last step leave its file? If not, stop.</p>
 
 </div>
 
 <div class="inshort"><b>In short</b> The model thinks. Scripts do. Files remember.</div>
 
 <!--
-"The fix wasn't a smarter model. It was a different shape."
+"The fix wasn't a smarter model. It was a different shape." This is the whole flow today, one row per step.
+Model: 6 jobs, all judgement. Scripts: the sure things. You: 4 quick reviews (dashed) and 1 one-way door (solid).
 Full script only: every step is safe to run twice (idempotent), so a restart never duplicates.
-The next slides are these three pieces.
+The next slides are the five rules behind this map.
 -->
 
 ---
