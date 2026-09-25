@@ -263,7 +263,7 @@
 
 > "Rule 5: mark the one-way doors.
 >
-> A one-way door is a step you can't undo. Sending something. Deleting something. Filing something where people will see it. Resetting a meeting's progress.
+> A one-way door is a step you can't undo. Sending something. Deleting something. Publishing something where people will see it. Resetting a meeting's progress.
 >
 > Step 7 of my flow deletes the transcript, the audio and the progress file for that meeting. So it asks me first, in a dialog the model cannot see or click. Only I can answer. Every Approve and every Block is logged.
 >
@@ -295,7 +295,7 @@
 
 > "So, did it work? Same meeting. Same model. Same answers to its questions. My flow in May, against my flow today.
 >
-> Checked the speakers before writing: no, now yes. Quotes given to the right person: three of five, now five of five. One note per meeting: two notes, now one. The right date: no, now yes. Asked before filing or deleting: no, now yes. And carried on after I quit: I never tested that in May, and it works today.
+> Checked the speakers before writing: no, now yes. Quotes given to the right person: three of five, now five of five. One note per meeting: two notes, now one. The right date: no, now yes. Asked before deleting: no, now yes. And carried on after I quit: I never tested that in May, and it works today.
 >
 > To be fair, and I want to be fair: today's flow also has more steps and better scripts. So treat this as my flow in May against my flow today, not a lab test.
 >

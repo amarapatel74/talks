@@ -444,7 +444,7 @@ Only on the doors: nine hard gates per meeting would train me to rubber-stamp.
   <div class="lab">Quotes given to the right person</div><div><span class="no">✗</span> 3 of 5</div><div><span class="yes">✓</span> 5 of 5</div>
   <div class="lab">One note per meeting</div><div><span class="no">✗</span> 2 notes</div><div><span class="yes">✓</span> 1 note</div>
   <div class="lab">Right date</div><div><span class="no">✗</span></div><div><span class="yes">✓</span></div>
-  <div class="lab">Asked before filing or deleting</div><div><span class="no">✗</span></div><div><span class="yes">✓</span></div>
+  <div class="lab">Asked before deleting</div><div><span class="no">✗</span></div><div><span class="yes">✓</span></div>
   <div class="lab">Carried on after I quit</div><div><span class="na">–</span> not tested</div><div><span class="yes">✓</span></div>
 </div>
 

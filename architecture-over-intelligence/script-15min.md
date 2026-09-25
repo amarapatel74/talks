@@ -207,7 +207,7 @@
 
 **On screen:** The approval dialog for step 7. The message the model gets after a Block, and what the shell refuses from then on.
 
-> "Rule 5: mark the one-way doors. A one-way door is a step you can't undo: sending, deleting, filing. Step 7 deletes the transcript, the audio and the progress file. So it asks me, in a dialog the model can't see or click. Every Approve and every Block is logged.
+> "Rule 5: mark the one-way doors. A one-way door is a step you can't undo: sending, deleting. Step 7 deletes the transcript, the audio and the progress file. So it asks me, in a dialog the model can't see or click. Every Approve and every Block is logged.
 >
 > Only on the doors. If I put nine hard gates on every meeting, I'd learn to click yes without reading.
 >
@@ -229,7 +229,7 @@
 
 > "So did it work? Same meeting, same model, same answers to its questions. My flow in May, against my flow today.
 >
-> It checks the speakers before writing. Quotes go to the right person: five of five, up from three. One note, not two. The right date. It asks before filing or deleting. And it carries on after I quit.
+> It checks the speakers before writing. Quotes go to the right person: five of five, up from three. One note, not two. The right date. It asks before deleting anything. And it carries on after I quit.
 >
 > To be fair: today's flow also has more steps and better scripts. So treat this as my flow in May against my flow today, not a lab test.
 >
