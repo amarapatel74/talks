@@ -107,7 +107,7 @@
 >
 > It helped a little. But an instruction is only a suggestion. The model can still decide something else matters more.
 >
-> What worked was moving the work out of the prompt and into code. Look at the bottom row: one script in May, four by early September, six today. And the prompt came back down to 240 lines, with no capitals at all. The work didn't disappear. It moved out of the prompt.
+> What worked was moving the work out of the prompt and into code. Look at the bottom row: one script in May, four by early September, six by the 17th, seven today. And the prompt came back down to 240 lines, with no capitals at all. The work didn't disappear. It moved out of the prompt.
 >
 > So if you find yourself writing MUST in capitals, your process is missing a check."
 
@@ -133,7 +133,7 @@
 
 ## Page 7 · "Rule 1": Give each step to *the right worker*
 
-**On screen:** Two columns sorted by one question each. Three facts: 5,000 words, wrong date, 1 → 6 scripts.
+**On screen:** Two columns sorted by one question each. Three facts: 5,000 words, wrong date, 1 → 7 scripts.
 
 > "Rule 1: give each step to the right worker. The test is one question. Is there only one right answer? Then it's a script's job.
 >
@@ -141,7 +141,7 @@
 >
 > In May, the model retyped the whole transcript. 5,000 words. It ran out of space, and I paid for every word. That's Opusfived again: paid-for work nobody needed. And it got the date wrong, when the date was already in the file name.
 >
-> Today six scripts do the sure things, and they get them right every time.
+> Today seven scripts do the sure things, and they get them right every time.
 >
 > If you don't write code: a script can be a template, a spreadsheet formula, a form. Anything that gives the same answer every time."
 
@@ -263,7 +263,7 @@
 
 > "Models change every month, and this month a new kind arrived. TypeSafe AI released Jev, a model that only makes decisions. It doesn't write text. It gives you a choice, and how sure it is.
 >
-> Look at my flow. Some judgement steps write: the summary, the actions. But many only choose: the sentiment, the priority, the project, whether to send a follow-up, whether a task is a duplicate, which name goes with which voice.
+> Look at my flow. Some judgement steps write: the summary, the actions. But many only choose: the sentiment, the priority, the project, whether to send a follow-up, which name goes with which voice.
 >
 > A decider fits those. The flow offers only the legal options, and a script checks the answer is one of them. And its confidence can decide who answers: sure, carry on; unsure, ask me. I'd be asked less, and only when it matters.
 >

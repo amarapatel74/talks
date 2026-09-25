@@ -131,7 +131,7 @@
 >
 > It helped. A little. But an instruction is only a suggestion. However loudly you write it, the model can still decide that something else matters more, in the moment.
 >
-> What worked was moving the work out of the prompt and into code. Look at the bottom row: one script in May, four by early September, six today. And look at what the prompt did: back down to 240 lines, and not a single capital letter warning.
+> What worked was moving the work out of the prompt and into code. Look at the bottom row: one script in May, four by early September, six by the 17th, seven today. And look at what the prompt did: back down to 240 lines, and not a single capital letter warning.
 >
 > The work didn't disappear. It moved out of the prompt, into places where it happens the same way every time.
 >
@@ -171,7 +171,7 @@
 
 ## Page 7 · "Rule 1": Give each step to *the right worker*
 
-**On screen:** Two columns, each with one sorting question. Three facts: 5,000 words, wrong date, 1 → 6 scripts.
+**On screen:** Two columns, each with one sorting question. Three facts: 5,000 words, wrong date, 1 → 7 scripts.
 
 > "Rule 1: give each step to the right worker.
 >
@@ -183,7 +183,7 @@
 >
 > And it got the date wrong. The date was already sitting in the file name. The model still got it wrong.
 >
-> Today, six scripts do the sure things, and they get them right every time.
+> Today, seven scripts do the sure things, and they get them right every time.
 >
 > And if you don't write code: a script doesn't have to be code. It can be a template, a spreadsheet formula, a form. Anything that gives the same answer every time."
 
@@ -335,7 +335,7 @@
 >
 > TypeSafe AI released Jev. It's a model built only to make decisions. It doesn't write text at all. You give it a question and a list of answers, and it gives you back a choice, and how sure it is. A write-up that week was called 'The State Machine Is the Agent'.
 >
-> So look at my flow again. The model box does two different jobs. Some steps write: the summary, the actions. But many steps only choose. What's the tone of the meeting: one of four. What's the priority: now, next or someday. Which project: one from my list. Send a follow-up: yes or no. Is this task a duplicate: yes or no. Which name goes with which voice: one from the attendees.
+> So look at my flow again. The model box does two different jobs. Some steps write: the summary, the actions. But many steps only choose. What's the tone of the meeting: one of four. What's the priority: now, next or someday. Which project: one from my list. Send a follow-up: yes or no. Which name goes with which voice: one from the attendees.
 >
 > A decider fits those steps. The flow offers only the legal options. The decider picks one. A script checks the answer is on the list. The right-shape check can't fail, because a choice always has the right shape.
 >

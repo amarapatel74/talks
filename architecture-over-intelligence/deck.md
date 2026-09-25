@@ -190,7 +190,7 @@ Line: "It knew the right names and still put the wrong name on the quote."
 
 <!--
 "Every time it skipped a step, I added a line."
-"The prompt got shorter as the scripts took over: one in May, four by early September, six today. The work didn't disappear. It moved out of the prompt."
+"The prompt got shorter as the scripts took over: one in May, four by early September, six by 17 September, seven today. The work didn't disappear. It moved out of the prompt."
 Source: git history of .pi/skills/process-meeting/SKILL.md.
 -->
 
@@ -259,7 +259,7 @@ The next slides are these three pieces.
 <div class="evidence">
   <div class="fact"><div class="big">5,000 words</div><div class="small">In May, the model retyped the whole transcript. It ran out of space, and I paid for every word.</div></div>
   <div class="fact"><div class="big">Wrong date</div><div class="small">The date was already in the file name. The model still got it wrong.</div></div>
-  <div class="fact green"><div class="big">1 → 6 scripts</div><div class="small">Today, scripts do the sure things. They get them right every time.</div></div>
+  <div class="fact green"><div class="big">1 → 7 scripts</div><div class="small">Today, scripts do the sure things. They get them right every time.</div></div>
 </div>
 
 </div>
@@ -517,7 +517,6 @@ No numbers here: these are consequences of what the talk has shown, not measurem
       <span class="chip" style="background:#fff;border:1px solid var(--ink);border-radius:999px;padding:3px 10px;font-size:0.56em;font-weight:600">Priority</span>
       <span class="chip" style="background:#fff;border:1px solid var(--ink);border-radius:999px;padding:3px 10px;font-size:0.56em;font-weight:600">Project</span>
       <span class="chip" style="background:#fff;border:1px solid var(--ink);border-radius:999px;padding:3px 10px;font-size:0.56em;font-weight:600">Follow-up? yes / no</span>
-      <span class="chip" style="background:#fff;border:1px solid var(--ink);border-radius:999px;padding:3px 10px;font-size:0.56em;font-weight:600">Duplicate? yes / no</span>
       <span class="chip" style="background:#fff;border:1px solid var(--ink);border-radius:999px;padding:3px 10px;font-size:0.56em;font-weight:600">Speaker</span>
     </div>
     <p style="margin-top:8px">The flow offers only legal options. A script checks the answer.</p>
