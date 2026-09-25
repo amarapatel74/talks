@@ -1,4 +1,5 @@
 node_modules/
 .pi/
 .opencode/
-.DS_Storeslides.*.png
+.DS_Store
+slides.*.png
