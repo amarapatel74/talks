@@ -34,8 +34,8 @@ Walk on. Ask for a volunteer before saying anything else.
 <div class="cols" style="grid-template-columns: 1.3fr 1fr; align-items:center; gap:40px">
 <div class="spiral">
   <svg viewBox="0 0 560 330" aria-hidden="true">
-    <defs><marker id="spiral-arr" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#A63A12"/></marker></defs>
-    <ellipse cx="280" cy="165" rx="220" ry="120" fill="none" stroke="#A63A12" stroke-width="2" stroke-dasharray="6 6" opacity="0.55"/>
+    <defs><marker id="spiral-arr" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#D7372B"/></marker></defs>
+    <ellipse cx="280" cy="165" rx="220" ry="120" fill="none" stroke="#D7372B" stroke-width="2" stroke-dasharray="6 6" opacity="0.55"/>
     <path d="M280 45 A220 120 0 0 1 409.4 67.9" fill="none" stroke="transparent" marker-end="url(#spiral-arr)"/>
     <path d="M489.2 127.9 A220 120 0 0 1 489.2 202.1" fill="none" stroke="transparent" marker-end="url(#spiral-arr)"/>
     <path d="M409.4 262.1 A220 120 0 0 1 280 285" fill="none" stroke="transparent" marker-end="url(#spiral-arr)"/>
@@ -215,8 +215,8 @@ Source: git history of .pi/skills/process-meeting/SKILL.md. Today = 28 Sep: 283 
 .flowmap .hd.m { color:var(--accent); } .flowmap .hd.s { color:var(--structure); } .flowmap .hd.y { color:var(--ink); } .flowmap .hd.f { color:var(--muted); }
 .flowmap .st { font-weight:700; padding:4px 0; }
 .flowmap .c { padding:4px 8px; border-radius:6px; }
-.flowmap .c.m { background:#F3E0D2; border:1px solid var(--accent); }
-.flowmap .c.s { background:#E1EAE5; border:1px solid var(--structure); }
+.flowmap .c.m { background:var(--redSoft); border:1px solid var(--accent); }
+.flowmap .c.s { background:var(--blueSoft); border:1px solid var(--structure); }
 .flowmap .rev { border:1.5px dashed var(--ink); background:#fff; }
 .flowmap .door { background:var(--blocked); color:#fff; font-weight:700; border:1.5px solid var(--blocked); }
 .flowmap .c.f { font-family:var(--mono); font-size:12px; color:var(--muted); border:1px dashed var(--hairline); background:var(--paper2); }
@@ -315,7 +315,7 @@ Link back to Opusfived: paid-for work again.
 </div>
 
 <div class="cols" style="margin-top:10px">
-  <div class="card soft"><h3>A chat forgets</h3><p>It gets long. Early details get lost. You cannot check it.</p><p style="font-size:0.62em;color:var(--muted);margin-top:10px"><b style="color:var(--ink)">My test, 64K context:</b> the harness auto-compacted four times. After each compaction, the model forgot work it had already finished. It did not finish.</p></div>
+  <div class="card bad"><h3>A chat forgets</h3><p>It gets long. Early details get lost. You cannot check it.</p><p style="font-size:0.62em;color:var(--muted);margin-top:10px"><b style="color:var(--ink)">My test, 64K context:</b> the harness auto-compacted four times. After each compaction, the model forgot work it had already finished. It did not finish.</p></div>
   <div class="card good"><h3>A file remembers</h3><p>The next step starts from the file, not the chat. A script can check it: <b>is it there? does it have the right shape?</b></p><p style="font-size:0.62em;color:var(--muted);margin-top:10px"><b style="color:var(--ink)">Same model, same 64K:</b> this time I cleared the context after every step, on purpose. Each step started again from the files. Zero auto-compactions. It finished every step.</p></div>
 </div>
 
@@ -383,15 +383,15 @@ Also an audit trail: open the file and see what ran and who said yes.
 <div class="stopline"><div class="stop">if no<br><span>STOP</span></div><div></div><div></div><div></div><div class="stop">if no<br><span>STOP</span></div></div>
 
 <div class="cols three">
-  <div class="card">
+  <div class="card good">
     <div class="sub">Caught · speakers</div>
     <p>The model still guessed <b>2 of 4</b> wrong. But it had to <b>stop and show me first</b>. One-line fix, before anything was written.</p>
   </div>
-  <div class="card">
+  <div class="card good">
     <div class="sub">Caught · my own bug</div>
     <p>A time-zone bug looked for a <b>12:00</b> note. The meeting was at <b>10:00</b>. It <b>refused to file</b> instead of filing wrong.</p>
   </div>
-  <div class="card">
+  <div class="card good">
     <div class="sub">Caught · a skipped review</div>
     <p>A review is done only <b>after I reply</b>. The model tried to <b>skip my actions review</b>. The check stopped it.</p>
   </div>
@@ -532,7 +532,7 @@ No numbers on the three cards: these are consequences of what the talk has shown
 
 <div class="kicker">What’s next</div>
 
-# A new kind of model arrived *this month*
+# Models are splitting: *some write, some decide*
 
 <div class="body">
 
@@ -541,7 +541,7 @@ No numbers on the three cards: these are consequences of what the talk has shown
     <div class="sub">Split the model box in two</div>
     <p><b>Writer:</b> summary, actions.</p>
     <p><b>Decider:</b> picks one answer from a list.</p>
-    <p style="color:var(--muted)">Jev (TypeSafe AI) only decides: a choice, and how sure it is.</p>
+    <p style="color:var(--muted)">First out: Jev from TypeSafe AI, which they call a “System One” model. Open models usually catch up within months.</p>
   </div>
   <div class="card">
     <div class="sub">Steps that only choose</div>
@@ -564,10 +564,11 @@ No numbers on the three cards: these are consequences of what the talk has shown
 
 </div>
 
-<div class="inshort"><b>In short</b> A new model slots into one box. The flow stays the same.</div>
+<div class="inshort"><b>In short</b> Whoever makes the best decider, it slots into one box. The flow stays the same.</div>
 
 <!--
-"Models change every month. This month, a new kind arrived: a model that only decides."
+"This month TypeSafe released Jev, which they call a System One model. It won't be the last. I don't need to pick a winner."
+Keep it vendor-neutral: the point is the pattern (writer vs decider), not the product. Don't speculate about TypeSafe's moat on stage.
 Jev: TypeSafe AI, early access 15 Sep 2026. Returns typed values (a choice) with probabilities; TypeSafe claims it can't hallucinate because it doesn't write text.
 Write-up that week: "Jev at the Branches: The State Machine Is the Agent" (StackToHeap, 21 Sep).
 Be clear: not wired in yet.
@@ -585,11 +586,11 @@ Why the dial isn't the working model's: on 28 Sep the working model tried to ski
 <div class="body">
 
 <div class="rules">
-  <div class="rule"><div class="num">1</div><div class="txt"><b>Write the steps down,</b> and give each one to the right worker. <span style="color:#A79987">Judgement → model. One right answer → script.</span></div></div>
-  <div class="rule"><div class="num">2</div><div class="txt"><b>Make every step leave a file.</b> <span style="color:#A79987">The next step starts from the file, not the chat.</span></div></div>
-  <div class="rule"><div class="num">3</div><div class="txt"><b>Keep progress outside the model.</b> <span style="color:#A79987">A note says which step you are on.</span></div></div>
-  <div class="rule"><div class="num">4</div><div class="txt"><b>Check before and after every step.</b> <span style="color:#A79987">If the answer is no, stop.</span></div></div>
-  <div class="rule"><div class="num">5</div><div class="txt"><b>Mark the one-way doors.</b> <span style="color:#A79987">A person says yes before anything is sent, deleted or filed.</span></div></div>
+  <div class="rule"><div class="num">1</div><div class="txt"><b>Write the steps down,</b> and give each one to the right worker. <span style="color:#8B94A1">Judgement → model. One right answer → script.</span></div></div>
+  <div class="rule"><div class="num">2</div><div class="txt"><b>Make every step leave a file.</b> <span style="color:#8B94A1">The next step starts from the file, not the chat.</span></div></div>
+  <div class="rule"><div class="num">3</div><div class="txt"><b>Keep progress outside the model.</b> <span style="color:#8B94A1">A note says which step you are on.</span></div></div>
+  <div class="rule"><div class="num">4</div><div class="txt"><b>Check before and after every step.</b> <span style="color:#8B94A1">If the answer is no, stop.</span></div></div>
+  <div class="rule"><div class="num">5</div><div class="txt"><b>Mark the one-way doors.</b> <span style="color:#8B94A1">A person says yes before anything is sent, deleted or filed.</span></div></div>
 </div>
 
 <p style="font-size:0.8em;margin-top:10px"><b>Try one tonight:</b> take your messiest AI workflow. Write down the steps, and what each one should produce.</p>
@@ -614,8 +615,8 @@ Works for a hiring process, a month-end report, customer onboarding.
 <div class="pullquote" style="font-size:1.35em">Build your flow so the model is a part you can swap.</div>
 
 <div style="display:flex;align-items:center;gap:36px;margin-top:1.2em">
-<a href="https://www.linkedin.com/in/amarapatel/" style="display:block;background:#fff;padding:10px;border-radius:12px;line-height:0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33 33" width="190" height="190" shape-rendering="crispEdges" role="img" aria-label="QR code: linkedin.com/in/amarapatel"><path fill="#fff" d="M0 0h33v33h-33z"/><path class="qrline" stroke="#231b12" d="M2 2.5h7m1 0h1m2 0h4m3 0h1m3 0h7m-29 1h1m5 0h1m1 0h1m1 0h4m3 0h1m1 0h1m2 0h1m5 0h1m-29 1h1m1 0h3m1 0h1m1 0h1m1 0h1m1 0h4m6 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m3 0h1m2 0h1m3 0h1m2 0h1m1 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m1 0h1m1 0h2m1 0h2m1 0h1m1 0h2m2 0h1m1 0h3m1 0h1m-29 1h1m5 0h1m4 0h2m1 0h1m2 0h1m4 0h1m5 0h1m-29 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-19 1h2m1 0h2m-15 1h1m2 0h6m2 0h2m2 0h4m2 0h1m2 0h1m1 0h3m-29 1h2m7 0h1m1 0h5m1 0h4m2 0h2m1 0h2m-28 1h1m3 0h1m1 0h1m1 0h3m2 0h1m1 0h1m4 0h1m1 0h2m2 0h1m-26 1h1m3 0h1m2 0h1m3 0h1m1 0h1m1 0h2m1 0h2m1 0h1m2 0h1m2 0h1m-28 1h2m1 0h1m1 0h1m1 0h1m2 0h1m1 0h3m4 0h1m1 0h2m4 0h1m-29 1h1m1 0h1m2 0h1m3 0h1m1 0h1m1 0h6m3 0h1m1 0h5m-27 1h2m2 0h4m1 0h1m1 0h1m1 0h1m2 0h4m1 0h1m2 0h1m1 0h1m-29 1h2m3 0h1m3 0h1m1 0h1m2 0h1m1 0h1m3 0h5m1 0h1m1 0h1m-27 1h6m4 0h1m1 0h2m3 0h2m4 0h1m-26 1h2m1 0h3m1 0h5m1 0h1m1 0h1m2 0h3m3 0h1m1 0h2m-28 1h2m2 0h4m3 0h1m3 0h2m2 0h2m4 0h1m2 0h1m-29 1h2m1 0h2m2 0h3m1 0h2m1 0h2m2 0h2m2 0h5m-27 1h3m1 0h1m1 0h2m2 0h1m2 0h3m1 0h11m-20 1h2m2 0h1m1 0h2m1 0h2m1 0h1m3 0h2m-26 1h7m1 0h3m3 0h3m2 0h2m1 0h1m1 0h2m-26 1h1m5 0h1m1 0h1m5 0h1m1 0h2m1 0h2m3 0h1m2 0h1m-28 1h1m1 0h3m1 0h1m1 0h2m3 0h4m2 0h7m2 0h1m-29 1h1m1 0h3m1 0h1m1 0h1m1 0h1m1 0h2m1 0h2m1 0h1m1 0h2m1 0h1m4 0h1m-29 1h1m1 0h3m1 0h1m2 0h1m1 0h5m2 0h1m2 0h1m1 0h2m1 0h3m-29 1h1m5 0h1m3 0h1m3 0h1m8 0h1m1 0h2m1 0h1m-29 1h7m1 0h3m1 0h1m1 0h1m4 0h2m1 0h1m1 0h2"/></svg></a>
-<div class="author" style="color:#A79987;font-size:22px;line-height:1.5">Thank you<br><b style="color:#F6F1E7">Amar Patel</b><br><a href="https://www.linkedin.com/in/amarapatel/" style="color:#F28D54">linkedin.com/in/amarapatel</a><br><span style="font-size:17px">Scan to connect</span></div>
+<a href="https://www.linkedin.com/in/amarapatel/" style="display:block;background:#fff;padding:10px;border-radius:12px;line-height:0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33 33" width="190" height="190" shape-rendering="crispEdges" role="img" aria-label="QR code: linkedin.com/in/amarapatel"><path fill="#fff" d="M0 0h33v33h-33z"/><path class="qrline" stroke="#0F1115" d="M2 2.5h7m1 0h1m2 0h4m3 0h1m3 0h7m-29 1h1m5 0h1m1 0h1m1 0h4m3 0h1m1 0h1m2 0h1m5 0h1m-29 1h1m1 0h3m1 0h1m1 0h1m1 0h1m1 0h4m6 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m3 0h1m2 0h1m3 0h1m2 0h1m1 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m1 0h1m1 0h2m1 0h2m1 0h1m1 0h2m2 0h1m1 0h3m1 0h1m-29 1h1m5 0h1m4 0h2m1 0h1m2 0h1m4 0h1m5 0h1m-29 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-19 1h2m1 0h2m-15 1h1m2 0h6m2 0h2m2 0h4m2 0h1m2 0h1m1 0h3m-29 1h2m7 0h1m1 0h5m1 0h4m2 0h2m1 0h2m-28 1h1m3 0h1m1 0h1m1 0h3m2 0h1m1 0h1m4 0h1m1 0h2m2 0h1m-26 1h1m3 0h1m2 0h1m3 0h1m1 0h1m1 0h2m1 0h2m1 0h1m2 0h1m2 0h1m-28 1h2m1 0h1m1 0h1m1 0h1m2 0h1m1 0h3m4 0h1m1 0h2m4 0h1m-29 1h1m1 0h1m2 0h1m3 0h1m1 0h1m1 0h6m3 0h1m1 0h5m-27 1h2m2 0h4m1 0h1m1 0h1m1 0h1m2 0h4m1 0h1m2 0h1m1 0h1m-29 1h2m3 0h1m3 0h1m1 0h1m2 0h1m1 0h1m3 0h5m1 0h1m1 0h1m-27 1h6m4 0h1m1 0h2m3 0h2m4 0h1m-26 1h2m1 0h3m1 0h5m1 0h1m1 0h1m2 0h3m3 0h1m1 0h2m-28 1h2m2 0h4m3 0h1m3 0h2m2 0h2m4 0h1m2 0h1m-29 1h2m1 0h2m2 0h3m1 0h2m1 0h2m2 0h2m2 0h5m-27 1h3m1 0h1m1 0h2m2 0h1m2 0h3m1 0h11m-20 1h2m2 0h1m1 0h2m1 0h2m1 0h1m3 0h2m-26 1h7m1 0h3m3 0h3m2 0h2m1 0h1m1 0h2m-26 1h1m5 0h1m1 0h1m5 0h1m1 0h2m1 0h2m3 0h1m2 0h1m-28 1h1m1 0h3m1 0h1m1 0h2m3 0h4m2 0h7m2 0h1m-29 1h1m1 0h3m1 0h1m1 0h1m1 0h1m1 0h2m1 0h2m1 0h1m1 0h2m1 0h1m4 0h1m-29 1h1m1 0h3m1 0h1m2 0h1m1 0h5m2 0h1m2 0h1m1 0h2m1 0h3m-29 1h1m5 0h1m3 0h1m3 0h1m8 0h1m1 0h2m1 0h1m-29 1h7m1 0h3m1 0h1m1 0h1m4 0h2m1 0h1m1 0h2"/></svg></a>
+<div class="author" style="color:#8B94A1;font-size:22px;line-height:1.5">Thank you<br><b style="color:#F4F6F9">Amar Patel</b><br><a href="https://www.linkedin.com/in/amarapatel/" style="color:#7FA8F5">linkedin.com/in/amarapatel</a><br><span style="font-size:17px">Scan to connect</span></div>
 </div>
 
 <!--

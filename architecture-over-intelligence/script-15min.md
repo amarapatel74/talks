@@ -265,17 +265,17 @@
 
 ---
 
-## Page 14 · "What's next": A new kind of model arrived *this month*
+## Page 14 · "What's next": Models are splitting: *some write, some decide*
 
 **On screen:** The model box split into a writer and a decider, the steps that only choose, and a confidence dial.
 
-> "Models change every month, and this month a new kind arrived. TypeSafe AI released Jev, a model that only makes decisions. It gives you a choice, and how sure it is.
+> "Models change every month. This month TypeSafe released Jev, which they call a System One model. It only decides: a choice, and how sure it is. It won't be the last. Open models catch up fast.
 >
 > Many of my judgement steps only choose: the sentiment, the priority, the project, which name goes with which voice. A decider fits those. And its confidence can decide when to ask me. That dial belongs to the decider and a script, never to the model doing the work.
 >
-> I haven't wired it in yet. But it slots into one box, and nothing else in the flow changes."
+> I haven't wired it in yet, and I don't need to pick a winner. The decider goes into one box, and nothing else in my flow changes."
 
-**Accuracy note:** Jev early access opened 15 Sep. Say "TypeSafe says" for any claim about accuracy or speed. Be clear it isn't wired in. "Never to the model doing the work": on 28 Sep the working model tried to skip a review; the reply check stopped it (Page 10).
+**Accuracy note:** Jev early access opened 15 Sep. Say "TypeSafe says" for any claim about accuracy or speed. Be clear it isn't wired in. Keep it about the pattern, not the product; don't speculate about TypeSafe's moat on stage. "Never to the model doing the work": on 28 Sep the working model tried to skip a review; the reply check stopped it (Page 10).
 
 **Time:** ~45 sec
 

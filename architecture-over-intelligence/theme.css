@@ -1,14 +1,12 @@
 /* @theme meetup */
-/* Architecture Over Intelligence — v3 "field notes, illustrated" theme.
-   Warm, human, counter to the clinical engineering-gray look:
-   a characterful old-style serif for display, warm ivory paper,
-   one deep vermillion signal, annotated rules. Mono reserved for code/data only.
-   v3 adds a small set of reusable diagram components (pipeline, state-file
-   card, gate cards, dial, timeline, split panel, mapping) so the deck's
-   recurring metaphors — the file, the gate, the dial — are drawn once and
-   reused, instead of re-explained in prose or raw JSON each time. */
+/* Architecture Over Intelligence: v5 "colour with a job".
+   Blue is the button the Opusfived game asks for. In this deck it marks
+   what a script or check holds: files, gates, "caught". Red marks drift
+   and failure. Everything else is ink on a cool off-white. IBM Plex Sans
+   for text, Plex Mono for files and code. No serif, no italic flourish.
+   Previous warm theme: git history before this commit. */
 
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 
 :root {
   --paper:     #F6F1E7;   /* warm ivory — deliberate, not "safe" white */
@@ -21,7 +19,7 @@
   --structureH: #6FA394;  /* ink-green, for use on dark */
   --blocked:   #5C1A16;   /* oxblood — the rare "cannot proceed" state */
   --hairline:  #E4DAC6;   /* warm hairline */
-  --display: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+  --display: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
   --sans: 'Source Sans 3', -apple-system, 'Segoe UI', sans-serif;
   --mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', monospace;
 }
@@ -81,7 +79,7 @@ a { color: var(--accent); }
 code {
   font-family: var(--mono);
   font-size: 0.9em;
-  background: #EFE6D3;
+  background: var(--paper2);
   color: var(--ink);
   padding: 0.05em 0.3em;
   border-radius: 4px;
@@ -89,8 +87,8 @@ code {
 
 /* ---------- code / JSON / state panels ---------- */
 pre {
-  background: #1E1710;
-  color: #F1E7D3;
+  background: #12161C;
+  color: #E6EAF0;
   font-family: var(--mono);
   font-size: 0.8em;
   line-height: 1.5;
@@ -137,8 +135,8 @@ section.close { background: var(--ink); color: var(--paper); }
 section.close h1, section.close h2 { color: var(--paper); }
 section.close h1::after { background: var(--accentH); }
 section.close strong, section.close a { color: var(--accentH); }
-section.close code { background: #2F271D; color: #F1E7D3; }
-section.close pre { background: #0F0C08; }
+section.close code { background: #232A33; color: #E6EAF0; }
+section.close pre { background: #0A0D11; }
 
 /* ---------- .body — vertically centers everything below the heading
    in the space left before the footer, so short content doesn't strand
@@ -157,7 +155,7 @@ footer {
   font-size: 15px;
   color: var(--muted);
 }
-section.close footer { color: #A79987; }
+section.close footer { color: #8B94A1; }
 /* title slides already carry name, event and date */
 section.lead footer { display: none; }
 
@@ -215,8 +213,8 @@ section::after {
 /* ---------- .split — two-panel comparison (demo vs. production) ---------- */
 .split { display: flex; gap: 26px; margin: 0.7em 0 0.9em; }
 .split .panel { flex: 1; border-radius: 14px; padding: 20px 24px; }
-.split .demo { background: #ECE7D8; border: 2px solid var(--hairline); }
-.split .prod { background: #F3E1D2; border: 2px solid var(--accent); }
+.split .demo { background: var(--paper2); border: 2px solid var(--hairline); }
+.split .prod { background: var(--redSoft); border: 2px solid var(--accent); }
 .split .panel-title { margin: 0 0 0.45em 0; font-size: 1.05em; font-family: var(--display); }
 .split .demo .panel-title { color: var(--structure); }
 .split .prod .panel-title { color: var(--accent); }
@@ -247,7 +245,7 @@ section::after {
 .statefile .field:last-child { border-bottom: none; }
 .statefile .key { color: var(--structure); font-weight: 600; flex-shrink: 0; }
 .statefile .val { color: var(--ink); text-align: right; }
-.statefile .field.active { background: #FBF0DE; margin: 0 -22px; padding: 8px 22px; }
+.statefile .field.active { background: var(--blueSoft); margin: 0 -22px; padding: 8px 22px; }
 .statefile .field.active .val { color: var(--accent); font-weight: 700; }
 .statefile .field.aborted .val { color: var(--blocked); font-weight: 700; }
 
@@ -274,7 +272,7 @@ section::after {
 }
 section.close .dial .marker { background: var(--ink); border-color: var(--paper); box-shadow: 2px 2px 0 rgba(0,0,0,.4); }
 .dial .labels { display: flex; justify-content: space-between; margin-top: 20px; font-family: var(--mono); font-size: 0.58em; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
-section.close .dial .labels { color: #A79987; }
+section.close .dial .labels { color: #8B94A1; }
 
 /* ---------- .pipeline — the hero diagram: the full pipeline as beads on a wire ---------- */
 .pipeline { display: flex; flex-wrap: wrap; gap: 8px 6px; margin: 0.7em 0 0.5em; }
@@ -366,7 +364,7 @@ section.close .pullquote::before { color: var(--accentH); }
 .mapping .row { display: grid; grid-template-columns: 1fr 34px 1fr; align-items: center; gap: 4px; }
 .mapping .left, .mapping .right { border: 2px solid var(--hairline); border-radius: 8px; padding: 8px 14px; font-size: 0.68em; }
 .mapping .left { background: #fff; }
-.mapping .right { background: #F3E1D2; border-color: var(--accent); }
+.mapping .right { background: var(--redSoft); border-color: var(--accent); }
 .mapping .arrow { text-align: center; color: var(--accent); font-family: var(--mono); font-size: 1.15em; }
 
 /* ---------- .rules — the five design principles, each with a mark ---------- */
@@ -425,8 +423,8 @@ section.close .kicker { color: var(--accentH); }
 .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 0.4em 0 0.6em; }
 .cols.three { grid-template-columns: 1fr 1fr 1fr; }
 .card { background: #fff; border: 2px solid var(--ink); border-radius: 14px; padding: 16px 20px; box-shadow: 4px 4px 0 var(--hairline); }
-.card.bad { border-color: var(--blocked); background: #F6E4DE; }
-.card.good { border-color: var(--structure); background: #E4EEE9; }
+.card.bad { border-color: var(--blocked); background: var(--redSoft); }
+.card.good { border-color: var(--structure); background: var(--blueSoft); }
 .card.soft { border-color: var(--hairline); background: var(--paper2); box-shadow: none; }
 .card h3 { font-size: 0.95em; margin-bottom: 0.3em; }
 .card .sub { font-family: var(--mono); font-size: 0.5em; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
@@ -474,8 +472,8 @@ section.close .kicker { color: var(--accentH); }
 /* ---------- .sorter — sort jobs into two workers ---------- */
 .sorter { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
 .sorter .col { border-radius: 14px; padding: 14px 18px; }
-.sorter .col.model { background: #F3E1D2; border: 2px solid var(--accent); }
-.sorter .col.script { background: #E4EEE9; border: 2px solid var(--structure); }
+.sorter .col.model { background: var(--redSoft); border: 2px solid var(--accent); }
+.sorter .col.script { background: var(--blueSoft); border: 2px solid var(--structure); }
 .sorter .head { font-family: var(--display); font-weight: 700; font-size: 0.9em; margin-bottom: 2px; }
 .sorter .q { font-size: 0.6em; color: var(--muted); margin-bottom: 8px; font-style: italic; }
 .sorter .chips { display: flex; flex-wrap: wrap; gap: 7px; }
@@ -492,7 +490,7 @@ section.close .kicker { color: var(--accentH); }
 
 /* ---------- .gatecheck — before / step / after with a stop branch ---------- */
 .gatecheck { display: grid; grid-template-columns: 1fr 44px 0.8fr 44px 1fr; align-items: center; margin: 0.4em 0 0.3em; }
-.gatecheck .q { border: 2px solid var(--structure); background: #E4EEE9; border-radius: 12px; padding: 12px 14px; font-size: 0.64em; }
+.gatecheck .q { border: 2px solid var(--structure); background: var(--blueSoft); border-radius: 12px; padding: 12px 14px; font-size: 0.64em; }
 .gatecheck .q b { display: block; font-family: var(--mono); font-size: 0.8em; color: var(--structure); text-transform: uppercase; letter-spacing: 0.06em; }
 .gatecheck .work { border: 3px solid var(--ink); background: #fff; border-radius: 12px; padding: 16px 12px; text-align: center; font-weight: 700; font-size: 0.72em; }
 .gatecheck .arr { text-align: center; color: var(--accent); font-family: var(--mono); font-size: 1.1em; }
@@ -501,10 +499,10 @@ section.close .kicker { color: var(--accentH); }
 .stopline .stop span { display: inline-block; background: var(--blocked); color: #fff; border-radius: 6px; padding: 3px 10px; margin-top: 4px; }
 
 /* ---------- .terminal — one or two big lines of real model output ---------- */
-.terminal { background: #1E1710; color: #F1E7D3; border-radius: 12px; padding: 18px 24px; font-family: var(--mono); font-size: 0.66em; line-height: 1.5; margin: 0.3em 0; }
-.terminal .who { font-size: 0.72em; letter-spacing: 0.08em; text-transform: uppercase; color: #A79987; display: block; margin-bottom: 2px; }
+.terminal { background: #12161C; color: #E6EAF0; border-radius: 12px; padding: 18px 24px; font-family: var(--mono); font-size: 0.66em; line-height: 1.5; margin: 0.3em 0; }
+.terminal .who { font-size: 0.72em; letter-spacing: 0.08em; text-transform: uppercase; color: #8B94A1; display: block; margin-bottom: 2px; }
 .terminal .gate { color: var(--accentH); }
-.terminal .model { color: #CFE3DB; }
+.terminal .model { color: #C9D4E3; }
 .terminal + .terminal { margin-top: 10px; }
 .stamp { font-family: var(--mono); font-size: 0.5em; color: var(--muted); margin-top: 4px; }
 
@@ -580,3 +578,61 @@ section.close .kicker { color: var(--accentH); }
   letter-spacing: 0; font-weight: 700; font-size: 1.25em; border-radius: 8px; padding: 6px 14px; margin: 0 auto 6px; width: max-content; }
 .spiral .hub .sw { display: block; margin: 4px 0 6px; }
 .spiral .hub .sw i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin: 0 2px; }
+
+/* =========================================================================
+   v5 overrides: "colour with a job".
+   Blue (the button you asked for) = what a script or check holds.
+   Red = drift and failure. Everything else is ink on white.
+   ========================================================================= */
+:root {
+  --paper: #F4F6F9;  --paper2: #E9EDF2;
+  --ink: #0F1115;    --muted: #5B616B;
+  --blue: #2563EB;   --blueSoft: #EAF1FE;
+  --red: #D7372B;    --redSoft: #FDEDEB;
+  --accent: var(--red);  --accentH: #FF7A6E;
+  --structure: var(--blue); --structureH: #7FA8F5;
+  --blocked: #A3241B; --hairline: #E3E5E9;
+  --display: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+  --sans: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, monospace;
+}
+h1 { font-weight: 700; letter-spacing: -0.025em; font-size: 52px; }
+h1 em { font-style: normal; color: var(--muted); }        /* no italic flourish */
+h1::after { display: none; }                               /* no hand-drawn underline */
+.kicker { display: none; }                                 /* no mono kicker */
+code { background: var(--paper2); }
+.card { border-radius: 6px; box-shadow: none; border-width: 1.5px; }
+.card.soft { background: var(--paper2); border-color: var(--hairline); }
+.card.bad { background: var(--redSoft); border-color: #F4C7C2; }
+.card.bad h3 { color: var(--red); }
+.card.good { background: var(--blueSoft); border-color: var(--blue); }
+.card.good h3 { color: var(--blue); }
+.flow .step { border-radius: 4px; box-shadow: none; border-width: 1.5px; }
+.flow .step.file { border-color: var(--blue); color: var(--blue); background: var(--blueSoft); }
+.flow .arrow { color: var(--muted); }
+.inshort { border-top: 1.5px solid var(--ink); }
+.inshort b { background: var(--ink); color: #fff; border-radius: 3px; }
+/* slide 2: the drift loop is red, the button is the blue you asked for */
+.spiral svg ellipse { stroke: var(--red); opacity: 0.6; }
+.spiral svg marker path { fill: var(--red); }
+.spiral .c { border-color: var(--red); border-width: 1.5px; color: var(--ink); }
+.spiral .hub .btn { background: var(--blue); border-radius: 4px; }
+.spiral-task { background: var(--ink); border-radius: 4px; }
+.spiral-task i { background: var(--blue); }
+.coin { background: #fff; border: 1.5px solid var(--red); color: var(--red); }
+
+/* emphasis in ink, not colour: red is kept for drift and failure */
+strong, h1 strong, h2 strong { color: var(--ink); }
+section.close strong { color: #fff; }
+li::marker { color: var(--muted); }
+
+/* pull quotes: upright ink, no coloured flourish */
+.pullquote { font-style: normal; font-weight: 600; color: var(--ink); }
+.pullquote::before { color: var(--muted); }
+section.close .pullquote { color: #fff; }
+section.close .pullquote::before { color: #8B94A1; }
+/* the five rules hold the flow together: blue numbers */
+.rules .num { color: var(--blue); }
+section.close .rules .num { color: var(--structureH); }
+section.close a { color: var(--structureH); }
+section.lead .subtitle { color: var(--ink); }

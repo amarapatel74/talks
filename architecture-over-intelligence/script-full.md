@@ -347,13 +347,13 @@
 
 ---
 
-## Page 14 · "What's next": A new kind of model arrived *this month*
+## Page 14 · "What's next": Models are splitting: *some write, some decide*
 
 **On screen:** Three cards. The model box split into a writer and a decider. The steps that only choose. A confidence dial from "ask me" to "carry on".
 
 > "I said at the start that models change every month. This month, a new kind arrived.
 >
-> TypeSafe AI released Jev. It's a model built only to make decisions. It doesn't write text at all. You give it a question and a list of answers, and it gives you back a choice, and how sure it is. A write-up that week was called 'The State Machine Is the Agent'.
+> TypeSafe AI released Jev. They call it a System One model: built only to make decisions. It doesn't write text at all. You give it a question and a list of answers, and it gives you back a choice, and how sure it is. A write-up that week was called 'The State Machine Is the Agent'.
 >
 > So look at my flow again. The model box does two different jobs. Some steps write: the summary, the actions. But many steps only choose. What's the tone of the meeting: one of four. What's the priority: now, next or someday. Which project: one from my list. Send a follow-up: yes or no. Which name goes with which voice: one from the attendees.
 >
@@ -361,9 +361,13 @@
 >
 > And the confidence becomes a gate. When it's sure, the flow carries on. When it's unsure, it asks me. Today I'm asked at four review steps in every meeting, and the more you're asked, the sooner you start clicking yes without reading. This way I'm asked less, and only when it matters. And the dial belongs to a separate decider and a script, never to the model doing the work.
 >
+> Jev is first, but it won't be the last. Open models usually catch up within months. So I don't need to pick a winner.
+>
 > I haven't wired it in yet. But look where it goes: into one box. The files, the scripts, the checks and the doors don't change. That's the whole talk. The model is a part you can swap."
 
-**Accuracy notes:** Jev early access opened 15 Sep 2026. It returns typed values with probabilities. TypeSafe claims it can't hallucinate because it doesn't write text; say "TypeSafe says". The StackToHeap write-up ran on 21 Sep. Not wired in yet: say so plainly.
+**Accuracy notes:** Jev early access opened 15 Sep 2026. It returns typed values with probabilities. TypeSafe claims it can't hallucinate because it doesn't write text; say "TypeSafe says". The StackToHeap write-up ran on 21 Sep. Not wired in yet: say so plainly. Keep it about the pattern, not the product. Don't speculate about TypeSafe's moat on stage; "don't bet your flow on one vendor" makes the point.
+
+**If asked "can I do this today with open models?":** roughly, yes. Force the model to answer with one option from a list (a grammar or a JSON schema with an enum), then read the token probabilities as a rough confidence. Rough is the word: those numbers are not well calibrated. A model trained to decide should do better.
 
 **Time:** ~1 min 30
 
