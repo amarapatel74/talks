@@ -42,28 +42,29 @@ Walk on. Ask for a volunteer before saying anything else.
     <path d="M150.6 262.1 A220 120 0 0 1 70.8 202.1" fill="none" stroke="transparent" marker-end="url(#spiral-arr)"/>
     <path d="M70.8 127.9 A220 120 0 0 1 150.6 67.9" fill="none" stroke="transparent" marker-end="url(#spiral-arr)"/>
   </svg>
-  <div class="c" style="left:280px;top:45px">check the work</div>
-  <div class="c" style="left:489px;top:128px">check the check</div>
-  <div class="c" style="left:409px;top:262px">call more AI agents</div>
-  <div class="c" style="left:151px;top:262px">explain why checking matters</div>
-  <div class="c" style="left:71px;top:128px">check again…</div>
-  <div class="hub"><i></i>still grey</div>
+  <div class="c" style="left:280px;top:45px">edits the shared colour</div>
+  <div class="c" style="left:489px;top:128px">“Done. One value, one file.”</div>
+  <div class="c" style="left:409px;top:262px">you: “Half the site is blue”</div>
+  <div class="c" style="left:151px;top:262px">23 agents trace the colour</div>
+  <div class="c" style="left:71px;top:128px">a new colour…</div>
+  <div class="hub"><span class="btn">Add to Cart</span><span class="btn">Cancel</span><span class="sw"><i style="background:#2563eb"></i><i style="background:#0d9488"></i><i style="background:#7c3aed"></i><i style="background:#ea580c"></i></span>both, every round</div>
 </div>
 <div>
-<div class="spiral-task">Task: make this button blue <i></i></div>
+<div class="spiral-task">Task: make Add to Cart blue <i></i></div>
 <p style="font-size:0.8em;margin-top:18px">Opusfived, a parody by Milos Novovic: <b>opusfived.dev</b></p>
-<p style="font-size:0.74em;color:var(--muted)">The button never turns blue.<br>And every check is paid for.</p>
+<p style="font-size:0.74em;color:var(--muted)">It changes both buttons and says “Done”.<br>Every round of clean-up is paid for.</p>
 <p><span class="coin">€</span> <span class="coin">€</span> <span class="coin">€</span></p>
 </div>
 </div>
 
 </div>
 
-<div class="inshort"><b>In short</b> A clever AI can waste time and money on a very simple job.</div>
+<div class="inshort"><b>In short</b> A clever AI can do more than you asked, call it done, and bill you for the clean-up.</div>
 
 <!--
 Volunteer picks the options. Max 20 seconds of spiral (15-minute version).
-"It's funny because it's true, and it's also where my tokens went. Every one of those checks is paid for."
+"It turns Add to Cart blue. And Cancel, because it changed a colour they share. Then it says 'Done: one value, one file.' Push back, and it sends 23 agents to investigate, and the buttons change colour again."
+"It's funny because it's true, and it's also where my tokens went."
 If the site doesn't load in 10 seconds: describe it in two sentences, move on.
 -->
 

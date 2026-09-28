@@ -37,7 +37,7 @@
 
 ## Page 2 · "A game": Make one button blue. *Nothing else.*
 
-**On screen:** Opusfived live. The slide shows the loop: task, check the work, check the check, call more agents, explain why checking matters, check again.
+**On screen:** Opusfived live. The slide shows the loop: edits the shared colour, "Done. One value, one file.", you push back, 23 agents trace the colour, a new colour.
 
 **Cue:** The volunteer picks the options. Max 20 seconds of spiral. If the site doesn't load in 10 seconds, use the two-sentence fallback and move on.
 
@@ -45,11 +45,11 @@
 
 **(Volunteer plays.)**
 
-> "It checks the work. Then it checks the check. Then it calls more AI agents, and explains why checking matters, and checks again. The button never turns blue.
+> "It turns Add to Cart blue. And Cancel, because it changed a colour they share. Then it says: 'Done. One value, one file.' Push back, and it sends 23 agents to investigate. And the buttons change colour again.
 >
 > It's funny because it's true. And it's also where my tokens went. Every one of those checks is paid for."
 
-**Fallback:** "It's a game where you ask an AI to make one button blue. It spirals into checking its own checks and calling more agents, and the button never turns blue."
+**Fallback:** "It's a game where you ask an AI to make one button blue. It turns every button blue, says it's done, then sends 23 agents to clean up."
 
 **Time:** ~1 min
 

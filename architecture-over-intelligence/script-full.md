@@ -57,15 +57,15 @@
 
 **(Volunteer plays.)**
 
-> "It checks the work. Then it checks the check. Then it calls more AI agents to check that. Then it explains why checking matters. Then it checks again. The button never turns blue.
+> "It turns Add to Cart blue. And Cancel, because it changed a colour the two buttons share. Then it says: 'Done. The change is small: one value, one file.' Push back, and it sends 23 agents to trace where that colour goes. And the buttons change colour again.
 >
 > Thank you. Give them a hand.
 >
-> It's funny because it's true. And for me it's also where my tokens went. Every one of those checks is paid for. Keep that picture in your head, because it comes back."
+> It's funny because it's true. And for me it's also where my tokens went. Every one of those agents is paid for. Keep that picture in your head, because it comes back."
 
-**Fallback:** "It's a game where you ask an AI to make one button blue. It spirals into checking its own checks and calling more agents, and the button never turns blue."
+**Fallback:** "It's a game where you ask an AI to make one button blue. It turns every button blue, says it's done, then sends 23 agents to clean up."
 
-**Why this slide matters:** it's funny, it's physical, and it plants two ideas you'll use later: a model left in charge of its own loop wanders, and wandering costs money.
+**Why this slide matters:** it's funny, it's physical, and it plants three ideas you'll use later: a model does more than you asked, it marks its own work as done, and the clean-up costs money.
 
 **Time:** ~1 min 30
 
@@ -461,7 +461,7 @@ For a 15-minute slot use `script-15min.md`.
 
 ## If Opusfived won't load
 
-Two sentences, then move on: "It's a game where you ask an AI to make one button blue. It spirals into checking its own checks and calling more agents, and the button never turns blue." The slide carries the rest.
+Two sentences, then move on: "It's a game where you ask an AI to make one button blue. It turns every button blue, says it's done, then sends 23 agents to clean up." The slide carries the rest.
 
 ---
 
