@@ -105,7 +105,7 @@
 >
 > It helped a little. But an instruction is only a suggestion.
 >
-> What worked was moving the work into code: one script in May, seven today, and the prompt back down to about 250 lines, with no capitals at all.
+> What worked was moving the work into code: one script in May, eight today, and the prompt back under 300 lines, with no capitals at all.
 >
 > So if you find yourself writing MUST in capitals, your process is missing a check."
 
@@ -129,7 +129,7 @@
 >
 > The model thinks. Scripts do. Files remember. The next five slides are the rules behind this map."
 
-**Accuracy note:** 6 model jobs, 7 scripts, 4 quick reviews (speakers, what was said, actions with priorities, follow-up) and 1 one-way door. If asked about slide 11's "only on the doors": the reviews are a glance in the chat; the door is a hard stop the model can't see or get round.
+**Accuracy note:** 6 model jobs, 8 scripts, 4 quick reviews (speakers, what was said, actions with priorities, follow-up) and 1 one-way door. If asked about slide 11's "only on the doors": the reviews are a glance in the chat; the door is a hard stop the model can't see or get round.
 
 **Time:** ~1 min 20
 
@@ -137,7 +137,7 @@
 
 ## Page 7 · "Rule 1": Give each step to *the right worker*
 
-**On screen:** Two columns sorted by one question each. Three facts: 5,000 words, wrong date, 1 → 7 scripts.
+**On screen:** Two columns sorted by one question each. Three facts: 5,000 words, wrong date, 1 → 8 scripts.
 
 > "Rule 1: give each step to the right worker. The test is one question. Is there only one right answer? Then it's a script's job.
 >
@@ -145,7 +145,7 @@
 >
 > In May, the model retyped the whole transcript. 5,000 words. It ran out of space, and I paid for every word. That's Opusfived again: paid-for work nobody needed. And it got the date wrong, when the date was already in the file name.
 >
-> Today seven scripts do the sure things, and they get them right every time."
+> Today eight scripts do the sure things, and they get them right every time."
 
 **Time:** ~50 sec
 

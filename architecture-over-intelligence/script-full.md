@@ -131,7 +131,7 @@
 >
 > It helped. A little. But an instruction is only a suggestion. However loudly you write it, the model can still decide that something else matters more, in the moment.
 >
-> What worked was moving the work out of the prompt and into code. Look at the bottom row: one script in May, four by early September, seven today. And look at what the prompt did: back down to about 250 lines, and not a single capital letter warning.
+> What worked was moving the work out of the prompt and into code. Look at the bottom row: one script in May, four by early September, eight today. And look at what the prompt did: back under 300 lines, and not a single capital letter warning.
 >
 > The work didn't disappear. It moved out of the prompt, into places where it happens the same way every time.
 >
@@ -165,7 +165,7 @@
 >
 > The model thinks. Scripts do. Files remember. The next five slides are the rules behind this map."
 
-**Accuracy note:** 6 model jobs, 7 scripts, 4 quick reviews (speakers, what was said, actions with priorities, follow-up) and 1 one-way door. The reviews are a glance in the chat; the door is a hard stop the model can't see or get round. That's why slide 11 can say "only on the doors" without contradicting this map.
+**Accuracy note:** 6 model jobs, 8 scripts, 4 quick reviews (speakers, what was said, actions with priorities, follow-up) and 1 one-way door. The reviews are a glance in the chat; the door is a hard stop the model can't see or get round. That's why slide 11 can say "only on the doors" without contradicting this map.
 
 **Extra, full version only:** every step is safe to run twice. If a step runs again after a restart, it produces the same result instead of a duplicate. Engineers call that idempotent. You don't need the word; you need the property.
 
@@ -175,7 +175,7 @@
 
 ## Page 7 · "Rule 1": Give each step to *the right worker*
 
-**On screen:** Two columns, each with one sorting question. Three facts: 5,000 words, wrong date, 1 → 7 scripts.
+**On screen:** Two columns, each with one sorting question. Three facts: 5,000 words, wrong date, 1 → 8 scripts.
 
 > "Rule 1: give each step to the right worker.
 >
@@ -187,7 +187,7 @@
 >
 > And it got the date wrong. The date was already sitting in the file name. The model still got it wrong.
 >
-> Today, seven scripts do the sure things, and they get them right every time.
+> Today, eight scripts do the sure things, and they get them right every time.
 >
 > And if you don't write code: a script doesn't have to be code. It can be a template, a spreadsheet formula, a form. Anything that gives the same answer every time."
 

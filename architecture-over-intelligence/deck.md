@@ -31,26 +31,38 @@ Walk on. Ask for a volunteer before saying anything else.
 
 <div class="body">
 
-<div class="loop">
-  <div class="task">Task: make this button blue <i></i></div>
-  <span class="a">→</span>
-  <div class="c">check the work</div><span class="a">→</span>
-  <div class="c">check the check</div><span class="a">→</span>
-  <div class="c">call more AI agents</div><span class="a">→</span>
-  <div class="c">explain why checking matters</div><span class="a">→</span>
-  <div class="c">check again…</div>
+<div class="cols" style="grid-template-columns: 1.3fr 1fr; align-items:center; gap:40px">
+<div class="spiral">
+  <svg viewBox="0 0 560 330" aria-hidden="true">
+    <defs><marker id="spiral-arr" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#A63A12"/></marker></defs>
+    <ellipse cx="280" cy="165" rx="220" ry="120" fill="none" stroke="#A63A12" stroke-width="2" stroke-dasharray="6 6" opacity="0.55"/>
+    <path d="M280 45 A220 120 0 0 1 409.4 67.9" fill="none" stroke="transparent" marker-end="url(#spiral-arr)"/>
+    <path d="M489.2 127.9 A220 120 0 0 1 489.2 202.1" fill="none" stroke="transparent" marker-end="url(#spiral-arr)"/>
+    <path d="M409.4 262.1 A220 120 0 0 1 280 285" fill="none" stroke="transparent" marker-end="url(#spiral-arr)"/>
+    <path d="M150.6 262.1 A220 120 0 0 1 70.8 202.1" fill="none" stroke="transparent" marker-end="url(#spiral-arr)"/>
+    <path d="M70.8 127.9 A220 120 0 0 1 150.6 67.9" fill="none" stroke="transparent" marker-end="url(#spiral-arr)"/>
+  </svg>
+  <div class="c" style="left:280px;top:45px">check the work</div>
+  <div class="c" style="left:489px;top:128px">check the check</div>
+  <div class="c" style="left:409px;top:262px">call more AI agents</div>
+  <div class="c" style="left:151px;top:262px">explain why checking matters</div>
+  <div class="c" style="left:71px;top:128px">check again…</div>
+  <div class="hub"><i></i>still grey</div>
 </div>
-
-<p style="font-size:0.8em">Opusfived, a parody by Milos Novovic: <b>opusfived.dev</b></p>
-
-<p style="font-size:0.74em;color:var(--muted)">The button never turns blue. And every check is paid for. <span class="coin">€</span> <span class="coin">€</span> <span class="coin">€</span></p>
+<div>
+<div class="spiral-task">Task: make this button blue <i></i></div>
+<p style="font-size:0.8em;margin-top:18px">Opusfived, a parody by Milos Novovic: <b>opusfived.dev</b></p>
+<p style="font-size:0.74em;color:var(--muted)">The button never turns blue.<br>And every check is paid for.</p>
+<p><span class="coin">€</span> <span class="coin">€</span> <span class="coin">€</span></p>
+</div>
+</div>
 
 </div>
 
 <div class="inshort"><b>In short</b> A clever AI can waste time and money on a very simple job.</div>
 
 <!--
-Volunteer picks the options. Max 30 seconds of spiral.
+Volunteer picks the options. Max 20 seconds of spiral (15-minute version).
 "It's funny because it's true, and it's also where my tokens went. Every one of those checks is paid for."
 If the site doesn't load in 10 seconds: describe it in two sentences, move on.
 -->
@@ -84,7 +96,7 @@ If the site doesn't load in 10 seconds: describe it in two sentences, move on.
   </div>
 </div>
 
-<div class="pullquote">Economics started the journey. Drift is what I found along the way.</div>
+<div class="pullquote" style="font-size:0.92em">Economics started the journey.<br>Drift is what I found along the way.</div>
 
 </div>
 
@@ -153,7 +165,7 @@ Line: "It knew the right names and still put the wrong name on the quote."
 <div class="bars">
   <div class="when">11 May</div><div class="bar ink" style="width:17.5%">73</div>
   <div class="when">8 Sep</div><div class="bar ink" style="width:100%">416</div>
-  <div class="when">Today</div><div class="bar ink" style="width:59.9%">249</div>
+  <div class="when">Today</div><div class="bar ink" style="width:68%">283</div>
 </div></div>
 
 <div class="metric"><div class="mlabel">Warnings in CAPITALS <span>(MUST, NEVER, STOP…)</span></div>
@@ -165,9 +177,9 @@ Line: "It knew the right names and still put the wrong name on the quote."
 
 <div class="metric"><div class="mlabel">Scripts doing the sure things <span>(normal code)</span></div>
 <div class="bars">
-  <div class="when">11 May</div><div class="bar green" style="width:14.3%">1</div>
-  <div class="when">8 Sep</div><div class="bar green" style="width:57.1%">4</div>
-  <div class="when">Today</div><div class="bar green" style="width:100%">7</div>
+  <div class="when">11 May</div><div class="bar green" style="width:12.5%">1</div>
+  <div class="when">8 Sep</div><div class="bar green" style="width:50%">4</div>
+  <div class="when">Today</div><div class="bar green" style="width:100%">8</div>
 </div></div>
 
 </div>
@@ -190,8 +202,8 @@ Line: "It knew the right names and still put the wrong name on the quote."
 
 <!--
 "Every time it skipped a step, I added a line."
-"The prompt got shorter as the scripts took over: one in May, four by early September, seven today. The work didn't disappear. It moved out of the prompt."
-Source: git history of .pi/skills/process-meeting/SKILL.md.
+"The prompt got shorter as the scripts took over: one in May, four by early September, eight today. The work didn't disappear. It moved out of the prompt."
+Source: git history of .pi/skills/process-meeting/SKILL.md. Today = 28 Sep: 283 lines, 0 capital warnings. Scripts = the pipeline scripts the Pi guard allows (meeting-state, get-calendar-context, transcript-to-stub, validate-output, file-meeting, apply-speaker-map, task-dedup, cleanup-meeting).
 -->
 
 ---
@@ -270,7 +282,7 @@ The next slides are the five rules behind this map.
 <div class="evidence">
   <div class="fact"><div class="big">5,000 words</div><div class="small">In May, the model retyped the whole transcript. It ran out of space, and I paid for every word.</div></div>
   <div class="fact"><div class="big">Wrong date</div><div class="small">The date was already in the file name. The model still got it wrong.</div></div>
-  <div class="fact green"><div class="big">1 → 7 scripts</div><div class="small">Today, scripts do the sure things. They get them right every time.</div></div>
+  <div class="fact green"><div class="big">1 → 8 scripts</div><div class="small">Today, scripts do the sure things. They get them right every time.</div></div>
 </div>
 
 </div>
@@ -302,7 +314,7 @@ Link back to Opusfived: paid-for work again.
 </div>
 
 <div class="cols" style="margin-top:10px">
-  <div class="card soft"><h3>A chat forgets</h3><p>It gets long. Early details get lost. You cannot check it.</p></div>
+  <div class="card soft"><h3>A chat forgets</h3><p>It gets long. Early details get lost. You cannot check it.</p><p style="font-size:0.62em;color:var(--muted);margin-top:10px"><b style="color:var(--ink)">Real, last week:</b> with too little memory, the chat was squeezed four times. After each squeeze the model lost track of its own finished work and tried to redo it by hand. The progress file still knew exactly which step it was on.</p></div>
   <div class="card good"><h3>A file remembers</h3><p>The next step starts from the file, not the chat. A script can check it: <b>is it there? does it have the right shape?</b></p></div>
 </div>
 
@@ -313,6 +325,7 @@ Link back to Opusfived: paid-for work again.
 <!--
 Dashed boxes are files. Solid boxes are work.
 The final note is built by a script (file-meeting.py) from these files. The model never writes it by hand.
+"Real, last week": 28 Sep, Qwen3.6 3-bit at 64K context on the Iñaki meeting. Pi compacted the chat four times; afterwards the model tried to rewrite the stub by hand and to complete step 6 without filing. The progress file said current_step 5 throughout. Don't claim the compaction caused the "Recruiter" guess: that came at step 0, before any squeeze.
 -->
 
 ---
@@ -338,7 +351,6 @@ The final note is built by a script (file-meeting.py) from these files. The mode
 <div>
 <div class="resume"><div class="seg" data-label="working"></div><div class="file" data-label="I quit">step 3<br>half done</div><div class="gap"></div><div class="file" data-label="I reopen">reads<br>the file</div><div class="seg end" data-label="carries on"></div></div>
 <p style="font-size:0.76em;margin-top:14px">In rehearsal I closed everything in the middle of step 3. When I opened it again, it read this file and carried on. <b>Nothing repeated. Nothing lost.</b></p>
-<p style="font-size:0.76em">The same file let me run the demos on my local Qwen and on a cloud copy <b>without changing a line</b>.</p>
 </div>
 </div>
 
