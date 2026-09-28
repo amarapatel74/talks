@@ -153,15 +153,19 @@
 
 ## Page 8 · "Rule 2": Every step leaves *a file*
 
-**On screen:** A chain of work boxes and dashed file boxes: speaker-map.json, summary.json, actions.json, then a script files the note.
+**On screen:** A chain of work boxes and dashed file boxes: speaker-map.json, summary.json, actions.json, then a script files the note. Two cards: a chat forgets, a file remembers, each with a short note from my test.
 
 > "Rule 2: every step leaves a file. Solid boxes are work, dashed boxes are files.
 >
 > Map the speakers, write down the result. Summarise, write it down. Find the actions, write them down. Then a script builds the final note from those files. The model never writes the note by hand.
 >
-> A chat forgets. A file remembers, and a script can check it."
+> A chat forgets. A file remembers, and a script can check it.
+>
+> I tested this with a small local model and a 64K context window. The context filled up, and the harness auto-compacted four times. After each compaction, the model forgot work it had already finished.
+>
+> Then I did the opposite. After every step, I cleared the context on purpose. Each step started again from the files. Same model, same 64K, zero auto-compactions, and this time it finished every step."
 
-**Time:** ~30 sec
+**Time:** ~55 sec
 
 ---
 
@@ -312,14 +316,14 @@
 | Hook | 1-2 | 1:15 |
 | What broke | 3-5 | 3:10 |
 | The turn | 6 | 1:20 |
-| Five rules | 7-11 | 4:55 |
+| Five rules | 7-11 | 5:20 |
 | Proof | 12 | 1:00 |
 | What it unlocks | 13 | 1:20 |
 | What's next | 14 | 0:45 |
 | Take home | 15-16 | 1:15 |
-| **Total** | | **~15:00** |
+| **Total** | | **~15:25** |
 
-Per-page times summed on 28 Sep (the old table said 15:30; the pages added up to 16:00). Rehearse aloud with a timer: these are estimates.
+Per-page times summed on 28 Sep (the old table said 15:30; the pages added up to 16:00). Page 8 gained 25 sec for the clear-the-chat test: cuts 1 and 2 below bring it back to 15:05. Rehearse aloud with a timer: these are estimates.
 
 **Running long?** Cut in this order:
 

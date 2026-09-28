@@ -315,18 +315,19 @@ Link back to Opusfived: paid-for work again.
 </div>
 
 <div class="cols" style="margin-top:10px">
-  <div class="card soft"><h3>A chat forgets</h3><p>It gets long. Early details get lost. You cannot check it.</p><p style="font-size:0.62em;color:var(--muted);margin-top:10px"><b style="color:var(--ink)">Real, last week:</b> with too little memory, the chat was squeezed four times. After each squeeze the model lost track of its own finished work and tried to redo it by hand. The progress file still knew exactly which step it was on.</p></div>
-  <div class="card good"><h3>A file remembers</h3><p>The next step starts from the file, not the chat. A script can check it: <b>is it there? does it have the right shape?</b></p></div>
+  <div class="card soft"><h3>A chat forgets</h3><p>It gets long. Early details get lost. You cannot check it.</p><p style="font-size:0.62em;color:var(--muted);margin-top:10px"><b style="color:var(--ink)">My test, 64K context:</b> the harness auto-compacted four times. After each compaction, the model forgot work it had already finished. It did not finish.</p></div>
+  <div class="card good"><h3>A file remembers</h3><p>The next step starts from the file, not the chat. A script can check it: <b>is it there? does it have the right shape?</b></p><p style="font-size:0.62em;color:var(--muted);margin-top:10px"><b style="color:var(--ink)">Same model, same 64K:</b> this time I cleared the context after every step, on purpose. Each step started again from the files. Zero auto-compactions. It finished every step.</p></div>
 </div>
 
 </div>
 
-<div class="inshort"><b>In short</b> Each step writes down its result, so the next step never has to remember.</div>
+<div class="inshort"><b>In short</b> Each step writes down its result, so you can clear the context between steps.</div>
 
 <!--
 Dashed boxes are files. Solid boxes are work.
 The final note is built by a script (file-meeting.py) from these files. The model never writes it by hand.
-"Real, last week": 28 Sep, Qwen3.6 3-bit at 64K context on the Iñaki meeting. Pi compacted the chat four times; afterwards the model tried to rewrite the stub by hand and to complete step 6 without filing. The progress file said current_step 5 throughout. Don't claim the compaction caused the "Recruiter" guess: that came at step 0, before any squeeze.
+Left note: 28 Sep, Qwen3.6 3-bit at 64K context on the Iñaki meeting. Pi compacted the chat four times; afterwards the model tried to rewrite the stub by hand and to complete step 6 without filing. The progress file said current_step 5 throughout. Don't claim the compaction caused the "Recruiter" guess: that came at step 0, before any squeeze.
+Right note: same model, same 64K, same meeting, 28 Sep. A small Pi extension replaced the chat with a note written by a script (meeting, progress, next step) after every completed step. 0 automatic compactions, 10 clean clears, peak 41K, finished in 20 min, every review answered by me. It still found 0 of my 2 tasks: clearing fixes context, not judgement. One run, so say "in my test".
 -->
 
 ---

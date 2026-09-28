@@ -207,11 +207,19 @@
 >
 > Why does that matter? Because a chat forgets. It gets long, the early details get lost, and you can't check it.
 >
-> A file remembers. The next step starts from the file, not from the chat. And a script can check a file: is it there? Does it have the right shape?"
+> A file remembers. The next step starts from the file, not from the chat. And a script can check a file: is it there? Does it have the right shape?
+>
+> Let me show you why this matters, with a test I ran. I used a small local model, 3-bit, with a 64K context window. The context filled up, and the harness auto-compacted. It did this four times. After each compaction, the model forgot work it had already finished, and it tried to do that work again by hand. It never finished.
+>
+> So I tried the opposite. After every step, I cleared the context on purpose. Nothing was lost, because every result was already in a file. The compaction summary was not written by a model: a script wrote it, from the progress file. It says which meeting, which steps are done, and which step comes next.
+>
+> Same model, same 64K, same meeting. Zero auto-compactions. This time it finished every step.
+>
+> One honest point: it was not smarter. It still missed my tasks. Clearing the context solves the context problem. It does not solve the judgement problem. We will come back to that."
 
-**Source:** the final note is built by `file-meeting.py` from these files.
+**Source:** the final note is built by `file-meeting.py` from these files. The test: 28 Sep, Qwen3.6 3-bit, 64K context, the Iñaki meeting. Squeezed run: 4 automatic compactions, did not finish. Cleared run: `.pi/extensions-global/step-boundary.ts`, 0 automatic compactions, 10 clean clears, peak 41K, finished in 20 min, 0 of 2 tasks. Evidence: `~/meeting-eval/scores/2026-09-28_112908-qwen-iq3-clear.md`. One run: say "in my test".
 
-**Time:** ~1 min
+**Time:** ~1 min 50
 
 ---
 
@@ -408,12 +416,12 @@
 | Hook | 1-2 | 1:50 |
 | What broke | 3-5 | 4:45 |
 | The turn | 6 | 1:30 |
-| Five rules | 7-11 | 7:35 |
+| Five rules | 7-11 | 8:25 |
 | Proof | 12 | 1:30 |
 | What it unlocks | 13 | 1:45 |
 | What's next | 14 | 1:35 |
 | Take home | 15-16 | 1:45 |
-| **Total** | | **~22:15** |
+| **Total** | | **~23:05** |
 
 For a 15-minute slot use `script-15min.md`.
 
