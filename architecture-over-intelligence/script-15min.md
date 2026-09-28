@@ -21,7 +21,7 @@
 | What's next | 14 | A new kind of model, a decider, slots into one box. |
 | Take home | 15-16 | Five rules. Start with a checklist; add tested scripts. Make the model a part you can swap. |
 
-**Through-line:** smarter is not the same as correct. Reliability comes from the shape of the workflow, not the size of the model.
+**Through-line:** smarter is not the same as correct. Reliability comes from the shape of the workflow, not the size of the model, once the model clears a floor.
 
 ---
 
@@ -39,7 +39,7 @@
 
 **On screen:** Opusfived live. The slide shows the loop: task, check the work, check the check, call more agents, explain why checking matters, check again.
 
-**Cue:** The volunteer picks the options. Max 30 seconds of spiral. If the site doesn't load in 10 seconds, use the two-sentence fallback and move on.
+**Cue:** The volunteer picks the options. Max 20 seconds of spiral. If the site doesn't load in 10 seconds, use the two-sentence fallback and move on.
 
 > "This is Opusfived, a parody by Milos Novovic. One job: make this button blue. Nothing else."
 
@@ -51,7 +51,7 @@
 
 **Fallback:** "It's a game where you ask an AI to make one button blue. It spirals into checking its own checks and calling more agents, and the button never turns blue."
 
-**Time:** ~1 min 15
+**Time:** ~1 min
 
 ---
 
@@ -63,15 +63,15 @@
 >
 > Until May, that ran on Claude. Very capable. But my plan has a usage limit, and in May I hit it halfway through a meeting. And every meeting I processed was leaving my house.
 >
-> So I moved to Qwen 3.6. An open model, running on a 16 GB gaming graphics card on my desk. No limit, no bill, and nothing leaves the house.
->
-> The limit was the trigger. Cost, privacy, and not depending on one vendor are why I stayed."
+> So I moved to Qwen 3.6. An open model, running on a 16 GB gaming graphics card on my desk. No limit, no bill, and nothing leaves the house."
 
 **Cue:** Say the hinge line slowly.
 
 > "Economics started the journey. Drift is what I found along the way."
 
-**Time:** ~1 min
+**Accuracy note:** the old line "cost, privacy and vendor independence are why I stayed" is cut: since 28 Sep meetings run on a small cloud model. Page 13 and the Q&A carry that.
+
+**Time:** ~50 sec
 
 ---
 
@@ -101,17 +101,17 @@
 
 > "My first fix was the obvious one. More words.
 >
-> Every time it skipped a step, I added a line. In May the prompt was 73 lines. By 8 September it was 416, with 13 warnings in capitals. MUST. NEVER. STOP.
+> Every time it skipped a step, I added a line. 73 lines in May. 416 by September, with 13 warnings in capitals. MUST. NEVER. STOP.
 >
-> Here's a real line from that day: 'If preconditions fail, STOP. Report gate failure.'
+> It helped a little. But an instruction is only a suggestion.
 >
-> It helped a little. But an instruction is only a suggestion. The model can still decide something else matters more.
->
-> What worked was moving the work out of the prompt and into code. Look at the bottom row: one script in May, four by early September, seven today. And the prompt came back down to about 250 lines, with no capitals at all. The work didn't disappear. It moved out of the prompt.
+> What worked was moving the work into code: one script in May, seven today, and the prompt back down to about 250 lines, with no capitals at all.
 >
 > So if you find yourself writing MUST in capitals, your process is missing a check."
 
-**Time:** ~1 min 15
+**Cue:** the real prompt line stays on the slide. Let them read it; don't read it out.
+
+**Time:** ~50 sec
 
 ---
 
@@ -125,13 +125,13 @@
 >
 > The model does the judgement: who's speaking, what was said, who agreed to do what, how urgent it is. Scripts do the sure things: the transcript, the calendar, spotting duplicates, filing the note. I confirm at four points, and one step, deleting, is a one-way door. And every step leaves a file.
 >
-> Qwen is good at two things: calling tools, and writing clean data. So I gave it only the judgement. I worked this shape out with help from Claude and Qwen themselves.
+> Qwen is good at two things: calling tools, and writing clean data. So I gave it only the judgement.
 >
 > The model thinks. Scripts do. Files remember. The next five slides are the rules behind this map."
 
 **Accuracy note:** 6 model jobs, 7 scripts, 4 quick reviews (speakers, what was said, actions with priorities, follow-up) and 1 one-way door. If asked about slide 11's "only on the doors": the reviews are a glance in the chat; the door is a hard stop the model can't see or get round.
 
-**Time:** ~1 min 30
+**Time:** ~1 min 20
 
 ---
 
@@ -145,11 +145,9 @@
 >
 > In May, the model retyped the whole transcript. 5,000 words. It ran out of space, and I paid for every word. That's Opusfived again: paid-for work nobody needed. And it got the date wrong, when the date was already in the file name.
 >
-> Today seven scripts do the sure things, and they get them right every time.
->
-> If you don't write code: a script can be a template, a spreadsheet formula, a form. Anything that gives the same answer every time."
+> Today seven scripts do the sure things, and they get them right every time."
 
-**Time:** ~1 min
+**Time:** ~50 sec
 
 ---
 
@@ -161,9 +159,9 @@
 >
 > Map the speakers, write down the result. Summarise, write it down. Find the actions, write them down. Then a script builds the final note from those files. The model never writes the note by hand.
 >
-> A chat forgets. It gets long, the early details get lost, and you can't check it. A file remembers, and a script can check it. Is it there? Does it have the right shape?"
+> A chat forgets. A file remembers, and a script can check it."
 
-**Time:** ~45 sec
+**Time:** ~30 sec
 
 ---
 
@@ -175,11 +173,9 @@
 >
 > In rehearsal, I closed everything in the middle of step 3. When I opened it again, it read this file and carried on. Nothing repeated. Nothing lost.
 >
-> The model had forgotten everything. The file hadn't.
->
-> And the same file let me run these demos on my local Qwen and on a cloud copy without changing a line."
+> The model had forgotten everything. The file hadn't."
 
-**Time:** ~1 min
+**Time:** ~50 sec
 
 ---
 
@@ -195,11 +191,13 @@
 >
 > And it caught my own bug. A time-zone bug made the script look for a 12 o'clock note. The meeting was at 10. It refused to file, and stopped, instead of filing at the wrong time.
 >
+> Last week I added one more. The model can't mark a review as done until I've replied. On its first real run, it tried to skip my review of the actions. The check stopped it.
+>
 > The check is a small script, not a sentence in the prompt. The model cannot talk it round."
 
-**Accuracy note:** only the time-zone bug failed loudly. The speaker mistake was caught because the model had to stop and show it.
+**Accuracy note:** only the time-zone bug failed loudly. The speaker mistake was caught because the model had to stop and show it. The reply check: 28 Sep, Qwen3.6 fp8, `GATE BLOCKED: step 4 … Amar has not replied since step 3 completed`.
 
-**Time:** ~1 min 15
+**Time:** ~1 min 30
 
 ---
 
@@ -247,17 +245,19 @@
 
 > "So what does this unlock, beyond my meeting notes?
 >
-> It's cheaper. A small, local model does the judgement, and scripts do the rest, so you stop paying for work with one right answer.
+> It's cheaper. A smaller model does the judgement, and scripts do the rest, so you stop paying for work with one right answer.
+>
+> A smaller model. Not the smallest. Last week I ran this flow on one meeting with five models. One couldn't even read the steps. And the same Qwen I use, squeezed to 3-bit to fit my graphics card, invented a person who wasn't on the call. He was in Vegas. At 8-bit, it got everyone right. Architecture lowers the bar. It doesn't remove it.
 >
 > It's safer. Every step leaves a file, and every approve and block is logged. You can show exactly what happened, and who said yes.
 >
-> And it's portable. You can swap the model without rewriting the flow, and private data can stay on your own machine.
+> And it's portable. You can swap the model without rewriting the flow. Private data can stay on your own machine, if a model that fits it clears the bar.
 >
 > Sales call follow-ups, invoice processing, onboarding, hiring, month-end close: same steps, same files, same doors. Reliable flows let you use smaller models on bigger jobs."
 
-**Accuracy note:** no numbers on this slide. These are consequences of what the talk has shown, not measurements.
+**Accuracy note:** no numbers on the three cards. The floor evidence is 28 Sep, one meeting, one run per model: gpt-oss-20b never finished step 0; Qwen3.6 3-bit (local) invented Pablo; the same weights at fp8 got every speaker right. Full write-up: [[2026-09-28 Local Models on the Meeting Pipeline]].
 
-**Time:** ~45 sec
+**Time:** ~1 min 20
 
 ---
 
@@ -265,17 +265,15 @@
 
 **On screen:** The model box split into a writer and a decider, the steps that only choose, and a confidence dial.
 
-> "Models change every month, and this month a new kind arrived. TypeSafe AI released Jev, a model that only makes decisions. It doesn't write text. It gives you a choice, and how sure it is.
+> "Models change every month, and this month a new kind arrived. TypeSafe AI released Jev, a model that only makes decisions. It gives you a choice, and how sure it is.
 >
-> Look at my flow. Some judgement steps write: the summary, the actions. But many only choose: the sentiment, the priority, the project, whether to send a follow-up, which name goes with which voice.
->
-> A decider fits those. The flow offers only the legal options, and a script checks the answer is one of them. And its confidence can decide who answers: sure, carry on; unsure, ask me. I'd be asked less, and only when it matters.
+> Many of my judgement steps only choose: the sentiment, the priority, the project, which name goes with which voice. A decider fits those. And its confidence can decide when to ask me. That dial belongs to the decider and a script, never to the model doing the work.
 >
 > I haven't wired it in yet. But it slots into one box, and nothing else in the flow changes."
 
-**Accuracy note:** Jev early access opened 15 Sep. Say "TypeSafe says" for any claim about accuracy or speed. Be clear it isn't wired in.
+**Accuracy note:** Jev early access opened 15 Sep. Say "TypeSafe says" for any claim about accuracy or speed. Be clear it isn't wired in. "Never to the model doing the work": on 28 Sep the working model tried to skip a review; the reply check stopped it (Page 10).
 
-**Time:** ~1 min
+**Time:** ~45 sec
 
 ---
 
@@ -295,7 +293,7 @@
 
 ## Page 16 · Close: Models change every month.
 
-> "I started this to save money. I ended up with a system I trust more than the frontier model I left, running on a graphics card built for games.
+> "I started this to save money. I ended up with a system I trust more than the frontier model I left, and I can move it between models in one line.
 >
 > Models change every month. Build your flow so the model is a part you can swap.
 >
@@ -312,20 +310,22 @@
 | Part | Pages | Time |
 |---|---|---|
 | Hook | 1-2 | 1:15 |
-| What broke | 3-5 | 3:30 |
-| The turn | 6 | 1:30 |
-| Five rules | 7-11 | 5:30 |
+| What broke | 3-5 | 3:10 |
+| The turn | 6 | 1:20 |
+| Five rules | 7-11 | 4:55 |
 | Proof | 12 | 1:00 |
-| What it unlocks | 13 | 0:45 |
-| What's next | 14 | 1:00 |
-| Take home | 15-16 | 1:00 |
-| **Total** | | **15:30** |
+| What it unlocks | 13 | 1:20 |
+| What's next | 14 | 0:45 |
+| Take home | 15-16 | 1:15 |
+| **Total** | | **~15:00** |
+
+Per-page times summed on 28 Sep (the old table said 15:30; the pages added up to 16:00). Rehearse aloud with a timer: these are estimates.
 
 **Running long?** Cut in this order:
 
-1. Page 8 (Rule 2): say the rule and the in-short line, skip the chat against file cards. Saves 30 sec.
-2. Page 5: drop the prompt-line numbers, keep the CAPITALS line and the in-short. Saves 30 sec.
-3. Page 2: stop the spiral at 15 seconds. Saves 15 sec.
+1. Page 12: drop "More steps means more places to go wrong…". Saves 10 sec.
+2. Page 2: stop the spiral at 10 seconds. Saves 10 sec.
+3. Page 13: drop the "one couldn't even read the steps" sentence, keep Vegas. Saves 5 sec.
 
 Never cut page 4 or page 11. Page 4 is your evidence that the problem is real. Page 11 is the proof that the fix holds.
 
@@ -343,7 +343,13 @@ Never cut page 4 or page 11. Page 4 is your evidence that the problem is real. P
 > "Because I'm the weak link. Nine hard gates per meeting would train me to click yes without reading. The checks run on every step. The human only sits at the doors."
 
 **Q: Why not go back to Claude?**
-> "I could, and the flow would run on it without changes. That's the point. But the limit, the cost, privacy and not depending on one vendor all still point local."
+> "I could, and the flow would run on it without changes. That's the point. Today my meetings run on a small cloud model. It costs pennies, and switching is one line."
+
+**Q: How small can you go?**
+> "Same model at 8-bit got the people right. At 3-bit it invented one. Neither found all my tasks. Precision sets one floor, the model sets another. One meeting, one run each: a strong hint, not a benchmark."
+
+**Q: So do you run it locally?**
+> "For quick single jobs, yes. For meetings, no: at 3-bit on my card it made mistakes I'd have to catch every time."
 
 **Q: How is this different from Temporal or AWS Step Functions?**
 > "Same problem, different scale. They give you durable workflows with servers and workers. Mine is a progress file, some small scripts, and one rule: check before and after every step. For one person or a small team that's enough. At company scale, use Temporal."
@@ -355,7 +361,7 @@ Never cut page 4 or page 11. Page 4 is your evidence that the problem is real. P
 > "Yes. A script is anything that gives the same answer every time: a template, a spreadsheet formula, a form. A checklist and a shared folder are enough to start."
 
 **Q: Weren't your scripts written by an LLM too?**
-> "Yes, most of them. The difference: a script drifts once, when it's written, and I can test it. A model drifts on every run. Testing for this talk found three bugs in those scripts. All fixed, and they stay fixed."
+> "Yes, most of them. The difference: a script drifts once, when it's written, and I can test it. A model drifts on every run. Testing for this talk found eight bugs in those scripts. All fixed, and they stay fixed."
 
 **Q: Can you share the code?**
 > "The shape is the valuable part, and it's all on these slides. My code is tangled up with my own setup: Pi, my notes app, a handful of scripts."

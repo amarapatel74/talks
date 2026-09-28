@@ -29,7 +29,7 @@
 
 **The story.** Until May 2026 it ran on Claude. The plan's usage limit stopped a meeting halfway, so the flow moved to Qwen 3.6, an open model on a 16 GB gaming graphics card. Qwen drifted. More prompt made it worse before it got better. What fixed it was changing the shape: the model does judgement, scripts do the sure things, files hold the memory.
 
-**The thesis.** Smarter is not the same as correct. Reliability comes from the shape of the workflow, not the size of the model. And because the shape doesn't care which model runs it, the model becomes a part you can swap.
+**The thesis.** Smarter is not the same as correct. Reliability comes from the shape of the workflow, not the size of the model, once the model clears a floor: it can follow the steps, has room for one run, and judges well enough. And because the shape doesn't care which model runs it, the model becomes a part you can swap.
 
 **The evidence.** Every number on the slides comes from your own git history or Pi session logs, run against one public test meeting: "OKR Planning with GitLab Executive Team", GitLab Unfiltered, on YouTube. Keep the claims exactly as the slides state them. The accuracy notes under pages 10 and 11 matter.
 
@@ -247,9 +247,11 @@
 >
 > Second, my own bug. A time-zone bug made the script look for a note at 12 o'clock. The meeting was at 10. So it refused to file, and it stopped, instead of quietly filing at the wrong time.
 >
+> And last week I added one more check. The model can't mark a review as done until I've replied. On its first real run, the model tried to skip my review of the actions. The check stopped it, and it had to show me the table.
+>
 > The check is a small script, not a sentence in the prompt. That's the difference. The model can talk its way round a sentence. It cannot talk a script round."
 
-**Accuracy note:** only the time-zone bug failed loudly. The speaker mistake was caught because the model had to stop and show it. Don't claim both failed loudly.
+**Accuracy note:** only the time-zone bug failed loudly. The speaker mistake was caught because the model had to stop and show it. Don't claim both failed loudly. The reply check: 28 Sep, Qwen3.6 fp8 on the Iñaki meeting, `GATE BLOCKED: step 4 … Amar has not replied since step 3 completed`. Pi logs each reply in the progress file (`human_answers`); `meeting-state.py` refuses `--confirmed` at a review without one. Before this check, the same model skipped that review unnoticed.
 
 **Source:** `scripts/meeting-state.py check` and `complete`. It prints `GATE BLOCKED`.
 
@@ -315,19 +317,25 @@
 
 > "Let me step back from my meeting notes for a moment. What does this unlock for a business, or for anyone running a complex flow?
 >
-> First, it's cheaper. The model only does the judgement. The dates, the filing, the checks: scripts do those, for free, the same way every time. So a small, local model is enough, and you stop paying tokens for work that has one right answer.
+> First, it's cheaper. The model only does the judgement. The dates, the filing, the checks: scripts do those, for free, the same way every time. So a smaller, cheaper model is enough, and you stop paying tokens for work that has one right answer.
+>
+> A smaller model. Not the smallest: there's a floor, and I hit it. Last week I ran the same flow on the same meeting with five models. One couldn't even read the steps: it went looking for a program to run. Give a model too little memory and it loses the thread halfway. And the same Qwen I use, squeezed to 3-bit to fit my graphics card, invented a person who wasn't on the call. He was at a conference in Vegas. At 8-bit, it got everyone right.
+>
+> Architecture lowers the bar. It doesn't remove it.
 >
 > Second, it's safer. Every step leaves a file. Every approve and every block is logged. If a customer, an auditor or your boss asks what happened, you can show them: what ran, in what order, and who said yes at each door.
 >
-> Third, it's portable. The flow doesn't care which model runs it. You can swap models without rewriting anything, which means less lock-in, and it means private data can stay on your own machine.
+> Third, it's portable. The flow doesn't care which model runs it. You can swap models without rewriting anything, which means less lock-in, and it means private data can stay on your own machine, if a model that fits your machine clears the floor.
 >
 > And none of this is about meetings. Sales call follow-ups. Invoice processing. Customer onboarding. Hiring. Month-end close. Same steps, same files, same doors.
 >
 > Reliable flows let you use smaller models on bigger jobs."
 
-**Accuracy note:** no numbers on this slide. Cheaper, safer and portable are consequences of what the talk has shown, not measurements. If asked "how much cheaper?": "I haven't measured it for a business. For me, the local model costs nothing per token."
+**Accuracy note:** no numbers on the cheaper/safer/portable cards. They are consequences of what the talk has shown, not measurements. If asked "how much cheaper?": "I haven't measured it for a business. A meeting through a small cloud model costs me pennies."
 
-**Time:** ~1 min
+**Floor evidence (28 Sep, Iñaki meeting, same pipeline, one run each):** gpt-oss-20b read `SKILL REFERENCE:` as a program and never finished step 0. Qwen3.6 3-bit at 64K context compacted four times and lost the thread. Qwen3.6 3-bit (IQ3_XXS, local) invented Pablo as a speaker; the same weights at fp8 (OpenRouter, pinned) got all speakers right. Neither Qwen found Amar's two tasks; GLM-5.3-flash found one. Full write-up: [[2026-09-28 Local Models on the Meeting Pipeline]]. Say "one meeting, one run each" if pressed.
+
+**Time:** ~1 min 45
 
 ---
 
@@ -343,7 +351,7 @@
 >
 > A decider fits those steps. The flow offers only the legal options. The decider picks one. A script checks the answer is on the list. The right-shape check can't fail, because a choice always has the right shape.
 >
-> And the confidence becomes a gate. When it's sure, the flow carries on. When it's unsure, it asks me. Today I'm asked at every review step, and if you're asked nine times per meeting, you start clicking yes without reading. This way I'm asked less, and only when it matters.
+> And the confidence becomes a gate. When it's sure, the flow carries on. When it's unsure, it asks me. Today I'm asked at four review steps in every meeting, and the more you're asked, the sooner you start clicking yes without reading. This way I'm asked less, and only when it matters. And the dial belongs to a separate decider and a script, never to the model doing the work.
 >
 > I haven't wired it in yet. But look where it goes: into one box. The files, the scripts, the checks and the doors don't change. That's the whole talk. The model is a part you can swap."
 
@@ -381,7 +389,7 @@
 
 ## Page 16 · Close: Models change every month.
 
-> "I started this to save money. I ended up with a system I trust more than the frontier model I left, running on a graphics card built for games.
+> "I started this to save money. I ended up with a system I trust more than the frontier model I left, and I can move it between models in one line.
 >
 > Models change every month. Build your flow so the model is a part you can swap.
 >
@@ -400,12 +408,12 @@
 | Hook | 1-2 | 1:50 |
 | What broke | 3-5 | 4:45 |
 | The turn | 6 | 1:30 |
-| Five rules | 7-11 | 7:15 |
+| Five rules | 7-11 | 7:35 |
 | Proof | 12 | 1:30 |
-| What it unlocks | 13 | 1:00 |
-| What's next | 14 | 1:30 |
+| What it unlocks | 13 | 1:45 |
+| What's next | 14 | 1:35 |
 | Take home | 15-16 | 1:45 |
-| **Total** | | **~21:05** |
+| **Total** | | **~22:15** |
 
 For a 15-minute slot use `script-15min.md`.
 
@@ -423,7 +431,13 @@ For a 15-minute slot use `script-15min.md`.
 > "Because I'm the weak link. Nine hard gates per meeting would train me to click yes without reading. The checks run on every step, automatically. The human only sits at the doors, where a yes means something."
 
 **Q: Why not go back to Claude?**
-> "I could, and the flow would run on it without changes, which is the point. But the limit, the cost, privacy and not depending on one vendor all still point local. And I trust this system more now than I trusted the frontier model without it."
+> "I could, and the flow would run on it without changes, which is the point. Today my meetings run on a small cloud model. It costs pennies, and I'm not tied to one vendor: switching is one line. And I trust this system more now than I trusted the frontier model without it."
+
+**Q: How small can you go?**
+> "Same model at 8-bit got the people right. At 3-bit it invented one. Neither found all my tasks. Precision sets one floor, the model sets another. And that's one meeting, one run each: a strong hint, not a benchmark."
+
+**Q: So do you run it locally?**
+> "For quick single jobs, yes: a 3-bit model on my graphics card is fast and free. For meetings, no. At 3-bit on my card it made mistakes I'd have to catch every time, so meetings go to a small cloud model."
 
 **Q: How is this different from Temporal or AWS Step Functions?**
 > "Same problem, different scale. They give you durable workflows with servers, workers and workflow code. Mine is a progress file, some small scripts, and one rule: check before and after every step. For one person or a small team, that's enough. At company scale, use Temporal."
@@ -438,7 +452,7 @@ For a 15-minute slot use `script-15min.md`.
 > "Yes. A script is anything that gives the same answer every time: a template, a spreadsheet formula, a form. Write the steps down, make each leave something you can check, and decide which steps need your yes. A checklist and a shared folder are enough to start."
 
 **Q: Weren't your scripts written by an LLM too?**
-> "Yes, most of them. And that's the point. A script drifts once, when it's written. I can read it, test it, and after that it does the same thing every time. A model drifts on every run, differently each time. Testing for this talk found three bugs in those scripts: a two-hour time shift, a dry run that renamed a file, and a gap in the gate. All three fixed, and they stay fixed."
+> "Yes, most of them. And that's the point. A script drifts once, when it's written. I can read it, test it, and after that it does the same thing every time. A model drifts on every run, differently each time. Testing for this talk found eight bugs in those scripts, from a two-hour time shift to a slash in a meeting title that made a folder instead of a note. All fixed, and they stay fixed."
 
 **Q: Can you share the code?**
 > "The shape is the valuable part, and it's all on these slides. My code is tangled up with my own setup: Pi, my notes app, a handful of scripts. Happy to talk through any piece of it."

@@ -92,7 +92,7 @@ If the site doesn't load in 10 seconds: describe it in two sentences, move on.
 
 <!--
 My system: morning briefing, inbox, meetings (recording → who said what → summary → actions → filed note).
-The limit was the trigger. Cost, privacy, not depending on one vendor were the reasons to stay local.
+The limit was the trigger. Don't claim "why I stayed local": since 28 Sep meetings run on a small cloud model (see the Smaller models slide and Q&A).
 Say the hinge line slowly.
 -->
 
@@ -368,14 +368,18 @@ Also an audit trail: open the file and see what ran and who said yes.
 </div>
 <div class="stopline"><div class="stop">if no<br><span>STOP</span></div><div></div><div></div><div></div><div class="stop">if no<br><span>STOP</span></div></div>
 
-<div class="cols">
+<div class="cols three">
   <div class="card">
-    <div class="sub">What it caught · speakers</div>
-    <p>The model still guessed wrong: <b>2 of 4</b> speakers. But now it had to <b>stop and show me first</b>. I fixed it in one line, before anything was written.</p>
+    <div class="sub">Caught · speakers</div>
+    <p>The model still guessed <b>2 of 4</b> wrong. But it had to <b>stop and show me first</b>. One-line fix, before anything was written.</p>
   </div>
   <div class="card">
-    <div class="sub">What it caught · my own bug</div>
-    <p>A time-zone bug made the script look for a <b>12:00</b> note. The meeting was at <b>10:00</b>. It <b>refused to file</b> and stopped, instead of filing at the wrong time.</p>
+    <div class="sub">Caught · my own bug</div>
+    <p>A time-zone bug looked for a <b>12:00</b> note. The meeting was at <b>10:00</b>. It <b>refused to file</b> instead of filing wrong.</p>
+  </div>
+  <div class="card">
+    <div class="sub">Caught · a skipped review</div>
+    <p>A review is done only <b>after I reply</b>. The model tried to <b>skip my actions review</b>. The check stopped it.</p>
   </div>
 </div>
 
@@ -387,6 +391,7 @@ Also an audit trail: open the file and see what ran and who said yes.
 "If either answer is no, stop. Don't patch it by hand: a hand patch is exactly the drift you're trying to catch."
 Script: scripts/meeting-state.py check / complete. Prints GATE BLOCKED.
 Don't claim both bugs failed loudly: only the time shift did.
+Skipped review: 28 Sep, Qwen3.6 fp8, Iñaki meeting. "GATE BLOCKED: step 4 … Amar has not replied since step 3 completed." Pi logs each reply; meeting-state.py refuses --confirmed at a review without one.
 -->
 
 ---
@@ -474,7 +479,7 @@ If asked: ten unchecked steps at 95% each come out right only about 60% of the t
 <div class="cols three" style="align-items:stretch">
   <div class="card good">
     <div class="sub">Cheaper</div>
-    <p>A small, local model does the judgement. Scripts do the rest.</p>
+    <p>A smaller model does the judgement. Scripts do the rest.</p>
     <p><b>No tokens spent on work with one right answer.</b></p>
   </div>
   <div class="card good">
@@ -485,14 +490,16 @@ If asked: ten unchecked steps at 95% each come out right only about 60% of the t
   <div class="card good">
     <div class="sub">Portable</div>
     <p>Swap the model without rewriting the flow.</p>
-    <p><b>Less lock-in. Private data can stay on your own machine.</b></p>
+    <p><b>Less lock-in. Data can stay on your machine, if a model that fits clears the bar.</b></p>
   </div>
 </div>
 
-<p style="font-size:0.66em;margin-top:16px;margin-bottom:6px"><b>The same steps, files and doors fit:</b></p>
-<div class="sorter" style="display:block"><div class="chips">
-  <span class="chip">Sales call follow-ups</span><span class="chip">Invoice processing</span><span class="chip">Customer onboarding</span><span class="chip">Hiring</span><span class="chip">Month-end close</span>
-</div></div>
+<div class="card bad" style="padding:8px 18px;margin-top:2px">
+  <div class="sub">A smaller model. Not the smallest · one meeting, five models</div>
+  <p style="font-size:0.66em;margin:0">One couldn’t read the steps. Same Qwen at <b>3-bit</b> invented a speaker who was in Vegas. At <b>8-bit</b> it got everyone right. <b>Architecture lowers the bar. It doesn’t remove it.</b></p>
+</div>
+
+<p style="font-size:0.62em;margin-top:10px"><b>The same shape fits:</b> sales call follow-ups · invoice processing · customer onboarding · hiring · month-end close</p>
 
 </div>
 
@@ -500,10 +507,11 @@ If asked: ten unchecked steps at 95% each come out right only about 60% of the t
 
 <!--
 "So what does this unlock, beyond my meeting notes?"
-Cheaper: the model only does judgement; scripts do the sure things; a small local model is enough.
+Cheaper: the model only does judgement; scripts do the sure things; a smaller model is enough. Not the smallest.
+Floor (28 Sep, Iñaki meeting, one run each): gpt-oss-20b never finished step 0; Qwen3.6 3-bit (local) invented Pablo; the same weights at fp8 got all speakers right. Neither Qwen found Amar's tasks. "Architecture lowers the bar. It doesn't remove it."
 Safer: files plus the approval log give an audit trail: what ran, when, and who approved the one-way doors.
-Portable: the flow doesn't care which model runs it; swap without a rewrite; keep private data local.
-No numbers here: these are consequences of what the talk has shown, not measurements.
+Portable: the flow doesn't care which model runs it; swap without a rewrite; private data can stay local if a model that fits clears the bar.
+No numbers on the three cards: these are consequences of what the talk has shown, not measurements.
 -->
 
 ---
@@ -535,7 +543,7 @@ No numbers here: these are consequences of what the talk has shown, not measurem
   <div class="card good">
     <div class="sub">How sure is it?</div>
     <div class="dial"><div class="track"><div class="marker" style="left:78%"></div></div><div class="labels"><span>ask me</span><span>carry on</span></div></div>
-    <p style="margin-top:8px">I am asked only when it is unsure.</p>
+    <p style="margin-top:8px">I am asked only when it is unsure. <b>The dial belongs to the decider and a script, never to the model doing the work.</b></p>
     <p style="color:var(--muted)">Not wired in yet. This is where it would go.</p>
   </div>
 </div>
@@ -549,6 +557,7 @@ No numbers here: these are consequences of what the talk has shown, not measurem
 Jev: TypeSafe AI, early access 15 Sep 2026. Returns typed values (a choice) with probabilities; TypeSafe claims it can't hallucinate because it doesn't write text.
 Write-up that week: "Jev at the Branches: The State Machine Is the Agent" (StackToHeap, 21 Sep).
 Be clear: not wired in yet.
+Why the dial isn't the working model's: on 28 Sep the working model tried to skip a review; the reply check stopped it (Rule 4 slide).
 -->
 
 ---
@@ -596,6 +605,6 @@ Works for a hiring process, a month-end report, customer onboarding.
 </div>
 
 <!--
-"I started this to save money. I ended up with a system I trust more than the frontier model I left, running on a graphics card built for games."
+"I started this to save money. I ended up with a system I trust more than the frontier model I left, and I can move it between models in one line."
 Then the take-home line. Thank you. Go back to the five-rules slide for Q&A.
 -->
